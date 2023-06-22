@@ -1,0 +1,29 @@
+body {
+    margin: 0px;
+    background: url(/Resources/Background.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+h1 {
+    display: inline;
+    padding: 20px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    width: 150px;
+}
+
+.header {
+    background-color: rgb(177, 134, 183);
+    position: sticky;
+}
+
+.test {
+    height: 2000px;
+    width: 100px;
+    border: 10px;
+    border-style: dashed;
+    border-color: aliceblue;
+}
