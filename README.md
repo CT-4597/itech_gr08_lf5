@@ -47,3 +47,4 @@ Zusammenarbeit Spaß</p>
 	<li>SSH: Der SSH-Zugang ist geöffnet, damit Sie remote auf den Raspberry Pi zugreifen und daran arbeiten können.</li>
 	<li>PHPMyAdmin: Eine PHPMyAdmin-Instanz steht unter https://b9dpjmsdy9kw24is.myfritz.net/phpmyadmin zur Verfügung, um eine einfache Verwaltung der MySQL-Datenbanken zu ermöglichen.</li>
 </ul>
+<br />
