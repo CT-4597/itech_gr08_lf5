@@ -5,24 +5,29 @@ body {
 }
 
 h1 {
-    display: inline;
-    padding: 20px;
+    display: inline-block;
+    padding: 1em;
+    margin: 0%;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .logo {
     width: 150px;
+    display: inline-block;
+    padding: 1em;
+    vertical-align: super;
 }
 
 .header {
     background-color: rgb(177, 134, 183);
     position: sticky;
+    top: 0px;
 }
 
 .test {
     height: 2000px;
-    width: 100px;
+    width: 80%;
     border: 10px;
     border-style: dashed;
     border-color: aliceblue;
