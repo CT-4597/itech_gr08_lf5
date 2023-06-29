@@ -18,9 +18,9 @@
 		<td>
 			<?php
 			if(isset($_GET['content'])) {
-				include('includes/htmlspecialchars($_GET["name"]).php');
+				include('includes/content_' + htmlspecialchars($_GET["content"]) + '.php');
 			} else {
-				include('includes/htmlspecialchars($_GET["customer"]).php');
+				include('includes/content_customers.php');
 			}
 			?>
 		</td>
