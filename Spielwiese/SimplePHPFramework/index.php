@@ -19,6 +19,7 @@
 			<?php
 			if(isset($_GET['content'])) {
 				include('includes/content_' + htmlspecialchars($_GET["content"]) + '.php');
+				echo 'includes/content_' + htmlspecialchars($_GET["content"]) + '.php';
 			} else {
 				include('includes/content_customers.php');
 			}
