@@ -6,9 +6,9 @@
 	<title>Kraut & R&ubnsp;ben</title>
 </head>
 <body>
-<table border="1">
+<table border="1" width="100%">
 	<tr>
-		<td>header</td>
+		<td colspan="3">header</td>
 	</tr>
 	<tr>
 		<td>left</td>
