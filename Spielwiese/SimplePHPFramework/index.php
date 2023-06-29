@@ -1,5 +1,5 @@
 <?php
-	include 'includes/config.php';
+	include('includes/config.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,17 +14,17 @@
 		<td colspan="3"><?php include('includes/header.php'); ?></td>
 	</tr>
 	<tr>
-		<td><?php include 'includes/left.php'; ?></td>
+		<td><?php include('includes/left.php'); ?></td>
 		<td>
 			<?php
 			if(isset($_GET['content'])) {
-				include 'includes/htmlspecialchars($_GET["name"]).php';
+				include('includes/htmlspecialchars($_GET["name"]).php');
 			} else {
-				include 'includes/htmlspecialchars($_GET["customer"]).php';
+				include('includes/htmlspecialchars($_GET["customer"]).php');
 			}
 			?>
 		</td>
-		<td><?php include 'includes/right.php'; ?></td>
+		<td><?php include('includes/right.php'); ?></td>
 	</tr>
 </table>
 </body>
