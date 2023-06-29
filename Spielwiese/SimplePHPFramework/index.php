@@ -11,7 +11,7 @@
 <body>
 <table border="1" width="100%">
 	<tr>
-		<td colspan="3"><?php include 'includes/header.php'; ?></td>
+		<td colspan="3"><?php include('includes/header.php'); ?></td>
 	</tr>
 	<tr>
 		<td><?php include 'includes/left.php'; ?></td>
