@@ -1,0 +1,33 @@
+Kundenlogin und menu oben rechts
+
+## Menüleiste
+Home - Obst - Gemüse - Vegan - Vegetarisch - Rezepte - Boxen - Ernährungstrents - Filter
+--- Generel: Auslesen der Zutaten nach Kategorien, Filter berücksichtigen
+--- Auslesen aller Benutzer und ihrer IDs für den "Login"
+
+## Filtermöglichkeiten
+Betreffen alle Kategorien
+Filtermöglichkeiten:
+Allergene
+--- SQL abfrage für namen und ids
+
+## Warenkorb
+Wird local über javascript? geregelt. Andere möglichkeit wären Cookies.... COOKIES!!!
+
+
+## Anzeigen einzelner Zutaten
+Auslesen sämtlicher Informationen eines Artikels.
+--- SQL für Artikel informationen inkl, Allergene
+
+## Auslesen von Zutatenlisten
+--- Zutatenliste gefiltert nach Kategorie auslesen. Mindestens Name und ID. Filter berücksihtigen.
+
+## Anzeigen einer Zutatenlisten
+--- Zutatenlisten gefiltert nach Zutatenlistenkategorien auslesen mit allen Informationen der Zutaten inkl. Allergene.
+
+## Anzeigen der Kategorien
+--- Kategorien anzeigen, Mindestens Name und ID. Filter berücksichtigen?
+
+## Anzeigen einer Kategorie
+--- Alle Zutaten einer Kategorie anzeigen lassen. Mindestens Name und ID. Filter!
+
