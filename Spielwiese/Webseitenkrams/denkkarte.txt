@@ -13,7 +13,7 @@ Allergene
 
 ## Warenkorb
 Wird local über javascript? geregelt. Andere möglichkeit wären Cookies.... COOKIES!!!
-
+--- SQL Bestellung auslesen. Min Zutat/Zutatenliste Name, Preis und ID. 
 
 ## Anzeigen einzelner Zutaten
 Auslesen sämtlicher Informationen eines Artikels.
@@ -30,4 +30,3 @@ Auslesen sämtlicher Informationen eines Artikels.
 
 ## Anzeigen einer Kategorie
 --- Alle Zutaten einer Kategorie anzeigen lassen. Mindestens Name und ID. Filter!
-
