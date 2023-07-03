@@ -1,0 +1,76 @@
+
+th {
+    background-color: rgb(177, 134, 183);
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+table {
+    border: 1px solid black;
+    margin: auto;
+    width: 90%;
+    padding: 0px 25px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+    margin: 0px;
+    background: url(/images/Background.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+h1 {
+    padding: 1em;
+    margin: 0%;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+}
+
+.logo {
+    width: 150px;
+    padding: 1em;
+    float: left;
+}
+
+.user_icon {
+    width: 60px;
+    padding: 1em;
+    float:right;
+}
+
+.header {
+    background-color: rgb(177, 134, 183);
+    position: sticky;
+    top: 0px;
+    overflow: auto;
+}
+
+.content {
+    width: 80%;
+}
+
+.navigation {
+    width: 100%;
+    background-color: #6c6c6c;
+    display: flex;
+    justify-content: center;
+}
+
+.navitem {
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.navitem:hover {
+    background-color: #7e7e7e;
+}
