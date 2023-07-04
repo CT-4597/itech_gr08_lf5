@@ -68,6 +68,9 @@ body {
 div.sql_logger {
     top: 0px;
     width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    overflow: scroll;
 }
 
 span.sql_text {
