@@ -7,10 +7,10 @@
 		<img src="<?php get_image("z",1001);?>">
     */
 function get_image($type, $id){
-	$image_path = "/images/" . $type . "_" . $id . ".png";
+	$image_path = "images/" . $type . "_" . $id . ".png";
 	echo $image_path;
 	if(file_exists($image_path)){
-		echo $image_path;
+		echo "/" . $image_path;
 	} else {
 		echo "/images/noimage.svg";
 	}
