@@ -150,3 +150,23 @@ span.sql_keyword {
     width: 70%;
     border-radius: 20px;
 }
+
+
+
+/* Ingredients details styling */
+
+.details_headline {
+    margin-top: 0;
+    margin-left: 5%;
+    padding-top: 30px;
+}
+
+.details_pic {
+    float: right;
+    width: 20%;
+    margin: 10%;
+    padding: 30px;
+    border-radius: 20%;
+    background-color: #aa76aa;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
