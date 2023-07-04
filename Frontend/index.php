@@ -1,5 +1,6 @@
 <?php
     include('includes/config.php');
+    include('includes/helper.php');
     include('includes/sql_logger.php');
 
     # Check for page var. Get the default page if needed.
