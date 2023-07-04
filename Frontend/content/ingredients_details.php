@@ -6,7 +6,7 @@ if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 ?>
 <h1><?php echo $row['BEZEICHNUNG']; ?></h1>
-<div class=\"nutrition\">
+<div class="nutrition">
     <h2>Nährwerte</h2>
     <ul>
         <li>Kalorien: <?php echo $row['KALORIEN']; ?></li>
@@ -15,12 +15,14 @@ if ($result->num_rows > 0) {
     </ul>
 </div>
 
-<div class=\"order\">
+<div class="order">
     <ul>
         <li>Verfügbar: <?php echo $row['BESTAND']; ?> <?php echo $row['EINHEIT']; ?></li>
-        <li>Preis: <?php echo $row['NETTOPREIS']; ?> €</li>
+        <li>Preis in netto: <?php echo $row['NETTOPREIS']; ?> €</li>
     </ul>
 </div>
+
+<img src="/z_<?php echo $row['ZUTATENNR']; ?>" alt="Bild der Zutat">
 <?php
 }
 
