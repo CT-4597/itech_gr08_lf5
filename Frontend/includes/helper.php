@@ -1,7 +1,7 @@
 <?php
 	/*
 	Function call:
-		get_image_path([ImageType], [ID]);
+		get_image([ImageType], [ID]);
 
 	Example:
 		<img src="<?php get_image("z",1001);?>">
