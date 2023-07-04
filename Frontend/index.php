@@ -27,7 +27,7 @@
 
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <h1 class="header_h1"></h1>
+        <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
@@ -43,6 +43,9 @@
     </div>
 
 </body>
+<script>
+    document.getElementById("sql_logger").innerHTML = '<?php sql_print(); ?>';
+</script>
 <?php
     $conn->close();
 ?>
