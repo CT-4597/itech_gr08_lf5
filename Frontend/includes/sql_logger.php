@@ -11,7 +11,7 @@
   function sql_print() {
     global $sql_log;
       foreach ($sql_log as $sql_str){
-        echo highlightKeywords($sql_str);
+        echo highlightKeywords($sql_str) . '</br>';
       }
   }
  ?>
