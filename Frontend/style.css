@@ -114,7 +114,7 @@ span.sql_keyword {
 /* Ingredients list styling */
 
 .ingredients_flexbox {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -124,7 +124,7 @@ span.sql_keyword {
 
 .ingredients_flexitem {
     padding-top: 30px;
-    width: 20%;
+    width: 22%;
     border-radius: 30px;
     text-align: center;
     color: white;
