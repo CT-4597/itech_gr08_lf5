@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     </ul>
 </div>
 
-<img src="/images/z_<?php echo $row['ZUTATENNR']; ?>" alt="Bild der Zutat">
+<img src="/images/z_<?php echo $row['ZUTATENNR']; ?>.png" alt="Bild der Zutat">
 <?php
 }
 
