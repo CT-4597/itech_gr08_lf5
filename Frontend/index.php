@@ -7,6 +7,12 @@
     } else {
         $page = 'content/' . $default_page . '.php';
     }
+
+    if (session_status() == PHP_SESSION_ACTIVE) {
+        echo "session is running";
+    } else {
+        session_start();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,9 +25,9 @@
 <body>
 
     <div class="header">
-        <img src="/images/Logo.png" class="logo">
-        <h1></h1>
-        <img src="/images/user_icon.png" class="user_icon">
+        <img src="/images/Logo.png" class="header_logo">
+        <h1 class="header_h1"></h1>
+        <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
         <a href="/" class="navitem">Home</a>

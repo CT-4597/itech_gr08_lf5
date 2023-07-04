@@ -1,3 +1,6 @@
+
+/* Universal table styling */
+
 th {
     background-color: rgb(177, 134, 183);
 }
@@ -17,13 +20,24 @@ table {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+
+/* Styling of index */
+
 body {
     margin: 0px;
     background: url(/images/Background.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
-h1 {
+.content {
+    width: 80%;
+    background-color: white;
+}
+
+
+/* Header styling */
+.header_h1 {
     padding: 1em;
     margin: 0%;
     color: white;
@@ -31,13 +45,13 @@ h1 {
     float: left;
 }
 
-.logo {
+.header_logo {
     width: 150px;
     padding: 1em;
     float: left;
 }
 
-.user_icon {
+.header_user_icon {
     width: 60px;
     margin: auto;
     padding: 1em;
@@ -51,10 +65,9 @@ h1 {
     overflow: auto;
 }
 
-.content {
-    width: 80%;
-    background-color: white;
-}
+
+
+/* Navbar styling */
 
 .navigation {
     width: 100%;
