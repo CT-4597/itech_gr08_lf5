@@ -9,28 +9,3 @@ function highlightKeywords($string) {
     return '<span class="sql_text">' . $string . '</span>';
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<style>
-  	span.sql_text {
-		font-size: 15px;
-		font-family: serif;
-		font-weight: bold;
-		color: #000000;
- 	}
-	span.sql_keyword {
-		font-size: 15px;
-		font-family: serif;
-		font-weight: bold;
-		color: #c695c6;
-	}
-</style>
-</head>
-<body>
-
-<?php echo highlightKeywords("SELECT * FROM ZUTAT WHERE id=2"); ?>
-
-</body>
-</html>

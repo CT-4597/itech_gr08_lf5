@@ -5,7 +5,7 @@
 	</tr>
 <?php
 
-	$sql = "SELECT * FROM ZUTAT";
+	$sql = log_sql("SELECT * FROM ZUTAT");
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
