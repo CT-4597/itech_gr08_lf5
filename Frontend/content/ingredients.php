@@ -13,7 +13,7 @@
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
 			echo '	<tr>';
-			echo '		<td><a href="index.php?page=ingredients_details&id=' . $row["ZUTATENNR"] . '">' . $row["ZUTATENNR"] . '</a></td>';
+			echo '		<td><a href="/zutat/' . $row["ZUTATENNR"] . '">' . $row["ZUTATENNR"] . '</a></td>';
 			echo '		<td>' . $row['BEZEICHNUNG'] . '</td>';
 			echo '	</tr>';
 	    }
