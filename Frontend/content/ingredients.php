@@ -1,8 +1,4 @@
-<table>
-	<tr>
-		<th>ID</th>
-		<th>Bezeichnung</th>
-	</tr>
+<div class="ingredients_flexbox">
 <?php
 
 	$sql = log_sql("SELECT * FROM ZUTAT");
@@ -12,13 +8,15 @@
 
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
-			echo '	<tr>';
-			echo '		<td><a href="/zutat/' . $row["ZUTATENNR"] . '">' . $row["ZUTATENNR"] . '</a></td>';
-			echo '		<td>' . $row['BEZEICHNUNG'] . '</td>';
-			echo '	</tr>';
-	    }
+            ?>
+            <a href="/zutat/<?php echo $row["ZUTATENNR"] ?>" class="ingredients_flexitem">
+                <img src="<?php get_image("z", $row['ZUTATENNR']); ?>" alt="Bild der Zutat">
+                <p><?php echo $row['BEZEICHNUNG']; ?></p>
+            </a>
+            <?php
+        }
 	} else {
 	    echo "0 results";
 	}
 ?>
-</table>
+</div>
