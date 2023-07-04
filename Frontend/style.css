@@ -22,7 +22,10 @@ table {
 
 
 
-/* Styling of index */
+/* Styling of index, Font site-wide */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 body {
     margin: 0px;
