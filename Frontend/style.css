@@ -107,3 +107,19 @@ span.sql_keyword {
 .navitem:hover {
     background-color: #7e7e7e;
 }
+
+
+
+/* Ingredients list styling */
+
+.ingredients_flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.ingredients_flexitem {
+    width: 20%;
+}
