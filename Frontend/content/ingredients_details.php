@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
         <li>Preis in netto: <?php echo $row['NETTOPREIS']; ?> €</li>
     </ul>
 </div>
-<img src="<?php get_image("z", $row['ZUTATENNR']) ?>" alt="Bild der Zutat">
+<img src="<?php get_image("z", $row['ZUTATENNR']); ?>" alt="Bild der Zutat">
 <?php
 }
 
