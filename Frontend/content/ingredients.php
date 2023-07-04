@@ -10,7 +10,7 @@
 	    while($row = $result->fetch_assoc()) {
             ?>
             <a href="/zutat/<?php echo $row["ZUTATENNR"] ?>" class="ingredients_flexitem">
-                <div><img src="<?php get_image("z", $row['ZUTATENNR']); ?>" alt="Bild der Zutat"></div>
+                <div><img src="<?php get_image("z", $row['ZUTATENNR']); ?>" alt="Bild der Zutat" class="ingredients_pic"></div>
                 <div><?php echo $row['BEZEICHNUNG']; ?></div>
             </a>
             <?php

@@ -33,6 +33,7 @@ body {
 .content {
     width: 80%;
     background-color: white;
+    margin: auto;
 }
 
 
@@ -122,4 +123,13 @@ span.sql_keyword {
 
 .ingredients_flexitem {
     width: 20%;
+    border-radius: 30px;
+    text-align: justify;
+    color: white;
+    background-color: #c695c6;
+}
+
+.ingredients_pic {
+    width: 100%;
+    object-fit: contain;
 }
