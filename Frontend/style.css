@@ -123,6 +123,7 @@ span.sql_keyword {
 }
 
 .ingredients_flexitem {
+    margin: 25px;
     padding-top: 30px;
     width: 22%;
     border-radius: 30px;
@@ -130,8 +131,15 @@ span.sql_keyword {
     color: white;
     text-decoration: none;
     background-color: #c695c6;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+    transition-duration: 0.4s;
     font-size: 1.5em;
     padding-bottom: 30px;
+}
+
+.ingredients_flexitem:hover {
+    background-color: #aa76aa;
+    box-shadow: 0 5px 12px 10px #aa76aa;
 }
 
 .ingredients_pic {
