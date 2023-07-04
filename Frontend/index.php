@@ -24,6 +24,7 @@
         <img src="/images/user_icon.png" class="user_icon">
     </div>
     <div class="navigation">
+        <a href="/" class="navitem">Home</a>
         <a href="/zutaten" class="navitem">Zutaten</a>
         <a href="/index.php" class="navitem">Rabatt-Boxen</a>
         <a href="/index.php" class="navitem">Bio-Boxen</a>
