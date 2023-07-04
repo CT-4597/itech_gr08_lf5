@@ -131,7 +131,7 @@ span.sql_keyword {
     color: white;
     text-decoration: none;
     background-color: #c695c6;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition-duration: 0.4s;
     font-size: 1.5em;
     padding-bottom: 30px;
@@ -139,7 +139,7 @@ span.sql_keyword {
 
 .ingredients_flexitem:hover {
     background-color: #aa76aa;
-    box-shadow: 0 5px 12px 10px #aa76aa;
+    box-shadow: 0 5px 12px 5px #c695c6a1, 0 6px 22px 5px #c695c6bb;
 }
 
 .ingredients_pic {
