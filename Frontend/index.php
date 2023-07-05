@@ -80,7 +80,7 @@
               }
             }
           }
-          echo $_SESSION['allergies'];
+          print_r($_SESSION['allergies']);
         
         ?>
         <input type="submit" value="OK">
