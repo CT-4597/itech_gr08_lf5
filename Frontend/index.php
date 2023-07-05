@@ -64,7 +64,7 @@
         <button onclick="toggleFilter()" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</button>
     </div>
 
-    <div class="filterbox" id="filterbox">
+    <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
         <?php
           $sql = log_sql("SELECT * FROM ALLERGEN");
