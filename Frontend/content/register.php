@@ -6,7 +6,7 @@
 
     # Test if e-mail is already registered
     $email = $_POST['email'];
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='$email'";
+    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='$email'");
 
     $result = $conn->query($sql);
 
