@@ -37,6 +37,10 @@
           $message  = 'Invalid query: ' .  $result->error . "\n";
           $message .= 'Whole query: ' . $sql;
           die($message);
+        } else {
+          # Erfolgreich. Weiter zur login seite
+          header("Location: /login");
+          exit();
         }
     }
   }
