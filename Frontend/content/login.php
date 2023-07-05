@@ -8,8 +8,8 @@
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
       $_SESSION['userid'] = $_POST['customer'];
-      header("Location: /");
-      exit();
+      //header("Location: /");
+      //exit();
     } else {
       $_SESSION['userid'] = NULL;
         debug_log("Failed to login" . $_POST['customer']);
