@@ -12,7 +12,11 @@
         $sql = $sql . ' AND (ZUTATALLERGEN.ALLERGENNR != ' . $id . ')';
     }
 
-    $sql = log_sql($sql . 'OR ZUTATALLERGEN.ALLERGENNR IS NULL)');
+    $sql = $sql . ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
+
+    if ($_SESSION['categories'] != NULL && $_SESSION['categories'] != "0" )  {
+        $sql = $sql . ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR =' . $_SESSION;
+    }
 	$result = $conn->query($sql);
 
 

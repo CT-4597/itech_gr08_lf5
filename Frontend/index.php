@@ -80,7 +80,22 @@
               }
             }
           }
-          print_r($_SESSION['allergies']);
+          $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
+	      $result = $conn->query($sql);
+          $_SESSION['categories'] = NULL;
+
+          echo '<label for="all">Alle</label>';
+          echo '<input type="radio" id="all" name="all" value="0">';
+          if ($result->num_rows > 0) {
+	        while($row = $result->fetch_assoc()) {
+              $canr = 'Kategorie' . $row['KATEGORIENR'];
+              echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
+              echo '<input type="radio" id="' . $canr . '" name="' . $canr . '" value="' . $row['KATEGORIENR'] . '">';
+              if (isset($_POST[$canr])) {
+                $_SESSION['categories'] = $_POST[$canr];
+              }
+            }
+          }
         
         ?>
         <input type="submit" value="OK">
