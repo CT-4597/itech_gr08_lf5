@@ -3,9 +3,12 @@
     include('includes/helper.php');
     include('includes/sql_logger.php');
 
+    session_start();
+
     # DESTRUCTION
-    if(isset($_GET['destroy'])) {
+    if(isset($_GET['newsession'])) {
       session_destroy();
+      session_start();
     }
     # Check for page var. Get the default page if needed.
     if(isset($_GET['page'])) {
@@ -13,8 +16,6 @@
     } else {
         $page = 'content/' . $default_page . '.php';
     }
-
-    session_start();
 ?>
 <!DOCTYPE html>
 <html>
