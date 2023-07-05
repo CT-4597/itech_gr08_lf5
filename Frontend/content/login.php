@@ -5,7 +5,9 @@
 
     $result = $conn->query($sql);
     if (!$result) {
-      die('Invalid query: ' . mysql_error());
+      $message  = 'Invalid query: ' .  $result->error . "\n";
+      $message .= 'Whole query: ' . $sql;
+      die($message);
     }
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
