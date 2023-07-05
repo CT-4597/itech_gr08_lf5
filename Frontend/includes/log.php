@@ -1,7 +1,7 @@
 <?php
   $log_arr = array();
 
-  function log($log_str) {
+  function debug_log($log_str) {
     global $log_arr;
     array_push($log_arr, $log_str);
   }

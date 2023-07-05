@@ -18,12 +18,12 @@
     }
 
     if (session_status() == PHP_SESSION_ACTIVE) {
-      log("acitve session: " . session_id());
+      debug_log("acitve session: " . session_id());
     } else {
-      log("no active session</br>");
+      debug_log("no active session</br>");
     }
     if(isset($_GET['newsession'])) {
-      log("Session Vars reinitialised.</br>");
+      debug_log("Session Vars reinitialised.</br>");
     }
 ?>
 <!DOCTYPE html>
