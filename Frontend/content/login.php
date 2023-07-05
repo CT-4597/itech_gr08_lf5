@@ -1,9 +1,12 @@
 <?php
   if(isset($_POST['customer']) && isset($_POST['passwd'])) {
     $sql = log_sql("SELECT * FROM KUNDEN WHERE KUNDENNR=" . $_POST['customer'] . " AND KUNDENPW=" . $_POST['passwd']);
-    debug_log("Failed to login" . $_POST['customer']);
-    header("Location: /");
-    exit();
+
+      debug_log("Failed to login" . $_POST['customer']);
+    if($loggedin){
+      header("Location: /");
+      exit();
+    }
   }
  ?>
 
