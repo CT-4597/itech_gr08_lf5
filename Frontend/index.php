@@ -24,7 +24,7 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kraut & Rüben</title>
+        <title>Kraut & Rüben - <?php if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session";} else { echo "no active session"; } ?></title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
