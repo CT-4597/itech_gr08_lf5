@@ -125,7 +125,6 @@ body {
 }
 
 .header_login a {
-    margin: 5px;
     padding: 2px;
     text-decoration: none;
     border: 2px solid white;
@@ -133,7 +132,6 @@ body {
 }
 
 .header_login a:visited {
-    margin: 5px;
     color: white;
 }
 
@@ -255,4 +253,12 @@ span.sql_keyword {
     border-radius: 20%;
     background-color: #aa76aa;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+/* Filter box styling*/
+
+.filterbox {
+    display: none;
 }

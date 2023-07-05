@@ -61,10 +61,10 @@
         <a href="/index.php" class="navitem">Bio-Boxen</a>
         <a href="/index.php" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
-        <a href="/" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
+        <button onclick="toggleFilter()" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</button>
     </div>
 
-    <div class="filterbox">
+    <div class="filterbox" id="filterbox">
         <form method="post">
         <?php
           $sql = log_sql("SELECT * FROM ALLERGEN");
@@ -118,6 +118,15 @@
       }
       echo "';";
       ?>
+
+      function toggleFilter() {
+        var x = document.getElementById("filterbox");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+      }
 </script>
 <?php
     $conn->close();
