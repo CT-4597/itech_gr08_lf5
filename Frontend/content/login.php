@@ -1,11 +1,15 @@
 <?php
   if(isset($_POST['customer']) && isset($_POST['passwd'])) {
-    $sql = log_sql("SELECT * FROM KUNDEN WHERE KUNDENNR=" . $_POST['customer'] . " AND KUNDENPW=" . $_POST['passwd']);
+    $sql = log_sql("SELECT count(*) FROM KUNDEN WHERE KUNDENNR=" . $_POST['customer'] . " AND KUNDENPW=" . $_POST['passwd']);
+    $result = $conn->query($sql);
 
-      debug_log("Failed to login" . $_POST['customer']);
-    if($loggedin){
+    if ($result->num_rows > 0) {
+      $_SESSION['userid'] = $_POST['customer'];
       header("Location: /");
       exit();
+    } else {
+      $_SESSION['userid'] = NULL;
+        debug_log("Failed to login" . $_POST['customer']);
     }
   }
  ?>
