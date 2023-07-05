@@ -43,7 +43,7 @@
         <div class="sql_logger" id="sql_logger"></div>
         <?php
           if($_SESSION['userid'] == NULL){
-            echo '<a href="/login">Login</a></br>'
+            echo '<a href="/login">Login</a></br>';
             echo '<a href="/register">Register</a>';
           } else {
             echo 'Hallo, ' .  $_SESSION['userid'] . '</br>';
