@@ -1,5 +1,5 @@
 <?php
-  if(isset($_POST['customer']) && isset($_Post['passwd'])) {
+  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
     debug_log("Login as " . $_POST['customer']);
   }
  ?>
