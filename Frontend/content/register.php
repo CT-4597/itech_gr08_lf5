@@ -6,7 +6,7 @@
 
     # Test if e-mail is already registered
     $email = $_POST['email'];
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='$email'");
+    $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='$email'");
 
     $result = $conn->query($sql);
 
@@ -15,7 +15,7 @@
       $message .= 'Whole query: ' . $sql;
       die($message);
     }
-    
+
     # If True: Already registered
     if ($result->num_rows > 0) {
     	$err_register = True;
@@ -31,8 +31,13 @@
         $PLZ = $_POST['plz'];
         $ORT = $_POST['ort'];
         $TELEFON = $_POST['telefon'];
-        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ($EMAIL, $PASSWORT, $VORNAME, $NACHNAME, $GEBURTSDATUM, $STRASSE, $HAUSNR, $PLZ, $ORT, $TELEFON)");
-        $conn->query($sql);
+        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ('$EMAIL', '$PASSWORT', '$VORNAME', '$NACHNAME', STR_TO_DATE($GEBURTSDATUM, '%Y-%m-%e'), '$STRASSE', '$HAUSNR', '$PLZ', '$ORT', '$TELEFON')");
+        $result = $conn->query($sql);
+        if (!$result) {
+          $message  = 'Invalid query: ' .  $result->error . "\n";
+          $message .= 'Whole query: ' . $sql;
+          die($message);
+        }
     }
   }
  ?>
@@ -47,24 +52,24 @@
 
 <form action="/registrieren" method="post">
   <label for="email">email:</label><br>
-  <input type="text" id="email" name="email"><br>
+  <input type="text" id="email" name="email" required><br>
   <label for="passwd">Passwort:</label><br>
-  <input type="password" id="passwd" name="passwd"><br>
+  <input type="password" id="passwd" name="passwd" required><br>
 -----------------
   <label for="vorname">Vorname:</label><br>
-  <input type="text" id="vorname" name="vorname"><br>
+  <input type="text" id="vorname" name="vorname"required><br>
   <label for="nachname">Nachname:</label><br>
-  <input type="text" id="nachname" name="nachname"><br>
+  <input type="text" id="nachname" name="nachname"required><br>
   <label for="geburtsdatum">Geburtsdatum:</label><br>
-  <input type="text" id="geburtsdatum" name="geburtsdatum"><br>
+  <input type="date" id="geburtsdatum" name="geburtsdatum" required><br>
   <label for="strasse">Straße:</label><br>
-  <input type="text" id="strasse" name="strasse"><br>
+  <input type="text" id="strasse" name="strasse" required><br>
   <label for="hausnummer">Hausnummer:</label><br>
-  <input type="text" id="hausnummer" name="hausnummer"><br>
+  <input type="text" id="hausnummer" name="hausnummer" required><br>
   <label for="plz">PLZ:</label><br>
-  <input type="text" id="plz" name="plz"><br>
+  <input type="text" id="plz" name="plz" required><br>
   <label for="ort">Ort:</label><br>
-  <input type="text" id="ort" name="ort"><br>
+  <input type="text" id="ort" name="ort" required><br>
   <label for="telefon">Telefon:</label><br>
   <input type="text" id="telefon" name="telefon"><br>
 
