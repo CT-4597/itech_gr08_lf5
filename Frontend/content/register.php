@@ -31,7 +31,7 @@
         $PLZ = $_POST['plz'];
         $ORT = $_POST['ort'];
         $TELEFON = $_POST['telefon'];
-        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ('$EMAIL', '$PASSWORT', '$VORNAME', '$NACHNAME', STR_TO_DATE($GEBURTSDATUM, ), '$STRASSE', '$HAUSNR', '$PLZ', '$ORT', '$TELEFON')");
+        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ('$EMAIL', '$PASSWORT', '$VORNAME', '$NACHNAME', STR_TO_DATE($GEBURTSDATUM, '%Y-%m-%e'), '$STRASSE', '$HAUSNR', '$PLZ', '$ORT', '$TELEFON')");
         $result = $conn->query($sql);
         if (!$result) {
           $message  = 'Invalid query: ' .  $result->error . "\n";
@@ -52,9 +52,9 @@
 
 <form action="/registrieren" method="post">
   <label for="email">email:</label><br>
-  <input type="text" id="email" name="email"><br>
+  <input type="text" id="email" name="email" required><br>
   <label for="passwd">Passwort:</label><br>
-  <input type="password" id="passwd" name="passwd"><br>
+  <input type="password" id="passwd" name="passwd" required><br>
 -----------------
   <label for="vorname">Vorname:</label><br>
   <input type="text" id="vorname" name="vorname"required><br>
