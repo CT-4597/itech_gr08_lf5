@@ -2,6 +2,7 @@
 
 # Add to card
 if(isset($_POST['ZUTATENNR'])) {
+	echo "Add to Card";
 	$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = $_POST['amount'];
 }
 
