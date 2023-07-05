@@ -41,6 +41,7 @@
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
         <div class="sql_logger" id="sql_logger"></div>
+        <div class="header_login">
         <?php
           if($_SESSION['userid'] == NULL){
             echo '<a href="/login">Login</a></br>';
@@ -50,6 +51,7 @@
             echo '<a href="/logout">Logout</a>';
           }
          ?>
+         </div>
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
