@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM ZUTAT WHERE ZUTATENNR = " . $_GET['id'];
+$sql = log_sql("SELECT * FROM ZUTAT WHERE ZUTATENNR = " . $_GET['id']);
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
