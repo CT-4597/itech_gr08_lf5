@@ -22,7 +22,7 @@
 
 <?php
  # If we do have the post data, we werent redirected = Failed Login
-  if(isset($_POST['email']) && err_register) {
+  if(isset($_POST['email']) && $err_register) {
     echo "E-Mail Addresse ist bereits registriert.";
   }
  ?>
