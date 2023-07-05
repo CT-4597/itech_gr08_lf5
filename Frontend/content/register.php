@@ -15,16 +15,16 @@
     	$err_register = True;
     } else {
       # Create account
-        $EMAIL = $_POST['email']);
-        $PASSWORT = $_POST['passwd']);
-        $VORNAME = $_POST['vorname']);
-        $NACHNAME = $_POST['nachname']);
-        $GEBURTSDATUM = $_POST['geburtsdatum']);
-        $STRASSE = $_POST['strasse']);
-        $HAUSNR = $_POST['hausnummer']);
-        $PLZ = $_POST['plz']);
-        $ORT = $_POST['ort']);
-        $TELEFON = $_POST['telefon']);
+        $EMAIL = $_POST['email'];
+        $PASSWORT = $_POST['passwd'];
+        $VORNAME = $_POST['vorname'];
+        $NACHNAME = $_POST['nachname'];
+        $GEBURTSDATUM = $_POST['geburtsdatum'];
+        $STRASSE = $_POST['strasse'];
+        $HAUSNR = $_POST['hausnummer'];
+        $PLZ = $_POST['plz'];
+        $ORT = $_POST['ort'];
+        $TELEFON = $_POST['telefon'];
         $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ($EMAIL, $PASSWORT, $VORNAME, $NACHNAME, $GEBURTSDATUM, $STRASSE, $HAUSNR, $PLZ, $ORT, $TELEFON)");
         $conn->query($sql);
     }
