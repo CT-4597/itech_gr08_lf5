@@ -58,9 +58,9 @@
 <script>
     <?php
       echo "document.getElementById(\"sql_logger\").innerHTML = '";
-      echo sql_print();
+      sql_print();
       if($debugging) {
-        echo log_print();
+        log_print();
       }
       echo "';";
       ?>
