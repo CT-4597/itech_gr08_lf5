@@ -62,6 +62,24 @@
         <a href="/" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
     </div>
 
+    <div class="filterbox">
+        <form>
+        <?php
+          $sql = log_sql("SELECT * FROM ALLERGEN");
+	      $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+	        while($row = $result->fetch_assoc()) {
+              echo '<label for="Allergen' . $row['ALLERGENNR'] . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
+              echo '<input type="checkbox" id="Allergen' . $row['ALLERGENNR'] . '" name="Allergen' . $row['ALLERGENNR'] . '" value="true">';
+            }
+
+          }
+
+        
+        ?>
+        </form>
+    </div>
+
     <div class="content">
         <?php include($page); ?>
     </div>
