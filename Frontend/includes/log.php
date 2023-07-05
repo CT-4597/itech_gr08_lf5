@@ -9,7 +9,7 @@
   function log_print() {
     global $log_arr;
       foreach ($log_arr as $log_str){
-        echo $log_arr . '</br>';
+        echo $log_str . '</br>';
       }
   }
  ?>
