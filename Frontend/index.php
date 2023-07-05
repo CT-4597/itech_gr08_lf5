@@ -28,6 +28,7 @@
 <body>
     <div class="header">
         <?php if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session"; } ?>
+          <?php if(isset($_GET['newsession'])) { echo "Create new session"; } ?>
         <img src="/images/Logo.png" class="header_logo">
         <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
