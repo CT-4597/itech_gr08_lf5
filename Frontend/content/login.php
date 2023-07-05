@@ -1,7 +1,7 @@
 <?php
-  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
+  if(isset($_POST['email']) && isset($_POST['passwd'])) {
 
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE KUNDENNR='" . $_POST['customer'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
+    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
 
     $result = $conn->query($sql);
 
@@ -25,8 +25,8 @@
   }
  ?>
 <form action="/login" method="post">
- <label for="customer">Kundennummer:</label><br>
- <input type="text" id="customer" name="customer"><br>
+ <label for="email">E-Mail:</label><br>
+ <input type="text" id="email" name="email"><br>
  <label for="passwd">Passwort:</label><br>
  <input type="password" id="passwd" name="passwd">
  <input type="submit" value="Login">
