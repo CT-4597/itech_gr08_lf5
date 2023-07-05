@@ -52,24 +52,24 @@
 
 <form action="/registrieren" method="post">
   <label for="email">email:</label><br>
-  <input type="text" id="email" name="email" required><br>
+  <input type="text" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>
-  <input type="password" id="passwd" name="passwd" required><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
 -----------------
   <label for="vorname">Vorname:</label><br>
-  <input type="text" id="vorname" name="vorname"required><br>
+  <input type="text" id="vorname" name="vorname"  maxlength="50" required><br>
   <label for="nachname">Nachname:</label><br>
-  <input type="text" id="nachname" name="nachname"required><br>
+  <input type="text" id="nachname" name="nachname"  maxlength="50" required><br>
   <label for="geburtsdatum">Geburtsdatum:</label><br>
-  <input type="date" id="geburtsdatum" name="geburtsdatum" required><br>
+  <input type="date" id="geburtsdatum" name="geburtsdatum" min="1900-01-02" required><br>
   <label for="strasse">Straße:</label><br>
   <input type="text" id="strasse" name="strasse" required><br>
   <label for="hausnummer">Hausnummer:</label><br>
   <input type="text" id="hausnummer" name="hausnummer" required><br>
   <label for="plz">PLZ:</label><br>
-  <input type="text" id="plz" name="plz" required><br>
+  <input type="text" id="plz" name="plz" maxlength="5" required><br>
   <label for="ort">Ort:</label><br>
-  <input type="text" id="ort" name="ort" required><br>
+  <input type="text" id="ort" name="ort"  maxlength="50" required><br>
   <label for="telefon">Telefon:</label><br>
   <input type="text" id="telefon" name="telefon"><br>
 
