@@ -44,10 +44,10 @@
         <?php
           if($_SESSION['userid'] == NULL){
             echo '<a href="/login">Login</a></br>';
-            echo '<a href="/register">Register</a>';
+            echo '<a href="/registrieren">Register</a>';
           } else {
             echo 'Hallo, ' .  $_SESSION['userid'] . '</br>';
-            echo '<a href="/register">Register</a>';
+            echo '<a href="/logout">Logout</a>';
           }
          ?>
         <img src="/images/user_icon.png" class="header_user_icon">
