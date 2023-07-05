@@ -83,20 +83,14 @@ label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     margin: 0px;
     background: url(/images/Background.jpg) no-repeat center fixed;
     background-size: cover;
-    min-height: 100%;
 }
 
 .content {
     width: 80%;
-    min-height:100%;
     background-color: white;
     margin: auto;
 }
@@ -113,31 +107,38 @@ body {
 
 .header_logo {
     width: 150px;
+    height: 100%;
     padding: 1em;
     float: left;
+    box-sizing: border-box;
 }
 
 .header_user_icon {
     width: 60px;
+    height: 100%;
     margin: auto;
     padding: 1em;
     float:right;
+    box-sizing: border-box;
 }
 
 .header {
     background-color: rgb(177, 134, 183);
     position: sticky;
     top: 0px;
+    height: 130px;
     overflow: auto;
 }
 
 div.sql_logger {
-    margin-top: 5px;
+    margin: 5px 0;
     width: 60%;
+    height: 100%;
     background-color: white;
     border-radius: 5px;
     overflow: auto;
     float: left;
+    box-sizing: border-box;
 }
 
 span.sql_text {
