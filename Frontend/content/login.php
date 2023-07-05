@@ -1,7 +1,7 @@
 <?php
   if(isset($_POST['email']) && isset($_POST['passwd'])) {
 
-    $sql = log_sql("SELECT id FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
+    $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
 
     $result = $conn->query($sql);
     if (!$result) {
