@@ -1,4 +1,10 @@
 <?php
+
+# Add to card
+if(isset($_POST['ZUTATENNR'])) {
+	$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = $_POST['amount'];
+}
+
 $sql = log_sql("SELECT * FROM ZUTAT WHERE ZUTATENNR = " . $_GET['id']);
 $result = $conn->query($sql);
 
