@@ -15,7 +15,7 @@
     $sql = $sql . ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
 
     if ($_SESSION['categories'] != NULL && $_SESSION['categories'] != "0" )  {
-        $sql = $sql . ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR =' . $_SESSION;
+        $sql = $sql . ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR =' . $_SESSION['categories'];
     }
 	$result = $conn->query($sql);
 
