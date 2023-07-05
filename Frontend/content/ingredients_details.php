@@ -2,16 +2,15 @@
 
 # Add to card
 if (isset($_POST['ZUTATENNR'])) {
-    echo "Add to Cart";
 
-    $zutatenNr = $_POST['ZUTATENNR'];
-    $amount = $_POST['amount'];
+		if(isset($_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']])) {
+			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] += $_POST['amount'];
+		} else {
+			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = $_POST['amount'];
+		}
 
-    $_SESSION['shopping_card_ingredients'][$zutatenNr] = $amount;
 
     // Debugging-Ausgabe
-    echo "ZUTATENNR: " . $zutatenNr . "<br>";
-    echo "Amount: " . $amount . "<br>";
     var_dump($_SESSION['shopping_card_ingredients']);
 }
 
