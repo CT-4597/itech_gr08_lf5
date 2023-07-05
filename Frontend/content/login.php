@@ -1,18 +1,22 @@
 <?php
-  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
+  if(isset($_POST['email']) && isset($_POST['passwd'])) {
 
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE KUNDENNR='" . $_POST['customer'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
-
+    # $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
+    $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='$_POST['email']' AND PASSWORT='$_POST['passwd'])'";
     $result = $conn->query($sql);
-
+    if (!$result) {
+      $message  = 'Invalid query: ' .  $result->error . "\n";
+      $message .= 'Whole query: ' . $sql;
+      die($message);
+    }
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
-      $_SESSION['userid'] = $_POST['customer'];
+      $_SESSION['userid'] = $row['KUNDENNR'];
       header("Location: /");
       exit();
     } else {
       $_SESSION['userid'] = NULL;
-        debug_log("Failed to login" . $_POST['customer']);
+        debug_log("Failed to login");
     }
   }
  ?>
@@ -25,8 +29,8 @@
   }
  ?>
 <form action="/login" method="post">
- <label for="customer">Kundennummer:</label><br>
- <input type="text" id="customer" name="customer"><br>
+ <label for="email">E-Mail:</label><br>
+ <input type="text" id="email" name="email"><br>
  <label for="passwd">Passwort:</label><br>
  <input type="password" id="passwd" name="passwd">
  <input type="submit" value="Login">
