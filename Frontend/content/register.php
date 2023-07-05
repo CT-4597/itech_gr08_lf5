@@ -15,7 +15,7 @@
     	$err_register = True;
     } else {
       # Create account
-        $EMAIL = $_POST['email'])
+        $EMAIL = $_POST['email']);
         $PASSWORT = $_POST['passwd']);
         $VORNAME = $_POST['vorname']);
         $NACHNAME = $_POST['nachname']);
