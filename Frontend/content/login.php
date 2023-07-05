@@ -1,8 +1,17 @@
 <?php
   if(isset($_POST['customer']) && isset($_POST['passwd'])) {
-    debug_log("Login as " . $_POST['customer']);
+    $sql = log_sql("SELECT * FROM KUNDEN WHERE KUNDENNR=" . $_POST['customer'] . " AND KUNDENPW=" . $_POST['passwd']);
+    debug_log("Failed to login" . $_POST['customer']);
     header("Location: /");
     exit();
+  }
+ ?>
+
+
+<?php
+ # If we do have the post data, we werent redirected = Failed Login
+  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
+    echo "Failed login.";
   }
  ?>
 <form action="/login" method="post">
