@@ -63,15 +63,23 @@
     </div>
 
     <div class="filterbox">
-        <form>
+        <form method="post">
         <?php
           $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
           if ($result->num_rows > 0) {
 	        while($row = $result->fetch_assoc()) {
-              echo '<label for="Allergen' . $row['ALLERGENNR'] . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-              echo '<input type="checkbox" id="Allergen' . $row['ALLERGENNR'] . '" name="Allergen' . $row['ALLERGENNR'] . '" value="true">';
+              $alnr = 'Allergen' . $row['ALLERGENNR'];
+              echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
+              echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="true">';
+              if (isset($_POST[$alnr])) {
+                $_SESSION[$alnr] = $_POST[$alnr];
+              } else {
+                $_SESSION[$alnr] = 'false';
+              }
+              echo $_SESSION[$alnr];
             }
+
 
           }
 
