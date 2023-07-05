@@ -7,9 +7,12 @@
     session_start();
 
     # DESTRUCTION
+    # in case something went wrong an we need the vars to be reseted
     if(isset($_GET['newsession'])) {
+      $_SESSION['userid'] = NULL;
       $_SESSION['shopping_card_ingredients'] = array();
     }
+
     # Check for page var. Get the default page if needed.
     if(isset($_GET['page'])) {
         $page = 'content/' . htmlspecialchars($_GET["page"]) . '.php';
@@ -22,6 +25,7 @@
     } else {
       debug_log("no active session</br>");
     }
+    if()
     if(isset($_GET['newsession'])) {
       debug_log("Session Vars reinitialised.</br>");
     }
@@ -38,6 +42,15 @@
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
         <div class="sql_logger" id="sql_logger"></div>
+        <?php
+          if($_SESSION['userid'] == NULL){
+            echo '<a href="/login">Login</a></br>'
+            echo '<a href="/register">Register</a>';
+          } else {
+            echo 'Hallo, ' .  $_SESSION['userid'] . '</br>';
+            echo '<a href="/register">Register</a>';
+          }
+         ?>
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
