@@ -31,7 +31,7 @@
         $PLZ = $_POST['plz'];
         $ORT = $_POST['ort'];
         $TELEFON = $_POST['telefon'];
-        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ('$EMAIL', '$PASSWORT', '$VORNAME', '$NACHNAME', '$GEBURTSDATUM', '$STRASSE', '$HAUSNR', '$PLZ', '$ORT', '$TELEFON')");
+        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ('$EMAIL', '$PASSWORT', '$VORNAME', '$NACHNAME', STR_TO_DATE($GEBURTSDATUM, ), '$STRASSE', '$HAUSNR', '$PLZ', '$ORT', '$TELEFON')");
         $result = $conn->query($sql);
         if (!$result) {
           $message  = 'Invalid query: ' .  $result->error . "\n";
@@ -57,19 +57,19 @@
   <input type="password" id="passwd" name="passwd"><br>
 -----------------
   <label for="vorname">Vorname:</label><br>
-  <input type="text" id="vorname" name="vorname"><br>
+  <input type="text" id="vorname" name="vorname"required><br>
   <label for="nachname">Nachname:</label><br>
-  <input type="text" id="nachname" name="nachname"><br>
+  <input type="text" id="nachname" name="nachname"required><br>
   <label for="geburtsdatum">Geburtsdatum:</label><br>
-  <input type="text" id="geburtsdatum" name="geburtsdatum"><br>
+  <input type="date" id="geburtsdatum" name="geburtsdatum" required><br>
   <label for="strasse">Straße:</label><br>
-  <input type="text" id="strasse" name="strasse"><br>
+  <input type="text" id="strasse" name="strasse" required><br>
   <label for="hausnummer">Hausnummer:</label><br>
-  <input type="text" id="hausnummer" name="hausnummer"><br>
+  <input type="text" id="hausnummer" name="hausnummer" required><br>
   <label for="plz">PLZ:</label><br>
-  <input type="text" id="plz" name="plz"><br>
+  <input type="text" id="plz" name="plz" required><br>
   <label for="ort">Ort:</label><br>
-  <input type="text" id="ort" name="ort"><br>
+  <input type="text" id="ort" name="ort" required><br>
   <label for="telefon">Telefon:</label><br>
   <input type="text" id="telefon" name="telefon"><br>
 
