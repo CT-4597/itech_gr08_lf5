@@ -4,9 +4,9 @@
 if (isset($_POST['ZUTATENNR'])) {
 
 		if(isset($_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']])) {
-			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] += $_POST['amount'];
+			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] += (int)$_POST['amount'];
 		} else {
-			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = $_POST['amount'];
+			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = (int)$_POST['amount'];
 		}
 
 
