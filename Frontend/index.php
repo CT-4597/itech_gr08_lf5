@@ -14,6 +14,9 @@
         echo "session is running";
     } else {
         session_start();
+        $_SESSION['user_id'] = null;
+        $_SESSION['shopping_card_ingredients'] = array();
+        #$_SESSION['shopping_card_ingredients']
     }
 ?>
 <!DOCTYPE html>
