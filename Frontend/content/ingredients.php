@@ -9,8 +9,7 @@
             WHERE ((ZUTATALLERGEN.ALLERGENNR != 0)";
 
     foreach ($_SESSION['allergies'] as $id) {
-        echo $id;
-        $sql = $sql . ' AND (ZUTARALLERGEN.ALLERGENNR != ' . $id . ')';
+        $sql = $sql . ' AND (ZUTATALLERGEN.ALLERGENNR != ' . $id . ')';
     }
 
     $sql = $sql . 'OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
