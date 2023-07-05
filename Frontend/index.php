@@ -25,7 +25,6 @@
     } else {
       debug_log("no active session</br>");
     }
-    if()
     if(isset($_GET['newsession'])) {
       debug_log("Session Vars reinitialised.</br>");
     }
