@@ -25,7 +25,7 @@ table {
 /* Universal form styling*/
 
 form {
-    width: 30%;
+    width: 40%;
     border: #6c6c6c;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -34,10 +34,13 @@ form {
     padding: 10%;
 }
 
+.logininput {
+    text-align: center;
+}
+
 input[type=text], input[type=password] {
     padding: 0.5em;
-    width: 90%;
-    margin: 25px auto;
+    width: 100%;
     font-size: 1em;
     border-radius: 10px;
     transition-duration: 0.4s;
@@ -51,10 +54,8 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 input[type=submit] {
-    width: 50px;
     background-color: #c695c6;
     border-radius: 10px;
-    margin: 25px auto;
     font-size: 1em;
     color: white;
     padding: 5px;
@@ -119,7 +120,7 @@ body {
 
 div.sql_logger {
     margin-top: 5px;
-    width: 80%;
+    width: 60%;
     background-color: white;
     border-radius: 5px;
     overflow: auto;
