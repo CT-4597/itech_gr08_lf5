@@ -30,10 +30,13 @@
     echo "Failed login.";
   }
  ?>
-<form action="/login" method="post">
- <label for="email">E-Mail:</label><br>
- <input type="text" id="email" name="email"><br>
- <label for="passwd">Passwort:</label><br>
- <input type="password" id="passwd" name="passwd">
- <input type="submit" value="Login">
-</form>
+
+<div class="loginform">
+    <form action="/login" method="post">
+        <label for="email">E-Mail:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="passwd">Passwort:</label><br>
+        <input type="password" id="passwd" name="passwd">
+        <input type="submit" value="Login">
+    </form>
+</div>

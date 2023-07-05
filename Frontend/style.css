@@ -22,6 +22,27 @@ table {
 
 
 
+/* Universal form styling*/
+
+form {
+    border: #6c6c6c;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 1.5em;
+    margin: auto;
+}
+
+input {
+    border-radius: 5%;
+    transition-duration: 0.4s;
+}
+
+input:active {
+    background-color: #c4c4c4;
+}
+
+
+
 /* Styling of index, Font site-wide */
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
