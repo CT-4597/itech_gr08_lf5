@@ -8,7 +8,7 @@
 
     # DESTRUCTION
     # in case something went wrong an we need the vars to be reseted
-    if(isset($_GET['newsession'] || isset($_SESSION['userid']))) {
+    if(isset($_GET['newsession']) || isset($_SESSION['userid'])) {
       $_SESSION['userid'] = NULL;
       $_SESSION['shopping_card_ingredients'] = array();
     }
