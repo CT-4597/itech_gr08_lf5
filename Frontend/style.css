@@ -25,6 +25,7 @@ table {
 /* Universal form styling*/
 
 form {
+    width: 30%;
     border: #6c6c6c;
     border-radius: 10%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -32,13 +33,16 @@ form {
     margin: auto;
 }
 
-input {
-    border-radius: 5%;
+input[type=text], input[type=password] {
+    border-radius: 10%;
     transition-duration: 0.4s;
+    background-color: white;
+    color: black;
 }
 
-input:active {
-    background-color: #c4c4c4;
+input[type=text]:active, input[type=password]:active {
+    background-color: #c695c6;
+    color: white;
 }
 
 
