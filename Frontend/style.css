@@ -109,14 +109,12 @@ body {
     width: 150px;
     padding: 1em;
     float: left;
-    box-sizing: border-box;
 }
 
 .header_user_icon {
     width: 60px;
     padding: 2em;
     float:right;
-    box-sizing: border-box;
 }
 
 .header_login {
