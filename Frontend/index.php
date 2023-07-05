@@ -58,15 +58,11 @@
 <script>
     <?php
       if(debugging) {
-    ?>
-    document.getElementById("sql_logger").innerHTML = '<?php log_print(); ?><?php sql_print(); ?>';
-    <?php
+        echo "document.getElementById(\"sql_logger\").innerHTML = \'" . sql_print() . "\'";
       } else {
-    ?>
-    document.getElementById("sql_logger").innerHTML = '<?php sql_print(); ?>';
-    <?php
+        echo "document.getElementById(\"sql_logger\").innerHTML = \'" . log_print() . sql_print() . "\'";
       }
-     ?>
+      ?>
 </script>
 <?php
     $conn->close();
