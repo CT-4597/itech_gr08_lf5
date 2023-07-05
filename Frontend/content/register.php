@@ -10,6 +10,12 @@
 
     $result = $conn->query($sql);
 
+    if (!$result) {
+      $message  = 'Invalid query: ' .  $result->error . "\n";
+      $message .= 'Whole query: ' . $sql;
+      die($message);
+    }
+    
     # If True: Already registered
     if ($result->num_rows > 0) {
     	$err_register = True;
