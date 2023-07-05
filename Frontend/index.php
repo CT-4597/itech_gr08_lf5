@@ -12,6 +12,7 @@
 
     if (session_status() == PHP_SESSION_ACTIVE) {
         echo "session is running";
+        session_start();
     } else {
         session_start();
         $_SESSION['user_id'] = null;
