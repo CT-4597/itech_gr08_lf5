@@ -197,13 +197,9 @@ span.sql_keyword {
 }
 
 .navitem button {
-    background-color: #6c6c6c;
-    border: none;
+    appearance: none;
 }
 
-.navitem button:hover {
-    background-color: #7e7e7e;
-}
 
 
 /* Ingredients list styling */
