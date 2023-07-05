@@ -4,7 +4,7 @@
     # $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
     $email = $_POST['email'];
     $passwd = $_POST['passwd'];
-    $sql = log_sql('SELECT KUNDENNR FROM KUNDE WHERE EMAIL="$email" AND PASSWORT="$passwd"';
+    $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='$email' AND PASSWORT='$passwd'");
     $result = $conn->query($sql);
     if (!$result) {
       $message  = 'Invalid query: ' .  $result->error . "\n";
