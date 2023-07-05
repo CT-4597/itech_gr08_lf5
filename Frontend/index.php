@@ -32,11 +32,13 @@
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
-        <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48"></a>
+        <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>
         <a href="/zutaten" class="navitem">Zutaten</a>
         <a href="/index.php" class="navitem">Rabatt-Boxen</a>
         <a href="/index.php" class="navitem">Bio-Boxen</a>
         <a href="/index.php" class="navitem">Rezept-Boxen</a>
+        <a href="/" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
+        <a href="/" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
     </div>
 
     <div class="content">
