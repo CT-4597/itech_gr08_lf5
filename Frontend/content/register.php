@@ -1,18 +1,32 @@
 <?php
-  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
+  $err_register = False;
 
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE KUNDENNR='" . $_POST['customer'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
+  # if email is set, register
+  if(isset($_POST['email'])) {
+
+    # Test if e-mail is already registered
+    $email = $_POST['email'];
+    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='$email'");
 
     $result = $conn->query($sql);
 
+    # If True: Already registered
     if ($result->num_rows > 0) {
-    	$row = $result->fetch_assoc();
-      $_SESSION['userid'] = $_POST['customer'];
-      header("Location: /");
-      exit();
+    	$err_register = True;
     } else {
-      $_SESSION['userid'] = NULL;
-        debug_log("Failed to login" . $_POST['customer']);
+      # Create account
+        $EMAIL = $_POST['email'];
+        $PASSWORT = $_POST['passwd'];
+        $VORNAME = $_POST['vorname'];
+        $NACHNAME = $_POST['nachname'];
+        $GEBURTSDATUM = $_POST['geburtsdatum'];
+        $STRASSE = $_POST['strasse'];
+        $HAUSNR = $_POST['hausnummer'];
+        $PLZ = $_POST['plz'];
+        $ORT = $_POST['ort'];
+        $TELEFON = $_POST['telefon'];
+        $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ($EMAIL, $PASSWORT, $VORNAME, $NACHNAME, $GEBURTSDATUM, $STRASSE, $HAUSNR, $PLZ, $ORT, $TELEFON)");
+        $conn->query($sql);
     }
   }
  ?>
@@ -20,10 +34,11 @@
 
 <?php
  # If we do have the post data, we werent redirected = Failed Login
-  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
-    echo "Failed login.";
+  if(isset($_POST['email']) && $err_register) {
+    echo "E-Mail Addresse ist bereits registriert.";
   }
  ?>
+
 <form action="/registrieren" method="post">
   <label for="email">email:</label><br>
   <input type="text" id="email" name="email"><br>
