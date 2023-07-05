@@ -124,6 +124,19 @@ body {
     padding-top: 2em;
 }
 
+.header_login a {
+    margin: 5px;
+    padding: 2px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.header_login a:visited {
+    margin: 5px;
+    color: white;
+}
+
 .header {
     background-color: rgb(177, 134, 183);
     position: sticky;
@@ -165,6 +178,7 @@ span.sql_keyword {
     display: flex;
     justify-content: center;
     position: sticky;
+    top: 130px;
 }
 
 .navitem {
