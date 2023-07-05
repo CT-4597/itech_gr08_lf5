@@ -1,7 +1,7 @@
 <?php
   if(isset($_POST['customer']) && isset($_POST['passwd'])) {
 
-    $sql = log_sql("SELECT count(*) FROM KUNDEN WHERE KUNDENNR='" . $_POST['customer'] . "' AND KUNDENPW='" . $_POST['passwd']) . "'";
+    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE KUNDENNR='" . $_POST['customer'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
 
     $result = $conn->query($sql);
 
