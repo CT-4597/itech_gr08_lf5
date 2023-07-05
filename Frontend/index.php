@@ -3,6 +3,10 @@
     include('includes/helper.php');
     include('includes/sql_logger.php');
 
+    # DESTRUCTION
+    if(isset($_GET['destroy'])) {
+      session_destroy();
+    }
     # Check for page var. Get the default page if needed.
     if(isset($_GET['page'])) {
         $page = 'content/' . htmlspecialchars($_GET["page"]) . '.php';
