@@ -10,14 +10,13 @@
         $page = 'content/' . $default_page . '.php';
     }
 
-    if (session_status() == PHP_SESSION_ACTIVE) {
-        echo "session is running";
-        session_start();
-    } else {
+    if (session_status() == PHP_SESSION_NONE) {
         session_start();
         $_SESSION['user_id'] = null;
         $_SESSION['shopping_card_ingredients'] = array();
         #$_SESSION['shopping_card_ingredients']
+    } else {
+      session_start();
     }
 ?>
 <!DOCTYPE html>
