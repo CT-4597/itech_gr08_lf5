@@ -57,11 +57,12 @@
 </body>
 <script>
     <?php
+      echo "document.getElementById(\"sql_logger\").innerHTML = '";
+      echo log_print();
       if($debugging) {
-        echo "document.getElementById(\"sql_logger\").innerHTML = '" . log_print() . sql_print() . "';";
-      } else {
-        echo "document.getElementById(\"sql_logger\").innerHTML = '" . sql_print() . "';";
+        echo debug_log();
       }
+      echo "';";
       ?>
 </script>
 <?php
