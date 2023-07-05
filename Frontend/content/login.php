@@ -1,13 +1,13 @@
 <?php
   if(isset($_POST['email']) && isset($_POST['passwd'])) {
 
-    $sql = log_sql("SELECT count(*) FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
+    $sql = log_sql("SELECT id FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
-      $_SESSION['userid'] = $_POST['customer'];
+      $_SESSION['userid'] = echo $row['KUNDENNR'];
       header("Location: /");
       exit();
     } else {
