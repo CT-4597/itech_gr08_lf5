@@ -83,15 +83,19 @@ label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0px;
     background: url(/images/Background.jpg) no-repeat center fixed;
     background-size: cover;
+    min-height: 100%;
 }
 
 .content {
     width: 80%;
-    height: 100%;
     background-color: white;
     margin: auto;
 }
