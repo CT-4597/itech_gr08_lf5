@@ -8,10 +8,6 @@ if (isset($_POST['ZUTATENNR'])) {
 		} else {
 			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] = (int)$_POST['amount'];
 		}
-
-
-    // Debugging-Ausgabe
-    var_dump($_SESSION['shopping_card_ingredients']);
 }
 
 $sql = log_sql("SELECT * FROM ZUTAT WHERE ZUTATENNR = " . $_GET['id']);
