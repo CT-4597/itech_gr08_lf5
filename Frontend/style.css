@@ -31,16 +31,20 @@ form {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.5em;
     margin: auto;
+    padding: 10%;
 }
 
 input[type=text], input[type=password] {
+    margin: 0 20px;
+    padding: 1em;
+    width: 90%;
     border-radius: 10%;
     transition-duration: 0.4s;
     background-color: white;
     color: black;
 }
 
-input[type=text]:active, input[type=password]:active {
+input[type=text]:focus, input[type=password]:focus {
     background-color: #c695c6;
     color: white;
 }
