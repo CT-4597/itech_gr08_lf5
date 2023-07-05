@@ -7,8 +7,7 @@
 
     # DESTRUCTION
     if(isset($_GET['newsession'])) {
-      session_destroy();
-      session_start();
+      $_SESSION['shopping_card_ingredients'] = array();
     }
     # Check for page var. Get the default page if needed.
     if(isset($_GET['page'])) {
