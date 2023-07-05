@@ -7,7 +7,7 @@
 
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
-      $_SESSION['userid'] = echo $row['KUNDENNR'];
+      $_SESSION['userid'] = $row['KUNDENNR'];
       header("Location: /");
       exit();
     } else {
