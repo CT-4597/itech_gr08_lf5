@@ -32,7 +32,12 @@
         $ORT = $_POST['ort'];
         $TELEFON = $_POST['telefon'];
         $sql = log_sql("INSERT INTO KUNDE (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON) VALUES ($EMAIL, $PASSWORT, $VORNAME, $NACHNAME, $GEBURTSDATUM, $STRASSE, $HAUSNR, $PLZ, $ORT, $TELEFON)");
-        $conn->query($sql);
+        $result = $conn->query($sql);
+        if (!$result) {
+          $message  = 'Invalid query: ' .  $result->error . "\n";
+          $message .= 'Whole query: ' . $sql;
+          die($message);
+        }
     }
   }
  ?>
