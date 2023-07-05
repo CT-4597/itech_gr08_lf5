@@ -5,6 +5,8 @@
     $password = "";
     $dbname = "krautundrueben";
 
+    $debugging = True;
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection

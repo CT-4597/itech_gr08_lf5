@@ -26,10 +26,15 @@
 </head>
 <body>
     <div class="header">
-        <?php if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session"; } ?>
-       <?php if(isset($_GET['newsession'])) { echo "Session Vars reinitialised."; } ?>
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger"></div>
+        <div class="sql_logger" id="sql_logger">
+          <?php
+            if($debugging){
+              if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session</br>"; }
+              if(isset($_GET['newsession'])) { echo "Session Vars reinitialised.</br>"; }
+            }
+           ?>
+        </div>
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
