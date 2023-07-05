@@ -4,7 +4,9 @@
     $sql = log_sql("SELECT id FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
 
     $result = $conn->query($sql);
-
+    if (!$result) {
+      die('Invalid query: ' . mysql_error());
+    }
     if ($result->num_rows > 0) {
     	$row = $result->fetch_assoc();
       $_SESSION['userid'] = $row['KUNDENNR'];
@@ -12,7 +14,7 @@
       exit();
     } else {
       $_SESSION['userid'] = NULL;
-        debug_log("Failed to login" . $_POST['customer']);
+        debug_log("Failed to login");
     }
   }
  ?>
