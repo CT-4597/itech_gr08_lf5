@@ -72,6 +72,7 @@
       echo "document.getElementById(\"sql_logger\").innerHTML = '";
       sql_print();
       if($debugging) {
+        debug_log($_SESSION['shopping_card_ingredients']);
         log_print();
       }
       echo "';";
