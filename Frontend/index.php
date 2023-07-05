@@ -67,22 +67,20 @@
         <?php
           $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
+          $_SESSION['allergies'] = array();
+
+
           if ($result->num_rows > 0) {
 	        while($row = $result->fetch_assoc()) {
               $alnr = 'Allergen' . $row['ALLERGENNR'];
               echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-              echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="true">';
+              echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="' . $row['ALLERGENNR'] . '">';
               if (isset($_POST[$alnr])) {
-                $_SESSION[$alnr] = $_POST[$alnr];
-              } else {
-                $_SESSION[$alnr] = 'false';
+                array_push($_SESSION['allergies'], $_POST[$alnr]);
               }
-              echo $_SESSION[$alnr];
             }
-
-
           }
-
+          echo $_SESSION['allergies'];
         
         ?>
         <input type="submit" value="OK">
