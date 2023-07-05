@@ -2,6 +2,7 @@
     include('includes/config.php');
     include('includes/helper.php');
     include('includes/sql_logger.php');
+    include('includes/log.php');
 
     session_start();
 
@@ -15,6 +16,15 @@
     } else {
         $page = 'content/' . $default_page . '.php';
     }
+
+    if (session_status() == PHP_SESSION_ACTIVE) {
+      log("acitve session: " . session_id());
+    } else {
+      log("no active session</br>");
+    }
+    if(isset($_GET['newsession'])) {
+      log("Session Vars reinitialised.</br>");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,14 +37,7 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger">
-          <?php
-            if($debugging){
-              if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session</br>"; }
-              if(isset($_GET['newsession'])) { echo "Session Vars reinitialised.</br>"; }
-            }
-           ?>
-        </div>
+        <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
     </div>
     <div class="navigation">
@@ -53,7 +56,17 @@
 
 </body>
 <script>
+    <?php
+      if(debugging) {
+    ?>
+    document.getElementById("sql_logger").innerHTML = '<?php log_print(); ?><?php sql_print(); ?>';
+    <?php
+      } else {
+    ?>
     document.getElementById("sql_logger").innerHTML = '<?php sql_print(); ?>';
+    <?php
+      }
+     ?>
 </script>
 <?php
     $conn->close();
