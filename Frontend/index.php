@@ -22,12 +22,12 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kraut & Rüben - <?php if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session"; } ?></title>
+        <title>Kraut & Rüben</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
     <div class="header">
+        <?php if (session_status() == PHP_SESSION_ACTIVE) {echo "acitve session: " . session_id(); } else { echo "no active session"; } ?>
         <img src="/images/Logo.png" class="header_logo">
         <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
