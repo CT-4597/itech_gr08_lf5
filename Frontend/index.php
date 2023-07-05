@@ -37,7 +37,7 @@
         <a href="/index.php" class="navitem">Rabatt-Boxen</a>
         <a href="/index.php" class="navitem">Bio-Boxen</a>
         <a href="/index.php" class="navitem">Rezept-Boxen</a>
-        <a href="/" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
+        <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
         <a href="/" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
     </div>
 
