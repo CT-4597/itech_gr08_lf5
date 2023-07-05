@@ -38,7 +38,7 @@ form {
     text-align: center;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=date] {
     display: inline-block;
     box-sizing: border-box;
     padding: 0.5em;
@@ -155,7 +155,7 @@ span.sql_keyword {
     background-color: #6c6c6c;
     display: flex;
     justify-content: center;
-
+    position: sticky;
 }
 
 .navitem {
