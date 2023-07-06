@@ -1,6 +1,7 @@
 <?php
 
   function sql_fetch($query) {
+    global $conn;
 
     # Log the query
     $query = log_sql($query);
