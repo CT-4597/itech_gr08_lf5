@@ -53,15 +53,14 @@
 
 ?>
 
-<?php
-  if($err == 'pwcheck') {
-    echo "Ihr Passwort war nicht richtig.";
-  }
-
-  if($err == 'pwmatch') {
-    echo "Die neuen Passwörter stimmen nicht überein.";
-  }
- ?>
+<?php if($err != NULL){ ?>
+  <form>
+  <?php
+    if($err == 'pwcheck') echo "<p class=\"error\">Ihr Passwort war nicht richtig.</p>";
+    if($err == 'pwmatch') echo "<p class=\"error\">Die neuen Passwörter stimmen nicht überein.";
+   ?>
+ </form>
+<?php } ?>
 
 <form action="/profil" method="post">
   <h3> Profil </h3>
