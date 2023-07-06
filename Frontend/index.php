@@ -103,11 +103,6 @@
           <input type="hidden" name="filter" value="apply" />
           <h3>Allergene</h3>
         <?php
-        echo "allergies(array):";
-        var_dump($_SESSION['allergies']);
-        echo "</br> categories:";
-        var_dump($_SESSION['categories']);
-        echo "</br>";
         $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
 
