@@ -21,7 +21,7 @@ var_dump($_SESSION['shopping_card_ingredients']);
 $result = sql_fetch($query, False);
 if($result != False)
   while($row = $result->fetch_assoc()) {
-    echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['shopping_card_ingredients']] . '</br>';
+    echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
   }
  ?>
 
