@@ -32,7 +32,7 @@
           $_SESSION['categories'] = $_POST['categories'];
         # if no allergies are selected, the var isn set
         if(isset($_POST['allergies']))
-          $_SESSION['allergies'] = $_POST['allergies']
+          $_SESSION['allergies'] = $_POST['allergies'];
         else
           $_SESSION['allergies'] = array();
         debug_log(var_dump($_POST['allergies']));
