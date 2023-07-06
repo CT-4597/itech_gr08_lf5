@@ -29,17 +29,34 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
     }
 }
 ?>
-
+<table>
 <?php
+  $price_ingredients = 0;
   # getting ingredients
   if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_card_ingredients']) > 0) {
     $result = sql_fetch($query_ingredients, False);
     if($result != False)
       while($row = $result->fetch_assoc()) {
-      echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
+      echo "<tr>";
+      echo "  <td>" . $row['BEZEICHNUNG'] . "</td>";
+      echo "  <td>" . $row['NETTOPREIS'] . "</td>";
+      echo "  <td>" . $row['EINHEIT'] . "</td>";
+      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
+      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . "</td>";
+      echo "<tr>";
+      $price_ingredients += $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'];
+      # echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
     }
   }
 ?>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td><?php echo $price_ingredients; ?></td>
+</tr>
+</table>
 <?php
   # getting boxes
   if(isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_boxes']) > 0){
