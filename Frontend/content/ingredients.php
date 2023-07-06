@@ -17,6 +17,7 @@
     if ($_SESSION['categories'] != NULL && $_SESSION['categories'] != "0" )  {
         $sql = $sql . ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR =' . $_SESSION['categories'];
     }
+    $sql = log_sql($sql);
 	$result = $conn->query($sql);
 
 
