@@ -24,7 +24,8 @@
         HAUSNR='$HAUSNR',
         PLZ='$PLZ',
         ORT='$ORT',
-        TELEFON='$TELEFON'");
+        TELEFON='$TELEFON'
+        WHERE KUNDENR=$userid");
     }
 
     # Change Passwort Action block
