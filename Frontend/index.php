@@ -106,7 +106,7 @@
         while($row = $result->fetch_assoc()) {
             $alnr = 'Allergen' . $row['ALLERGENNR'];
             echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-            if(in_array((string)$row['ALLERGENNR'], if($_SESSION['allergies']))
+            if(in_array((string)$row['ALLERGENNR'], $_SESSION['allergies']))
               echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . '" checked>';
             else
               echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . '">';
