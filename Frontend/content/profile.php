@@ -78,11 +78,11 @@
   <h3> Passwort Ändern </h3>
 
   <label for="passwd">Altes Passwort</label><br>
-  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
   <label for="passwd_new">Neues Passwort</label><br>
-  <input type="password" id="passwd_new" name="passwd_new"  maxlength="5" required><br>
+  <input type="password" id="passwd_new" name="passwd_new"  maxlength="50" required><br>
   <label for="passwd_new2">Passwort Wiederholen</label><br>
-  <input type="password" id="passwd_new2" name="passwd_new2"  maxlength="5" required><br>
+  <input type="password" id="passwd_new2" name="passwd_new2"  maxlength="50" required><br>
 
   <input type="submit" value="Passwort Ändern">
 </form>

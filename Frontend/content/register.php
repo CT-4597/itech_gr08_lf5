@@ -58,7 +58,7 @@
   <label for="email">email:</label><br>
   <input type="text" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>
-  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
 -----------------
   <label for="vorname">Vorname:</label><br>
   <input type="text" id="vorname" name="vorname"  maxlength="50" required><br>
