@@ -100,7 +100,8 @@
   <input type="submit" name="ChangePassword" value="Passwort Ändern">
 </form>
 <br/>
-<form action="/profil" method="post">
+<form action="/profil" id="dsgvo_form" method="post">
+
   <h3>Daten Beantragen</h3>
   <p>Hier können sie alle ihre Personenbezogen Daten direkt beantragen.</p>
   <input type="submit" name="dsgvo_getdata" value="Download Dump">
@@ -108,3 +109,12 @@
   <p>Hier können sie ihr Konto und alle dazugehörigen Personenbezogenen Daten löschen.</p>
   <input type="submit" name="dsgvo_Delete" value="Konto löschen">
 </form>
+
+<script>
+  function bestätigen() {
+    var response = confirm("Möchten sie wirklich ihr Benutzerkonto löschen? Dieser Vorgang kann nicht rückgängig gemacht werden!");
+    if (response == true) {
+      document.getElementById('dsgvo_form').submit();
+    }
+  }
+</script>
