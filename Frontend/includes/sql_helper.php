@@ -21,7 +21,7 @@
     global $conn;
 
     if(sql_query($conn, $query))
-      return True;
+      return $conn->insert_id;
 
     return False;
   }
