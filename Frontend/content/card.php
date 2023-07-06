@@ -44,7 +44,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
       echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
       echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . "</td>";
       echo "<tr>";
-      $price_ingredients += $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'];
+      $price_ingredients += $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] * $row['NETTOPREIS'];
       # echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
     }
   }
@@ -57,17 +57,30 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
   <td><?php echo $price_ingredients; ?></td>
 </tr>
 </table>
+<table>
 <?php
+  $price_boxes = 0;
   # getting boxes
-  var_dump($_SESSION['shopping_card_boxes']);
   if(isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_boxes']) > 0){
     $result = sql_fetch($query_boxes, False);
     if($result != False)
       while($row = $result->fetch_assoc()) {
-      echo $row['SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . '</br>';
+        echo "<tr>";
+        echo "  <td>" . $row['SAMMLUNGSBEZEICHNUNG'] . "</td>";
+        echo "  <td>" . $row['RabattPreis'] . "</td>";
+        echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'] . "</td>";
+        echo "</tr>";
+        $price_boxes += $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'];
+        echo $row['SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . '</br>';
     }
   }
 ?>
+<tr>
+  <td></td>
+  <td></td>
+  <td><?php echo $price_boxes; ?></td>
+</tr>
+</table>
 <?php
   if(isset($_SESSION['userid']))
     echo "<input type=\"submit\" name=\"Order\" value=\"Bestellen\">";
