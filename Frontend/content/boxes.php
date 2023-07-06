@@ -15,6 +15,6 @@
   $result = sql_fetch($query, False);
 
   while($row = $result->fetch_assoc()) {
-    echo "dataset";
+    echo $row['VORNAME'] . '<br>';
   }
 ?>
