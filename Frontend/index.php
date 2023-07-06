@@ -115,7 +115,10 @@
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
+              if($row['KATEGORIENNR'] == $_SESSION['cetegorie'])
+                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
+              else
+                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
               if (isset($_POST[$canr])) {
                 $_SESSION['categories'] = $_POST[$canr];
               }
