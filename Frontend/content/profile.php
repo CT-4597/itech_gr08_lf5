@@ -1,6 +1,10 @@
 <?php
   $err = NULL;
 
+  # DSGVO DELETE
+  if(isset($POST['dsgvo_form_delete'])) {
+    header("Location: /");
+  }
 
   # Save changed profile Action Block
   if(isset($_POST['SaveProfile'])) {
@@ -100,11 +104,13 @@
   <input type="submit" name="ChangePassword" value="Passwort Ändern">
 </form>
 <br/>
-<form action="/profil" id="dsgvo_form" method="post">
-
+<form action="/profil" id="dsgvo_form_download" method="post">
   <h3>Daten Beantragen</h3>
   <p>Hier können sie alle ihre Personenbezogen Daten direkt beantragen.</p>
   <input type="submit" name="dsgvo_getdata" value="Download Dump">
+</form>
+<form action="/profil" id="dsgvo_form_delete" method="post">
+  <input type="hidden" name="dsgvo_form_delete" value="1">
   <h3>Daten Löschen</h3>
   <p>Hier können sie ihr Konto und alle dazugehörigen Personenbezogenen Daten löschen.</p>
   <input type="button" onclick="dsgvo_delete_confirmation()" name="dsgvo_Delete" value="Konto löschen">
@@ -114,7 +120,7 @@
   function dsgvo_delete_confirmation() {
     var response = confirm("Möchten sie wirklich ihr Benutzerkonto löschen? Dieser Vorgang kann nicht rückgängig gemacht werden!");
     if (response == true) {
-      document.getElementById('dsgvo_form').submit();
+      document.getElementById('dsgvo_form_delete').submit();
     }
   }
 </script>
