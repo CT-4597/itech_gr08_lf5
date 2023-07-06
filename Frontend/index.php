@@ -16,6 +16,9 @@
     if(isset($_GET['newsession']) || !isset($_SESSION['shopping_card_ingredients'])) {
       $_SESSION['shopping_card_ingredients'] = array();
     }
+    if(isset($_GET['newsession']) || !isset($_SESSION['shopping_card_boxes'])) {
+      $_SESSION['shopping_card_boxes'] = array();
+    }
     if(isset($_GET['newsession']) || !isset($_SESSION['allergies'])) {
       $_SESSION['allergies'] = array();
     }
