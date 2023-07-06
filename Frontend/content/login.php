@@ -1,4 +1,5 @@
 <?php
+  $err = NULL;
   if(isset($_POST['email']) && isset($_POST['passwd'])) {
 
     # $sql = log_sql("SELECT KUNDENNR FROM KUNDE WHERE EMAIL='" . $_POST['email'] . "' AND PASSWORT='" . $_POST['passwd']) . "'";
@@ -18,21 +19,15 @@
       exit();
     } else {
       $_SESSION['userid'] = NULL;
-        debug_log("Failed to login");
+        $err = "Failed";
     }
   }
  ?>
 
 
-<?php
- # If we do have the post data, we werent redirected = Failed Login
-  if(isset($_POST['customer']) && isset($_POST['passwd'])) {
-    echo "Login fehlgeschlagen.";
-  }
- ?>
-
 <div class="loginform">
     <form action="/login" method="post">
+        <?php if($err == "Failed") echo "<p class=\"error\">Login fehlgeschlagen.</p>"; ?>
         <h1>Login</h1>
         <label for="email">E-Mail:</label><br>
         <input type="text" id="email" name="email"><br>
