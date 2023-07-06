@@ -106,10 +106,7 @@
         while($row = $result->fetch_assoc()) {
             $alnr = 'Allergen' . $row['ALLERGENNR'];
             echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-            if(in_array((string)$row['ALLERGENNR'], $_SESSION['allergies']))
-              echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . '" checked>';
-            else
-              echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . '">';
+            echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . (in_array((string)$row['ALLERGENNR'], $_SESSION['allergies']) ? '" checked>': '">');
           }
         }
         ?>
@@ -127,7 +124,7 @@
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . ($row['KATEGORIENR'] == $_SESSION['categories'] ? ' checked' : '') . '" checked>';
+              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '"' . ($row['KATEGORIENR'] == $_SESSION['categories'] ? ' checked' : '') . '>';
             }
           }
 
