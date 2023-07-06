@@ -89,7 +89,7 @@
         <?php
         echo "allergies(array):";
         var_dump($_SESSION['allergies']);
-        echo "</br> cetegorie:";
+        echo "</br> categories:";
         var_dump($_SESSION['categories']);
         echo "</br>";
         $sql = log_sql("SELECT * FROM ALLERGEN");
@@ -115,7 +115,7 @@
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              if($row['KATEGORIENNR'] == $_SESSION['cetegorie'])
+              if($row['KATEGORIENR'] == $_SESSION['categories'])
                 echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
               else
                 echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
