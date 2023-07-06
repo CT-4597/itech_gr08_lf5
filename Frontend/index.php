@@ -23,6 +23,16 @@
         $page = 'content/' . $default_page . '.php';
     }
 
+    # Filtering
+    if(isset($_POST['filter'])) {
+      if($_POST['filter'] == "apply") {
+        if($_POST['categories'] == 'NULL')
+          $_SESSION['categories'] = NULL;
+        else
+          $_SESSION['categories'] = $_POST['categories'];
+      }
+    }
+
     if (session_status() == PHP_SESSION_ACTIVE) {
       debug_log("acitve session: " . session_id());
     } else {
