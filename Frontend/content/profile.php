@@ -121,7 +121,7 @@
 <form action="/profil" id="dsgvo_form_download" method="post">
   <h3>Daten Beantragen</h3>
   <p>Hier können sie alle ihre Personenbezogen Daten direkt beantragen.</p>
-  <input type="submit" name="dsgvo_getdata" value="Download Dump">
+  <input type="submit" name="dsgvo_form_download" value="Download Dump">
 </form>
 <form action="/profil" id="dsgvo_form_delete" method="post">
   <input type="hidden" name="dsgvo_form_delete" value="1">
