@@ -2,7 +2,7 @@
   $err = NULL;
 
   # DSGVO DELETE
-  if(isset($POST['dsgvo_form_delete'])) {
+  if(isset($_POST['dsgvo_form_delete'])) {
     echo "delete";
     header("Location: /");
   }
