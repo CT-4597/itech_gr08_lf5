@@ -11,11 +11,14 @@
     # in case something went wrong an we need the vars to be reseted
     if(isset($_GET['newsession']) || !isset($_SESSION['userid'])) {
       $_SESSION['userid'] = NULL;
-      $_SESSION['shopping_card_ingredients'] = array();
-      $_SESSION['allergies'] = array();
       $_SESSION['categories'] = NULL;
     }
-
+    if(isset($_GET['newsession']) || !isset($_SESSION['shopping_card_ingredients'])) {
+      $_SESSION['shopping_card_ingredients'] = array();
+    }
+    if(isset($_GET['newsession']) || !isset($_SESSION['allergies'])) {
+      $_SESSION['allergies'] = array();
+    }
     # Check for page var. Get the default page if needed.
     if(isset($_GET['page'])) {
         $page = 'content/' . htmlspecialchars($_GET["page"]) . '.php';
