@@ -1,6 +1,8 @@
 <form>
 <?php
 # $result = sql_fetch();
+
+# Building query for Ingredients
 if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_card_ingredients']) > 0) {
     // Schleife über den Warenkorb
     $query = "SELECT BEZEICHNUNG FROM ZUTAT WHERE";
@@ -10,9 +12,17 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
       $query .= ($first ? ' ': ' OR ') . "ZUTATENNR=$ingredient";
       $first = False;
     }
-    echo $query;
 }
  ?>
+
+<?php
+$result = sql_fetch($query);
+if($result != False)
+  while($row = $result->fetch_assoc()) {
+    echo $row['BEZEICHNUNG'];
+  }
+ ?>
+
  <?php
   if(isset($_SESSION['userid']))
     echo "<input type=\"button\" name=\"Order\" value=\"Bestellen\">";
