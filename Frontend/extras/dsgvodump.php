@@ -5,7 +5,7 @@
 
   function getcsv($query) {
     global $conn;
-    $result = $conn->query($query_dsgvo_download);
+    $result = $conn->query($query);
 
     // get attribute names
     $fields = $result->fetch_fields();
