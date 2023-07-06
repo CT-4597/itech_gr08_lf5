@@ -25,7 +25,7 @@
         PLZ='$PLZ',
         ORT='$ORT',
         TELEFON='$TELEFON'
-        WHERE KUNDENR=$userid");
+        WHERE KUNDENNR=$userid");
     }
 
     # Change Passwort Action block
