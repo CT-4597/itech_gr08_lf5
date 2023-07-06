@@ -17,6 +17,6 @@
   while($row = $result->fetch_assoc()) {
     $id = $row['KUNDENNR'];
     $name = $row['VORNAME'];
-    echo '<a href="/box/$id">$name</a><br>';
+    echo "<a href=\"/box/$id\">$name</a><br>";
   }
 ?>
