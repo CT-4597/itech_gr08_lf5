@@ -32,7 +32,7 @@
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
             ?>
-            <a href="/zutat/<?php echo $row["SAMMLUNGSNR"]; ?>" class="ingredients_flexitem">
+            <a href="/box/<?php echo $row["SAMMLUNGSNR"]; ?>" class="ingredients_flexitem">
                 <div><img src="<?php get_image("s", $row['SAMMLUNGSNR']); ?>" alt="Bild der Box" class="ingredients_pic"></div>
                 <div><?php echo $row['SAMMLUNGSBEZEICHNUNG']; ?></div>
             </a>
