@@ -255,7 +255,12 @@ span.sql_keyword {
 
 
 
-/* Ingredients details styling */
+/* Ingredients/Boxes details styling */
+
+.details_container {
+    display: grid;
+    gap: 20px;
+}
 
 .details_headline {
     margin-top: 0;
@@ -264,13 +269,23 @@ span.sql_keyword {
 }
 
 .details_pic {
-    float: right;
-    width: 20%;
-    margin: 10%;
+    grid-column: 2;
     padding: 30px;
     border-radius: 20%;
     background-color: #aa76aa;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.details_nutrition {
+    grid-column: 1;
+}
+
+.details_info {
+    grid-column: 1;
+}
+
+.details_order {
+    grid-column: 2;
 }
 
 
