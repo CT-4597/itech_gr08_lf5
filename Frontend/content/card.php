@@ -7,7 +7,7 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
     $first = True;
     foreach ($_SESSION['shopping_card_ingredients'] as $ingredient => $amount) {
       echo "Produkt: " . $ingredient . ", Menge: " . $amount . "<br>";
-      $query .= ($first ? '': ' OR ') . 'ZUTATENNR=$ingredient';
+      $query .= ($first ? '': ' OR ') . "ZUTATENNR=$ingredient";
       $first = False;
     }
     echo $query;
