@@ -104,7 +104,7 @@
         <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
-        <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48"><a id="order_item_count"></a></a>
+        <a href="/warenkorb" class="navitem" id="order_item_count"></a>
         <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($filter_active) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
     </div>
 
@@ -161,7 +161,7 @@
     </div>
 </body>
 <script>
-      document.getElementById('order_item_count').innerHTML = '<?php echo get_order_items(); ?>';
+      document.getElementById('order_item_count').innerHTML = '<img src="/images/icon_shopping_card.svg" width="48" height="48"><?php echo get_order_items(); ?></a>';
       var logger_container = document.getElementById('sql_logger_inner');
       document.getElementById('sql_logger').appendChild(logger_container);
       function toggleFilter() {
