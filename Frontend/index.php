@@ -24,7 +24,7 @@
     }
 
     # Filtering
-    if(isset($_POST['filter'])) {
+    if(isset($_POST['ApplyFilter'])) {
       if($_POST['filter'] == "apply") {
         if($_POST['categories'] == 'NULL')
           $_SESSION['categories'] = NULL;
@@ -94,7 +94,6 @@
 
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
-          <input type="hidden" name="filter" value="apply" />
           <h3>Allergene</h3>
           <h4>Test: <?php if($filter_active) echo " checked"; ?></h4>
         <?php
@@ -129,7 +128,7 @@
           }
 
         ?>
-        <input type="submit" name="" value="Übernehmen">
+        <input type="submit" name="ApplyFilter" value="Übernehmen">
         </form>
     </div>
 

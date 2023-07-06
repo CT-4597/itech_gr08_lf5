@@ -27,7 +27,7 @@
 <?php
  # If we do have the post data, we werent redirected = Failed Login
   if(isset($_POST['customer']) && isset($_POST['passwd'])) {
-    echo "Failed login.";
+    echo "Login fehlgeschlagen.";
   }
  ?>
 
@@ -38,6 +38,6 @@
         <input type="text" id="email" name="email"><br>
         <label for="passwd">Passwort:</label><br>
         <input type="password" id="passwd" name="passwd">
-        <input type="submit" value="Login">
+        <input type="submit" name="Login" value="Login">
     </form>
 </div>
