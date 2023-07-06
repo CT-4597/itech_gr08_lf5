@@ -56,7 +56,7 @@
 <?php if($err != NULL){ ?>
   <form>
   <?php
-    if($err == 'pwcheck') echo "<p class=\"error\">Ihr Passwort war nicht richtig.</p>";
+    if($err == 'pwcheck') echo "<p class=\"error\">Falsches Passwort.</p>";
     if($err == 'pwmatch') echo "<p class=\"error\">Die neuen Passwörter stimmen nicht überein.";
    ?>
  </form>
