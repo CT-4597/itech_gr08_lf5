@@ -1,3 +1,4 @@
+<div class="ingredients_flexbox">
 <?php
   $sql = 'SELECT * FROM SAMMLUNG
             LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
@@ -41,3 +42,4 @@
 	    echo "0 results";
 	}
 ?>
+</div>
