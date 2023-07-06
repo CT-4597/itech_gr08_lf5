@@ -77,6 +77,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
 </tr>
 </table>
 <h3 style="text-align: right;"><?php echo (string)($price_ingredients + $price_boxes) ?> €</h3>
+<input type="hidden" name="price_total" value="<?php echo (string)($price_ingredients + $price_boxes) ?>">
 <?php
   if(isset($_SESSION['userid']))
     echo "<input type=\"submit\" name=\"Order\" value=\"Bestellen\">";
