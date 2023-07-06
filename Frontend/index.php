@@ -96,7 +96,6 @@
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
           <h3>Allergene</h3>
-          <h4>Test: <?php if($filter_active) echo " checked"; ?></h4>
         <?php
         $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
