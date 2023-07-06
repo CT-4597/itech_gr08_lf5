@@ -6,9 +6,8 @@
 
 
 <form action="/profile" method="post">
-  <h3> Profil </h3>
   <input type="hidden" name="action" value="save">
-
+  <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
   <input type="text" id="email" name="email" value="<?php echo $result['EMAIL']; ?>" maxlength="50" required><br>
   <label for="vorname">Vorname</label><br>
@@ -31,11 +30,10 @@
   <input type="submit" value="Änderungen Speichern">
 </form>
 
-<hr>
-
-  <h3> Passwort Ändern </h3>
 <form action="/profile" method="post">
   <input type="hidden" name="action" value="changepw">
+
+  <h3> Passwort Ändern </h3>
 
   <label for="passwd">Ales Passwort</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
