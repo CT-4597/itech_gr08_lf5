@@ -3,6 +3,7 @@
     include('includes/helper.php');
     include('includes/sql_logger.php');
     include('includes/log.php');
+    include('includes/sql_helper.php');
 
     session_start();
 
@@ -98,7 +99,7 @@
               }
             }
           }
-        
+
         ?>
         <input type="submit" value="OK">
         </form>
