@@ -1,9 +1,44 @@
 <?php
+  # Save changed profile Action Block
+  if($_POST['action'] == 'save') {
+
+  }
+
+  # Change Passwort Action block
+  if($_POST['action'] == 'changepw') {
+    # prpare vars for sql
+    $userid = $_SESSION['userid'];
+    $passwd = $_SESSION['passwd'];
+    $passwd_new = $_SESSION['passwd_new'];
+    $passwd_new2 = $_SESSION['passwd_new2'];
+    $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT=$passwd");
+
+    $err_pwcheck = True
+    $err_pwmatch = True
+    # if result is not False, the old password was correct.
+    if($result != False){
+      $err_pwcheck = False;
+      # Do the new Passwords Match??
+      if($passwd_new == $passwd_new2){
+        $err_pwmatch = False;
+      }
+    }
+  }
+
   $userid = $_SESSION['userid'];
   $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid");
 
 ?>
 
+<?php
+  if($err_pwcheck) {
+    echo "Ihr Passwort war nicht richtig.";
+  }
+
+  if($err_pwmatch) {
+    echo "Die neuen Passwörter stimmen nicht überein.";
+  }
+ ?>
 
 <form action="/profile" method="post">
   <input type="hidden" name="action" value="save">
@@ -37,10 +72,10 @@
 
   <label for="passwd">Altes Passwort</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
-  <label for="passwd">Neues Passwort</label><br>
-  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
-  <label for="passwd">Passwort Wiederholen</label><br>
-  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+  <label for="passwd_new">Neues Passwort</label><br>
+  <input type="password" id="passwd_new" name="passwd_new"  maxlength="5" required><br>
+  <label for="passwd_new2">Passwort Wiederholen</label><br>
+  <input type="password" id="passwd_new2" name="passwd_new2"  maxlength="5" required><br>
 
   <input type="submit" value="Passwort Ändern">
 </form>
