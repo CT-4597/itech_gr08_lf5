@@ -49,7 +49,10 @@
             echo '<a href="/login">Login</a></br>';
             echo '<a href="/registrieren">Register</a>';
           } else {
-            echo 'Hallo, ' .  $_SESSION['userid'] . '</br>';
+            $userid = $_SESSION['userid'];
+            $result = sql_fetch("SELECT VORNAME, NACHNAME FROM KUNDE WHERE KUNDENNR=$userid");
+
+            echo 'Hallo, ' .  $result['VORNAME'] . ' ' . $result['NACHNAME'] . '</br>';
             echo '<a href="/logout">Logout</a>';
           }
          ?>
