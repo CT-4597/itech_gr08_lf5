@@ -33,6 +33,7 @@
 
 <div class="loginform">
     <form action="/login" method="post">
+        <h1>Login</h1>
         <label for="email">E-Mail:</label><br>
         <input type="text" id="email" name="email"><br>
         <label for="passwd">Passwort:</label><br>
