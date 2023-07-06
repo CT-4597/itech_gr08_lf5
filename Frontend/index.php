@@ -89,12 +89,7 @@
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
-        <?php
-          if($filter_active)
-            echo '<a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter_used.svg" width="48" height="48">&nbsp;</a>';
-          else
-            echo '<a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>';
-        ?>
+        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter.svg" width="48" height="48"<?php if($filter_active) echo " checked"; ?>>&nbsp;</a>
     </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
@@ -132,10 +127,7 @@
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              if($row['KATEGORIENR'] == $_SESSION['categories'])
-                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
-              else
-                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
+              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . ($row['KATEGORIENR'] == $_SESSION['categories'] ? ' checked' : '') . '" checked>';
             }
           }
 
