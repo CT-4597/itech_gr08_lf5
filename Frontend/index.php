@@ -89,7 +89,7 @@
         <?php
         echo "allergies(array):";
         var_dump($_SESSION['allergies']);
-        echo "</br> cetegorie:";
+        echo "</br> categories:";
         var_dump($_SESSION['categories']);
         echo "</br>";
         $sql = log_sql("SELECT * FROM ALLERGEN");
@@ -110,12 +110,18 @@
 	      $result = $conn->query($sql);
 
           echo '<label for="all">Alle</label>';
-          echo '<input type="radio" id="all" name="categories" value="NULL">';
+          if($_SESSION['categories'] == NULL)
+            echo '<input type="radio" id="all" name="categories" value="NULL" checked>';
+          else
+            echo '<input type="radio" id="all" name="categories" value="NULL">';
           if ($result->num_rows > 0) {
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
+              if($row['KATEGORIENR'] == $_SESSION['categories'])
+                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
+              else
+                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
               if (isset($_POST[$canr])) {
                 $_SESSION['categories'] = $_POST[$canr];
               }
