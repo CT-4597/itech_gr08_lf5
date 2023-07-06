@@ -47,7 +47,7 @@
   }
  ?>
 
-<form action="/profile" method="post">
+<form action="/profil" method="post">
   <input type="hidden" name="action" value="save">
   <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
@@ -72,7 +72,7 @@
   <input type="submit" value="Änderungen Speichern">
 </form>
 </br>
-<form action="/profile" method="post">
+<form action="/profil" method="post">
   <input type="hidden" name="action" value="changepw">
 
   <h3> Passwort Ändern </h3>
