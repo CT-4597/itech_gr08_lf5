@@ -46,7 +46,7 @@
         <div class="header_login">
         <?php
           if($_SESSION['userid'] == NULL){
-            echo '<a href="/login">Login</a></br>';
+            echo '<a href="/login">Login</a>&nbsp;';
             echo '<a href="/registrieren">Register</a>';
           } else {
             $userid = $_SESSION['userid'];
