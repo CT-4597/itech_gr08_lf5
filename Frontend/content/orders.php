@@ -15,7 +15,7 @@
     while($row = $result->fetch_assoc()) {
       echo "<tr>";
       echo "  <td>" . $row['BESTELLNR'] . "</td>";
-      echo "  <td>" . $row['BESTELLDATUM'] . "</td>";
+      echo "  <td style=\"text-align: right;\">" . $row['BESTELLDATUM'] . "</td>";
       echo "  <td style=\"text-align: right;\">" . $row['RECHNUNGSBETRAG'] . " €</td>";
       echo "</tr>";
     }
