@@ -68,6 +68,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
         echo "<tr>";
         echo "  <td>" . $row['SAMMLUNGSBEZEICHNUNG'] . "</td>";
         echo "  <td>" . $row['RabattPreis'] . "</td>";
+        echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . "</td>";
         echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'] . "</td>";
         echo "</tr>";
         $price_boxes += $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'];
@@ -78,9 +79,11 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
 <tr>
   <td></td>
   <td></td>
+  <td></td>
   <td><?php echo $price_boxes; ?></td>
 </tr>
 </table>
+<h3><?php echo (string)($price_ingredients + $price_boxes) ?> €</h3>
 <?php
   if(isset($_SESSION['userid']))
     echo "<input type=\"submit\" name=\"Order\" value=\"Bestellen\">";
