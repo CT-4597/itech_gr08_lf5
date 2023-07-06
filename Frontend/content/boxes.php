@@ -5,20 +5,22 @@
             WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR=1";
 
   if($_GET['type'] == 'discount'){
-
+    $query .= "2"
   }
 
   if($_GET['type'] == 'bio'){
-
+    $query .= "3"
   }
 
   if($_GET['type'] == 'recipe'){
-
+    $query .= "1"
   }
 
   # execute sql statement
   $result = sql_fetch($query, False);
+  if(result){
+    while($row = $result->fetch_assoc()) {
 
-  while($row = $result->fetch_assoc()) {
+    }
   }
 ?>
