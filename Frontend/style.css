@@ -280,7 +280,10 @@ span.sql_keyword {
 }
 
 .details_nutrition {
+    list-style-type: none;
     grid-column: 1;
+    font-size: 1em;
+    border-bottom: 2px #6c6c6c;
 }
 
 .details_info {
@@ -292,7 +295,6 @@ span.sql_keyword {
 }
 
 #amount {
-    padding: 0.5em;
     font-size: 1em;
     border-radius: 10px;
     transition-duration: 0.4s;
