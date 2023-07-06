@@ -37,11 +37,11 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
     if($result != False)
       while($row = $result->fetch_assoc()) {
       echo "<tr>";
-      echo "  <td>" . $row['BEZEICHNUNG'] . "</td>"
-      echo "  <td>" . $row['NETTOPREIS'] . "</td>"
-      echo "  <td>" . $row['EINHEIT'] . "</td>"
-      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>"
-      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . "</td>"
+      echo "  <td>" . $row['BEZEICHNUNG'] . "</td>";
+      echo "  <td>" . $row['NETTOPREIS'] . "</td>";
+      echo "  <td>" . $row['EINHEIT'] . "</td>";
+      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
+      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . "</td>";
       echo "<tr>";
       # echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
     }
