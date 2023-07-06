@@ -3,6 +3,8 @@ include('../includes/config.php');
 
 session_start();
 
+$output_filename = "dsgvodump_" . (string) . $_SESSION['userid'] . ".csv";
+
 $user_id = $_SESSION['userid'];
 $query_dsgvo_download = "SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM KUNDE
                             LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
