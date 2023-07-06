@@ -36,14 +36,14 @@ if ($result->num_rows > 0) {
                 <th>Zutat</th>
                 <th>Menge</th>
             </tr>
-            <tr>
             <?php
             while ($row_content = $result_content->fetch_assoc()) {
+                echo '<tr>';
                 echo '<td>' . $row_content['BEZEICHNUNG'] . '</td>';
                 echo '<td>' . $row_content['ZUTATENMENGE'] . '</td>';
+                echo '</tr>';
             }
             ?>
-            </tr>
         </table>
     </div>
 
