@@ -12,6 +12,8 @@
     if(isset($_GET['newsession']) || !isset($_SESSION['userid'])) {
       $_SESSION['userid'] = NULL;
       $_SESSION['shopping_card_ingredients'] = array();
+      $_SESSION['allergies'] = array();
+      $_SESSION['categories'] = NULL;
     }
 
     # Check for page var. Get the default page if needed.
@@ -117,6 +119,8 @@
 </body>
 <script>
     <?php
+      debug_log(var_dump($_SESSION['allergies']));
+      debug_log(var_dump($_SESSION['categories']));
       echo "document.getElementById(\"sql_logger\").innerHTML = '";
       sql_print();
       if($debugging) {
