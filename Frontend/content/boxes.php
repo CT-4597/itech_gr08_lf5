@@ -15,6 +15,8 @@
   $result = sql_fetch($query, False);
 
   while($row = $result->fetch_assoc()) {
-    echo $row['VORNAME'] . '<br>';
+    $id = $row['KUNDENNR'];
+    $name = $row['VORNAME'];
+    echo '<a href="/box/$id">$name</a><br>';
   }
 ?>
