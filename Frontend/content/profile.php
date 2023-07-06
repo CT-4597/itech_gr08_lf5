@@ -1,6 +1,6 @@
 <?php
-  $err_pwcheck = True;
-  $err_pwmatch = True;
+  $err_pwcheck = False;
+  $err_pwmatch = False;
 
 
   if(isset($_POST['action'])) {
@@ -12,6 +12,8 @@
 
     # Change Passwort Action block
     if($_POST['action'] == 'changepw') {
+      $err_pwcheck = True;
+      $err_pwmatch = True;
       # prpare vars for sql
       $userid = $_SESSION['userid'];
       $passwd = $_SESSION['passwd'];
