@@ -1,4 +1,4 @@
-<form>
+<form action="/bestellen" method="post">
 <?php
 # $result = sql_fetch();
 
