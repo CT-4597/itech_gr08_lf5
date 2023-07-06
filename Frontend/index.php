@@ -63,9 +63,9 @@
     <div class="navigation">
         <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>
         <a href="/zutaten" class="navitem">Zutaten</a>
-        <a href="/index.php" class="navitem">Rabatt-Boxen</a>
-        <a href="/index.php" class="navitem">Bio-Boxen</a>
-        <a href="/index.php" class="navitem">Rezept-Boxen</a>
+        <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
+        <a href="/box/bio" class="navitem">Bio-Boxen</a>
+        <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
         <button onclick="toggleFilter()" class="navitem"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</button>
     </div>
