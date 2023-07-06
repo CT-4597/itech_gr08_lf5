@@ -10,8 +10,7 @@ $query_dsgvo_download = "SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICH
                             LEFT JOIN SAMMLUNG ON SAMMLUNG.SAMMLUNGSNR = BESTELLUNGSAMMLUNG.SAMMLUNGSNR
                             WHERE KUNDE.KUNDENNR = $user_id";
 
-$conn->query($query_dsgvo_download);
-$result = sql_fetch($query_dsgvo_download);
+$result = $conn->query($query_dsgvo_download);
 
 // get attribute names
 $fields = $result->fetch_fields();
