@@ -30,14 +30,6 @@ if ($result->num_rows > 0) {
 
     <img src="<?php get_image("s", $row['SAMMLUNGSNR']); ?>" alt="Bild der Zutat" class="details_pic">
 
-    <div class="details_info">
-        <ul>
-            <li>Verfügbar: <?php echo 'TO DO Stück'; ?></li>
-            <li>Einzelpreis der Zutaten: <?php echo $row['Gesamtpreis']; ?> €</li>
-            <li>Preis in netto: <?php echo $row['RabattPreis']; ?> €</li>
-        </ul>
-    </div>
-
     <div class="details_boxcontent">
         <table>
             <tr>
@@ -51,6 +43,14 @@ if ($result->num_rows > 0) {
             }
             ?>
         </table>
+    </div>
+
+    <div class="details_info">
+        <ul>
+            <li>Verfügbar: <?php echo 'TO DO Stück'; ?></li>
+            <li>Einzelpreis der Zutaten: <?php echo $row['Gesamtpreis']; ?> €</li>
+            <li>Preis in netto: <?php echo $row['RabattPreis']; ?> €</li>
+        </ul>
     </div>
 
     <div class="details_order">
