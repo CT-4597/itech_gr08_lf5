@@ -110,7 +110,10 @@
 	      $result = $conn->query($sql);
 
           echo '<label for="all">Alle</label>';
-          echo '<input type="radio" id="all" name="categories" value="NULL">';
+          if($_SESSION['categories'] == NULL)
+            echo '<input type="radio" id="all" name="categories" value="NULL" checked>';
+          else
+            echo '<input type="radio" id="all" name="categories" value="NULL">';
           if ($result->num_rows > 0) {
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
