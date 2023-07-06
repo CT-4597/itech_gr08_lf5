@@ -45,8 +45,7 @@ if ($result->num_rows > 0) {
                 <th>Menge</th>
             </tr>
             <?php
-            while ($result_content->num_rows > 0) {
-                $row_content = $result->fetch_assoc();
+            while ($row_content = $result_content->fetch_assoc()) {
                 echo '<td>' . $row_content['ZUTATENNR'] . '</td>';
                 echo '<td>' . $row_content['BEZEICHNUNG'] . '</td>';
             }
