@@ -69,7 +69,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
 ?>
 <?php
   if(isset($_SESSION['userid']))
-    echo "<input type=\"button\" name=\"Order\" value=\"Bestellen\">";
+    echo "<input type=\"submit\" name=\"Order\" value=\"Bestellen\">";
   else
     echo "<p>Bitte loggen sie sich ein um zu Bestellen.</p>";
 ?>

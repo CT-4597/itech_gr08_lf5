@@ -99,3 +99,12 @@
 
   <input type="submit" name="ChangePassword" value="Passwort Ändern">
 </form>
+<br/>
+<form action="/profil" method="post">
+  <h3>Daten Beantragen</h3>
+  <p>Hier können sie alle ihre Personenbezogen Daten direkt beantragen.</p>
+  <input type="submit" name="dsgvo_getdata" value="Download Dump">
+  <h3>Daten Löschen</h3>
+  <p>Hier können sie ihr Konto und alle dazugehörigen Personenbezogenen Daten löschen.</p>
+  <input type="submit" name="dsgvo_Delete" value="Konto löschen">
+</form>
