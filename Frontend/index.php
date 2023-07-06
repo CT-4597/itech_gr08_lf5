@@ -57,7 +57,14 @@
     }
 
     function get_order_items() {
-      return (string)(count($_SESSION['shopping_card_ingredients']) + count($_SESSION['shopping_card_boxes']));
+      $num_items = 0;
+      foreach ($_SESSION['shopping_card_ingredients'] as $box => $amount) {
+        $num_items += $amount;
+      }
+      foreach ($_SESSION['shopping_card_boxes'] as $box => $amount) {
+        $num_items += $amount;
+      }
+      return (string)$num_items;
     }
 ?>
 <!DOCTYPE html>
