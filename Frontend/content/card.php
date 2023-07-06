@@ -32,18 +32,22 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
 
 <?php
   # getting ingredients
-  $result = sql_fetch($query_ingredients, False);
-  if($result != False)
-    while($row = $result->fetch_assoc()) {
-    echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
+  if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_card_ingredients']) > 0) {
+    $result = sql_fetch($query_ingredients, False);
+    if($result != False)
+      while($row = $result->fetch_assoc()) {
+      echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
+    }
   }
 ?>
 <?php
   # getting boxes
-  $result = sql_fetch($query_boxes, False);
-  if($result != False)
-    while($row = $result->fetch_assoc()) {
-    echo $row['SAMMLUNG.SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNG.SAMMLUNGSNR']] . '</br>';
+  if(isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_boxes']) > 0){
+    $result = sql_fetch($query_boxes, False);
+    if($result != False)
+      while($row = $result->fetch_assoc()) {
+      echo $row['SAMMLUNG.SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNG.SAMMLUNGSNR']] . '</br>';
+    }
   }
 ?>
 <?php
