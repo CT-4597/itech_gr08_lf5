@@ -279,7 +279,7 @@ span.sql_keyword {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.details_nutrition {
+.details_nutrition ul {
     list-style-type: none;
     grid-column: 1;
     font-size: 1em;
