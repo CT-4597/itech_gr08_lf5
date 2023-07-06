@@ -269,7 +269,9 @@ span.sql_keyword {
 }
 
 .details_pic {
-    width: 30%;
+    display: block;
+    margin: auto;
+    width: 60%;
     grid-column: 2;
     padding: 30px;
     border-radius: 20%;
@@ -287,6 +289,15 @@ span.sql_keyword {
 
 .details_order {
     grid-column: 2;
+}
+
+#amount {
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
 }
 
 
