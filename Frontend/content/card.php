@@ -5,7 +5,7 @@
 # Building query for Ingredients
 if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_card_ingredients']) > 0) {
     // Schleife über den Warenkorb
-    $query = "SELECT BEZEICHNUNG FROM ZUTAT WHERE";
+    $query = "SELECT ZUTATENNR, BEZEICHNUNG FROM ZUTAT WHERE";
     $first = True;
     foreach ($_SESSION['shopping_card_ingredients'] as $ingredient => $amount) {
       echo "Produkt: " . $ingredient . ", Menge: " . $amount . "<br>";
@@ -13,13 +13,15 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
       $first = False;
     }
 }
+var_dump($_SESSION['shopping_card_ingredients']);
  ?>
 
 <?php
+
 $result = sql_fetch($query, False);
 if($result != False)
   while($row = $result->fetch_assoc()) {
-    echo $row['BEZEICHNUNG'];
+    echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['shopping_card_ingredients']] . '</br>';
   }
  ?>
 
