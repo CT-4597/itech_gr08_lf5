@@ -5,6 +5,11 @@
   $result = sql_fetch($query, False);
 ?>
 <table>
+<tr>
+  <td>Bestellnummer</td>
+  <td style="text-align: right;">Bestelldatum</td>
+  <td style="text-align: right;">Rechnungsbetrag</td>
+</tr>
 <?php
   if($result != False)
     while($row = $result->fetch_assoc()) {
