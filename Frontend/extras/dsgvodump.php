@@ -37,11 +37,11 @@
   $csv_data .= getcsv($query_orders_boxes);
 
   // Dateidownload-Header setzen
-  # header("Content-Type: text/csv");
-  # header("Content-Disposition: attachment; filename=$output_filename");
+  header("Content-Type: text/csv");
+  header("Content-Disposition: attachment; filename=$output_filename");
 
   // CSV-Daten an den Browser senden
   echo $csv_data;
-  # exit;
+  exit;
 
  ?>
