@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
         <form action="/box/<?php echo $row['SAMMLUNGSNR']; ?>" method="post">
     	    <input type="hidden" name="SAMMLUNGSNR" value="<?php echo $row['SAMMLUNGSNR']; ?>">
             <label for="amount">Menge</label>
-            <input type="number" id="amount" name="amount" min="1" max="<?php echo $row['BESTAND']; ?>" value="1">
+            <input type="number" id="amount" name="amount" min="1" max="10" value="1">
             <input type="submit" name="AddToCard" value="Zum Warenkorb hinzufügen">
         </form>
     </div>
