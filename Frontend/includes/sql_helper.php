@@ -1,13 +1,17 @@
 <?php
 
-  function sql_fetch($query) {
+  function sql_fetch($query, $single_row = True) {
     global $conn;
 
 
     $result = sql_query($conn, $query);
     # Return the rows if we got at least one, otherwise return False
     if ($result->num_rows > 0) {
-      return $result->fetch_assoc();
+      if($single_row) {
+        return $result->fetch_assoc();
+      } else {
+        return $result;
+      }
     } else {
       return False;
     }
