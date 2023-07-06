@@ -101,9 +101,6 @@
             $alnr = 'Allergen' . $row['ALLERGENNR'];
             echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
             echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="' . $row['ALLERGENNR'] . '">';
-            if (isset($_POST[$alnr])) {
-              array_push($_SESSION['allergies'], $_POST[$alnr]);
-            }
           }
         }
         $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
@@ -122,9 +119,6 @@
                 echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
               else
                 echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
-              if (isset($_POST[$canr])) {
-                $_SESSION['categories'] = $_POST[$canr];
-              }
             }
           }
 
