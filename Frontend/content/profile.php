@@ -69,7 +69,6 @@
 <?php } ?>
 
 <form action="/profil" method="post">
-  <?php echo $query_dsgvo_delete; ?>
   <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
   <input type="text" id="email" name="email" value="<?php echo $result['EMAIL']; ?>" maxlength="50" required><br>
