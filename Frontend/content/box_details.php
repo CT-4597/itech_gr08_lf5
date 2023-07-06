@@ -28,8 +28,6 @@ if ($result->num_rows > 0) {
 <h1 class="details_headline"><?php echo $row['SAMMLUNGSBEZEICHNUNG']; ?></h1>
 <div class="details_container">
 
-    <img src="<?php get_image("s", $row['SAMMLUNGSNR']); ?>" alt="Bild der Zutat" class="details_pic">
-
     <div class="details_boxcontent">
         <table>
             <tr>
@@ -46,6 +44,8 @@ if ($result->num_rows > 0) {
             ?>
         </table>
     </div>
+
+    <img src="<?php get_image("s", $row['SAMMLUNGSNR']); ?>" alt="Bild der Zutat" class="details_pic">
 
     <div class="details_info">
         <ul>
