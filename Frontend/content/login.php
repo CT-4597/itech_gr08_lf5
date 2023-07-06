@@ -25,8 +25,8 @@
  ?>
 
 
-<div class="loginform">
-    <form action="/login" method="post">
+<div>
+    <form action="/login" method="post"  class="loginform">
         <?php if($err == "Failed") echo "<p class=\"error\">Login fehlgeschlagen.</p>"; ?>
         <h1>Login</h1>
         <label for="email">E-Mail:</label><br>
