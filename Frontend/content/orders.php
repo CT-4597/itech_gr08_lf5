@@ -11,7 +11,7 @@
       echo "<tr>";
       echo "  <td>" . $ROW['BESTELLNR'] . "</td>";
       echo "  <td>" . $ROW['BESTELLDATUM'] . "</td>";
-      echo "  <td style="text-align: right;">" . $ROW['RECHNUNGSBETRAG'] . " €</td>";
+      echo "  <td style=\"text-align: right;\">" . $ROW['RECHNUNGSBETRAG'] . " €</td>";
       echo "</tr>";
     }
 ?>
