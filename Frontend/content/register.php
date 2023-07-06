@@ -54,7 +54,7 @@
   }
  ?>
 
-<form action="/registrieren" method="post">
+<form action="/registrieren" method="post" class="loginform">
   <h1>Registrierung</h1>
   <label for="email">email:</label><br>
   <input type="text" id="email" name="email"  maxlength="50" required><br>
