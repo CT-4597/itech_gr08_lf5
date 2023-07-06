@@ -3,6 +3,26 @@
   function sql_fetch($query) {
     global $conn;
 
+
+    $result = sql_query($conn, $query);
+    # Return the rows if we got at least one, otherwise return False
+    if ($result->num_rows > 0) {
+      return $result->fetch_assoc();
+    } else {
+      return False;
+    }
+  }
+
+  function sql_execute($query) {
+    global $conn;
+
+    if(sql_query($conn, $query))
+      return True;
+
+    return False;
+  }
+
+  function sql_query($conn, $query) {
     # Log the query
     $query = log_sql($query);
 
@@ -17,13 +37,7 @@
       return False;
     }
 
-    # Return the rows if we got at least one, otherwise return False
-    if ($result->num_rows > 0) {
-      return $result->fetch_assoc();
-    } else {
-      return False;
-    }
+    return $result;
   }
-
 
 ?>
