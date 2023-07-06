@@ -17,6 +17,11 @@ $sql = log_sql("SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG,
                 LEFT JOIN ZUTAT ON ZUTAT.ZUTATENNR = SAMMLUNGZUTAT.ZUTATENNR WHERE SAMMLUNG.SAMMLUNGSNR = " . $_GET['id']);
 $result = $conn->query($sql);
 
+$sql_content = log_sql("SELECT SAMMLUNGZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG, SAMMLUNGZUTAT.ZUTATENMENGE FROM SAMMLUNGZUTAT
+                        LEFT JOIN ZUTAT ON ZUTAT.ZUTATENNR = SAMMLUNGZUTAT.ZUTATENNR
+                        WHERE SAMMLUNGZUTAT.SAMMLUNGSNR = " . $_GET['id']);
+$result_content = $conn->query($sql_content);
+
 if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 ?>
@@ -28,8 +33,25 @@ if ($result->num_rows > 0) {
     <div class="details_info">
         <ul>
             <li>Verfügbar: <?php echo 'TO DO Stück'; ?></li>
+            <li>Einzelpreis der Zutaten: <?php echo $row['Gesamtpreis']; ?> €</li>
             <li>Preis in netto: <?php echo $row['RabattPreis']; ?> €</li>
         </ul>
+    </div>
+
+    <div class="details_boxcontent">
+        <table>
+            <tr>
+                <th>Zutat</th>
+                <th>Menge</th>
+            </tr>
+            <?php
+            while ($result_content->num_rows > 0) {
+                $row_content = $result->fetch_assoc();
+                echo '<td>' . $row_content['ZUTATENNR'] . '</td>';
+                echo '<td>' . $row_content['BEZEICHNUNG'] . '</td>';
+            }
+            ?>
+        </table>
     </div>
 
     <div class="details_order">
