@@ -4,7 +4,8 @@
 
   function log_sql($sql_str) {
     global $sql_log;
-    array_push($sql_log, str_replace("'", "\'", $sql_str));
+    # array_push($sql_log, str_replace("'", "\'", $sql_str));
+    array_push($sql_log, $sql_str);
     return $sql_str;
   }
 
