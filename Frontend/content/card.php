@@ -40,10 +40,10 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
       while($row = $result->fetch_assoc()) {
       echo "<tr>";
       echo "  <td>" . $row['BEZEICHNUNG'] . "</td>";
-      echo "  <td>" . $row['NETTOPREIS'] . "</td>";
-      echo "  <td>" . $row['EINHEIT'] . "</td>";
-      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
-      echo "  <td>" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . "</td>";
+      echo "  <td style=\"text-align: right\">" . $row['NETTOPREIS'] . " €</td>";
+      echo "  <td style=\"text-align: right\">" . $row['EINHEIT'] . "</td>";
+      echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
+      echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . " €</td>";
       echo "<tr>";
       $price_ingredients += $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] * $row['NETTOPREIS'];
       # echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
@@ -51,7 +51,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
   }
 ?>
 <tr>
-  <td colspan="5"><?php echo $price_ingredients; ?></td>
+  <td colspan="5" style=\"text-align: right\"><?php echo $price_ingredients; ?> €</td>
 </tr>
 </table>
 <table>
@@ -64,16 +64,16 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
       while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "  <td>" . $row['SAMMLUNGSBEZEICHNUNG'] . "</td>";
-        echo "  <td>" . $row['RabattPreis'] . "</td>";
-        echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . "</td>";
-        echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'] . "</td>";
+        echo "  <td style=\"text-align: right\">" . $row['RabattPreis'] . " €</td>";
+        echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . "</td>";
+        echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'] . " €</td>";
         echo "</tr>";
         $price_boxes += $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'];
     }
   }
 ?>
 <tr>
-  <td colspan="4"><?php echo $price_boxes; ?></td>
+  <td colspan="4" style=\"text-align: right\"><?php echo $price_boxes; ?></td>
 </tr>
 </table>
 <h3><?php echo (string)($price_ingredients + $price_boxes) ?> €</h3>
