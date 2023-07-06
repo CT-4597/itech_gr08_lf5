@@ -19,7 +19,7 @@
       $passwd = $_POST['passwd'];
       $passwd_new = $_POST['passwd_new'];
       $passwd_new2 = $_POST['passwd_new2'];
-      $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT=$passwd");
+      $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT='$passwd'");
 
       # if result is not False, the old password was correct.
       if($result != False){
