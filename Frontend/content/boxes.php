@@ -1,4 +1,4 @@
-<?
+<?php
   $query = "SELECT * FROM KUNDE";
 
   if($_GET['type'] == 'discount'){
