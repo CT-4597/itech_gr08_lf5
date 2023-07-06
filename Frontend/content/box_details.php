@@ -3,10 +3,10 @@
 # Add to card
 if (isset($_POST['AddToCard'])) {
 
-		if(isset($_SESSION['shopping_card_ingredients'][$_POST['SAMMLUNGSNR']])) {
-			$_SESSION['shopping_card_ingredients'][$_POST['SAMMLUNGSNR']] += (int)$_POST['amount'];
+		if(isset($_SESSION['shopping_card_boxes'][$_POST['SAMMLUNGSNR']])) {
+			$_SESSION['shopping_card_boxes'][$_POST['SAMMLUNGSNR']] += (int)$_POST['amount'];
 		} else {
-			$_SESSION['shopping_card_ingredients'][$_POST['SAMMLUNGSNR']] = (int)$_POST['amount'];
+			$_SESSION['shopping_card_boxes'][$_POST['SAMMLUNGSNR']] = (int)$_POST['amount'];
 		}
 }
 
