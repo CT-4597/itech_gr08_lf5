@@ -74,7 +74,10 @@
 
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
+          <input type="hidden" name="filter" value="apply" />
         <?php
+        var_dump($_SESSION['allergies']);
+        var_dump($_SESSION['categories']);
           $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
           $_SESSION['allergies'] = array();
