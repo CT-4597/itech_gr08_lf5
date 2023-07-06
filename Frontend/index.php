@@ -44,6 +44,7 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
+        <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
         <div class="header_login">
         <?php
@@ -117,7 +118,7 @@
         <?php include($page); ?>
     </div>
 
-    <div class="sql_logger" id="sql_logger">
+    <div class="sql_logger_inner" id="sql_logger_inner">
       <?php
       sql_print();
       if($debugging) {
@@ -127,6 +128,8 @@
     </div>
 </body>
 <script>
+      var logger_container = document.getElementById('sql_logger_inner');
+      document.getElementById('sql_logger').appendChild(logger_container);
       function toggleFilter() {
         var x = document.getElementById("filterbox");
         if (x.style.display === "none") {
