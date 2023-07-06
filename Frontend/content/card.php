@@ -72,7 +72,6 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
         echo "  <td>" . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'] . "</td>";
         echo "</tr>";
         $price_boxes += $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] * $row['RabattPreis'];
-        echo $row['SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . '</br>';
     }
   }
 ?>
