@@ -25,17 +25,15 @@
 
     # Filtering
     if(isset($_POST['ApplyFilter'])) {
-      if($_POST['filter'] == "apply") {
-        if($_POST['categories'] == 'NULL')
-          $_SESSION['categories'] = NULL;
-        else
-          $_SESSION['categories'] = $_POST['categories'];
-        # if no allergies are selected, the var isn set
-        if(isset($_POST['allergies']))
-          $_SESSION['allergies'] = $_POST['allergies'];
-        else
-          $_SESSION['allergies'] = array();
-      }
+      if($_POST['categories'] == 'NULL')
+        $_SESSION['categories'] = NULL;
+      else
+        $_SESSION['categories'] = $_POST['categories'];
+      # if no allergies are selected, the var isn set
+      if(isset($_POST['allergies']))
+        $_SESSION['allergies'] = $_POST['allergies'];
+      else
+        $_SESSION['allergies'] = array();
     }
     # Check if Filtering is active
     $filter_active = True;
