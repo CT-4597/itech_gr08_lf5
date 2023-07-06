@@ -53,6 +53,7 @@
             $result = sql_fetch("SELECT VORNAME, NACHNAME FROM KUNDE WHERE KUNDENNR=$userid");
 
             echo 'Hallo, ' .  $result['VORNAME'] . ' ' . $result['NACHNAME'] . '</br>';
+            echo '</br>';
             echo '<a href="/profil">Profil</a> &nbsp;';
             echo '<a href="/logout">Logout</a>';
           }
