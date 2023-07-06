@@ -119,8 +119,7 @@
 </body>
 <script>
     <?php
-      debug_log(var_dump($_SESSION['allergies']));
-      debug_log(var_dump($_SESSION['categories']));
+
       echo "document.getElementById(\"sql_logger\").innerHTML = '";
       sql_print();
       if($debugging) {
