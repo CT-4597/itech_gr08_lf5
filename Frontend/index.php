@@ -79,30 +79,30 @@
         <?php
         var_dump($_SESSION['allergies']);
         var_dump($_SESSION['categories']);
-          $sql = log_sql("SELECT * FROM ALLERGEN");
+        $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
 
 
-          if ($result->num_rows > 0) {
-	        while($row = $result->fetch_assoc()) {
-              $alnr = 'Allergen' . $row['ALLERGENNR'];
-              echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-              echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="' . $row['ALLERGENNR'] . '">';
-              if (isset($_POST[$alnr])) {
-                array_push($_SESSION['allergies'], $_POST[$alnr]);
-              }
+        if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $alnr = 'Allergen' . $row['ALLERGENNR'];
+            echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
+            echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="' . $row['ALLERGENNR'] . '">';
+            if (isset($_POST[$alnr])) {
+              array_push($_SESSION['allergies'], $_POST[$alnr]);
             }
           }
-          $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
+        }
+        $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
 	      $result = $conn->query($sql);
 
           echo '<label for="all">Alle</label>';
-          echo '<input type="radio" id="all" name="all" value="0">';
+          echo '<input type="radio" id="all" name="categories" value="NULL">';
           if ($result->num_rows > 0) {
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              echo '<input type="radio" id="' . $canr . '" name="' . $canr . '" value="' . $row['KATEGORIENR'] . '">';
+              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
               if (isset($_POST[$canr])) {
                 $_SESSION['categories'] = $_POST[$canr];
               }
