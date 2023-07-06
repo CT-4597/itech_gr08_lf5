@@ -6,6 +6,7 @@
 
 
 <form action="/profile" method="post">
+  <h3> Profil </h3>
   <input type="hidden" name="action" value="save">
 
   <label for="email">email:</label><br>
@@ -29,3 +30,25 @@
 
   <input type="submit" value="Änderungen Speichern">
 </form>
+
+<hr>
+
+  <h3> Passwort Ändern </h3>
+<form action="/profile" method="post">
+  <input type="hidden" name="action" value="changepw">
+
+  <label for="passwd">Ales Passwort:</label><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+  <label for="passwd">Neues Passwort:</label><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+  <label for="passwd">Passwort Wiederholen:</label><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+</form>
+
+<hr>
+
+<h1> Passwort Ändern </h1>
+<h2> Passwort Ändern </h2>
+<h3> Passwort Ändern </h3>
+<h4> Passwort Ändern </h4>
+<h5> Passwort Ändern </h5>
