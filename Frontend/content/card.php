@@ -13,9 +13,11 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
       $first = False;
     }
 }
+var_dump($_SESSION['shopping_card_ingredients']);
  ?>
 
 <?php
+
 $result = sql_fetch($query, False);
 if($result != False)
   while($row = $result->fetch_assoc()) {
