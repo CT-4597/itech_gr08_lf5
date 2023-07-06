@@ -16,7 +16,7 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
  ?>
 
 <?php
-$result = sql_fetch($query);
+$result = sql_fetch($query, False);
 if($result != False)
   while($row = $result->fetch_assoc()) {
     echo $row['BEZEICHNUNG'];
