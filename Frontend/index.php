@@ -55,6 +55,10 @@
     if(isset($_GET['newsession'])) {
       debug_log("Session Vars reinitialised.</br>");
     }
+
+    function get_order_items() {
+      return (string)(count($_SESSION['shopping_card_ingredients']) + ount($_SESSION['shopping_card_boxes']));
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,7 +97,7 @@
         <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
-        <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
+        <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48"><?php echo get_order_items(); ?></a>
         <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($filter_active) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
     </div>
 
