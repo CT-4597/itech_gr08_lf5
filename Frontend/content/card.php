@@ -44,7 +44,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
       echo "  <td style=\"text-align: right\">" . $row['EINHEIT'] . "</td>";
       echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . "</td>";
       echo "  <td style=\"text-align: right\">" . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] *  $row['NETTOPREIS'] . " €</td>";
-      echo "<tr>";
+      echo "</tr>";
       $price_ingredients += $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] * $row['NETTOPREIS'];
       # echo $row['BEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_ingredients'][$row['ZUTATENNR']] . '</br>';
     }
