@@ -269,6 +269,7 @@ span.sql_keyword {
 }
 
 .details_pic {
+    width: 30%;
     grid-column: 2;
     padding: 30px;
     border-radius: 20%;
