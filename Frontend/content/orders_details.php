@@ -9,9 +9,9 @@
  ?>
  <table>
    <tr>
-     <th>Bestellnummer<th>
-     <th>Bestelldatum<th>
-     <th>Betrag<th>
+     <th>Bestellnummer</th>
+     <th>Bestelldatum</th>
+     <th>Betrag</th>
    </tr>
    <tr>
      <td><?php echo $row['BESTELLNR']; ?></td>
