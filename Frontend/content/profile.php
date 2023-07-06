@@ -1,6 +1,5 @@
 <?php
-  $err_pwcheck = False;
-  $err_pwmatch = False;
+  $err = NULL;
 
 
   if(isset($_POST['action'])) {
@@ -12,7 +11,6 @@
 
     # Change Passwort Action block
     if($_POST['action'] == 'changepw') {
-      $err_pwcheck = True;
       # prpare vars for sql
       $userid = $_SESSION['userid'];
       $passwd = $_POST['passwd'];
@@ -22,12 +20,14 @@
 
       # if result is not False, the old password was correct.
       if($result != False){
-        $err_pwcheck = False;
-        $err_pwmatch = True;
         # Do the new Passwords Match??
         if($passwd_new == $passwd_new2){
-          $err_pwmatch = False;
+
+        } else {
+          $err = 'pwmatch';
         }
+      } else {
+        $err = 'pwcheck';
       }
     }
   }
@@ -38,11 +38,11 @@
 ?>
 
 <?php
-  if($err_pwcheck) {
+  if($err == 'pwcheck') {
     echo "Ihr Passwort war nicht richtig.";
   }
 
-  if($err_pwmatch) {
+  if($err == 'pwmatch') {
     echo "Die neuen Passwörter stimmen nicht überein.";
   }
  ?>
