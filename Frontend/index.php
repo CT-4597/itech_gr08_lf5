@@ -38,6 +38,10 @@
         debug_log(var_dump($_POST['allergies']));
       }
     }
+    # Check if Filtering is active
+    $filter_active = True;
+    if($_SESSION['categories'] == NULL AND count($_SESSION['allergies']) == 0)
+      $filter_active = False;
 
     if (session_status() == PHP_SESSION_ACTIVE) {
       debug_log("acitve session: " . session_id());
@@ -86,12 +90,18 @@
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
-        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
+        <?php
+          if($filter_active)
+            echo '<a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter_used.svg" width="48" height="48">&nbsp;</a>';
+          else
+            echo '<a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>';
+        ?>
     </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
           <input type="hidden" name="filter" value="apply" />
+          <h3>Allergene</h3>
         <?php
         echo "allergies(array):";
         var_dump($_SESSION['allergies']);
@@ -112,6 +122,9 @@
               echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . '">';
           }
         }
+        ?>
+        <h3>Kategorien</h3>
+        <?php
         $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
 	      $result = $conn->query($sql);
 
@@ -132,7 +145,7 @@
           }
 
         ?>
-        <input type="submit" value="OK">
+        <input type="submit" name="" value="Übernehmen">
         </form>
     </div>
 
