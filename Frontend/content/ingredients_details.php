@@ -1,7 +1,7 @@
 <?php
 
 # Add to card
-if (isset($_POST['ZUTATENNR'])) {
+if (isset($_POST['AddToCard'])) {
 
 		if(isset($_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']])) {
 			$_SESSION['shopping_card_ingredients'][$_POST['ZUTATENNR']] += (int)$_POST['amount'];
@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 	    <input type="hidden" name="ZUTATENNR" value="<?php echo $row['ZUTATENNR']; ?>">
         <label for="amount">Menge</label>
         <input type="number" id="amount" name="amount" min="1" max="<?php echo $row['BESTAND']; ?>" value="1">
-        <input type="submit" value="Zum Warenkorb hinzufügen">
+        <input type="submit" name="AddToCard" value="Zum Warenkorb hinzufügen">
     </form>
 </div>
 
