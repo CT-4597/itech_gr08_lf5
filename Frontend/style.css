@@ -77,6 +77,10 @@ label {
     margin: 20px;
 }
 
+p.error {
+  color: red;
+}
+
 
 /* Styling of index, Font site-wide */
 * {

@@ -24,14 +24,21 @@
     }
 
     # Filtering
-    if(isset($_POST['filter'])) {
-      if($_POST['filter'] == "apply") {
-        if($_POST['categories'] == 'NULL')
-          $_SESSION['categories'] = NULL;
-        else
-          $_SESSION['categories'] = $_POST['categories'];
-      }
+    if(isset($_POST['ApplyFilter'])) {
+      if($_POST['categories'] == 'NULL')
+        $_SESSION['categories'] = NULL;
+      else
+        $_SESSION['categories'] = $_POST['categories'];
+      # if no allergies are selected, the var isn set
+      if(isset($_POST['allergies']))
+        $_SESSION['allergies'] = $_POST['allergies'];
+      else
+        $_SESSION['allergies'] = array();
     }
+    # Check if Filtering is active
+    $filter_active = True;
+    if($_SESSION['categories'] == NULL AND count($_SESSION['allergies']) == 0)
+      $filter_active = False;
 
     if (session_status() == PHP_SESSION_ACTIVE) {
       debug_log("acitve session: " . session_id());
@@ -80,18 +87,14 @@
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
-        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter.svg" width="48" height="48">&nbsp;</a>
+        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($filter_active) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
     </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
-          <input type="hidden" name="filter" value="apply" />
+          <h3>Allergene</h3>
+          <h4>Test: <?php if($filter_active) echo " checked"; ?></h4>
         <?php
-        echo "allergies(array):";
-        var_dump($_SESSION['allergies']);
-        echo "</br> categories:";
-        var_dump($_SESSION['categories']);
-        echo "</br>";
         $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
 
@@ -100,12 +103,12 @@
         while($row = $result->fetch_assoc()) {
             $alnr = 'Allergen' . $row['ALLERGENNR'];
             echo '<label for="' . $alnr . '">' . $row['ALLERGENBEZEICHNUNG'] . '</label>';
-            echo '<input type="checkbox" id="' . $alnr . '" name="' . $alnr . '" value="' . $row['ALLERGENNR'] . '">';
-            if (isset($_POST[$alnr])) {
-              array_push($_SESSION['allergies'], $_POST[$alnr]);
-            }
+            echo '<input type="checkbox" id="' . $alnr . '" name="allergies[]" value="' . $row['ALLERGENNR'] . (in_array((string)$row['ALLERGENNR'], $_SESSION['allergies']) ? '" checked>': '">');
           }
         }
+        ?>
+        <h3>Kategorien</h3>
+        <?php
         $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
 	      $result = $conn->query($sql);
 
@@ -118,18 +121,12 @@
 	        while($row = $result->fetch_assoc()) {
               $canr = 'Kategorie' . $row['KATEGORIENR'];
               echo '<label for="' . $canr . '">' . $row['KATEGORIEBEZEICHNUNG'] . '</label>';
-              if($row['KATEGORIENR'] == $_SESSION['categories'])
-                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '" checked>';
-              else
-                echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '">';
-              if (isset($_POST[$canr])) {
-                $_SESSION['categories'] = $_POST[$canr];
-              }
+              echo '<input type="radio" id="' . $canr . '" name="categories" value="' . $row['KATEGORIENR'] . '"' . ($row['KATEGORIENR'] == $_SESSION['categories'] ? ' checked' : '') . '>';
             }
           }
 
         ?>
-        <input type="submit" value="OK">
+        <input type="submit" name="ApplyFilter" value="Übernehmen">
         </form>
     </div>
 

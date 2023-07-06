@@ -2,52 +2,49 @@
   $err = NULL;
 
 
-  if(isset($_POST['action'])) {
+  # Save changed profile Action Block
+  if(isset($_POST['SaveProfile'])) {
+    $EMAIL = $_POST['email'];
+    $VORNAME = $_POST['vorname'];
+    $NACHNAME = $_POST['nachname'];
+    $GEBURTSDATUM = $_POST['geburtsdatum'];
+    $STRASSE = $_POST['strasse'];
+    $HAUSNR = $_POST['hausnummer'];
+    $PLZ = $_POST['plz'];
+    $ORT = $_POST['ort'];
+    $TELEFON = $_POST['telefon'];
+    sql_execute("UPDATE KUNDE SET
+      EMAIL='$EMAIL',
+      VORNAME='$VORNAME',
+      NACHNAME='$NACHNAME',
+      GEBURTSDATUM=STR_TO_DATE('$GEBURTSDATUM', '%Y-%m-%d'),
+      STRASSE='$STRASSE',
+      HAUSNR='$HAUSNR',
+      PLZ='$PLZ',
+      ORT='$ORT',
+      TELEFON='$TELEFON'
+      WHERE KUNDENNR=$userid");
+  }
 
-    # Save changed profile Action Block
-    if($_POST['action'] == 'save') {
-      $EMAIL = $_POST['email'];
-      $VORNAME = $_POST['vorname'];
-      $NACHNAME = $_POST['nachname'];
-      $GEBURTSDATUM = $_POST['geburtsdatum'];
-      $STRASSE = $_POST['strasse'];
-      $HAUSNR = $_POST['hausnummer'];
-      $PLZ = $_POST['plz'];
-      $ORT = $_POST['ort'];
-      $TELEFON = $_POST['telefon'];
-      sql_execute("UPDATE KUNDE SET
-        EMAIL='$EMAIL',
-        VORNAME='$VORNAME',
-        NACHNAME='$NACHNAME',
-        GEBURTSDATUM=STR_TO_DATE('$GEBURTSDATUM', '%Y-%m-%d'),
-        STRASSE='$STRASSE',
-        HAUSNR='$HAUSNR',
-        PLZ='$PLZ',
-        ORT='$ORT',
-        TELEFON='$TELEFON'
-        WHERE KUNDENNR=$userid");
-    }
+  # Change Passwort Action block
+  if(isset($_POST['ChangePassword'])) {
+    # prpare vars for sql
+    $userid = $_SESSION['userid'];
+    $passwd = $_POST['passwd'];
+    $passwd_new = $_POST['passwd_new'];
+    $passwd_new2 = $_POST['passwd_new2'];
+    $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT='$passwd'");
 
-    # Change Passwort Action block
-    if($_POST['action'] == 'changepw') {
-      # prpare vars for sql
-      $userid = $_SESSION['userid'];
-      $passwd = $_POST['passwd'];
-      $passwd_new = $_POST['passwd_new'];
-      $passwd_new2 = $_POST['passwd_new2'];
-      $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT='$passwd'");
-
-      # if result is not False, the old password was correct.
-      if($result != False){
-        # Do the new Passwords Match??
-        if($passwd_new == $passwd_new2){
-          sql_execute("UPDATE KUNDE SET PASSWORT='$passwd_new' WHERE KUNDENNR=$userid");
-        } else {
-          $err = 'pwmatch';
-        }
+    # if result is not False, the old password was correct.
+    if($result != False){
+      # Do the new Passwords Match??
+      if($passwd_new == $passwd_new2){
+        sql_execute("UPDATE KUNDE SET PASSWORT='$passwd_new' WHERE KUNDENNR=$userid");
       } else {
-        $err = 'pwcheck';
+        $err = 'pwmatch';
       }
+    } else {
+      $err = 'pwcheck';
     }
   }
 
@@ -56,18 +53,16 @@
 
 ?>
 
-<?php
-  if($err == 'pwcheck') {
-    echo "Ihr Passwort war nicht richtig.";
-  }
-
-  if($err == 'pwmatch') {
-    echo "Die neuen Passwörter stimmen nicht überein.";
-  }
- ?>
+<?php if($err != NULL){ ?>
+  <form>
+  <?php
+    if($err == 'pwcheck') echo "<p class=\"error\">Falsches Passwort.</p>";
+    if($err == 'pwmatch') echo "<p class=\"error\">Die neuen Passwörter stimmen nicht überein.";
+   ?>
+ </form>
+<?php } ?>
 
 <form action="/profil" method="post">
-  <input type="hidden" name="action" value="save">
   <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
   <input type="text" id="email" name="email" value="<?php echo $result['EMAIL']; ?>" maxlength="50" required><br>
@@ -88,11 +83,10 @@
   <label for="telefon">Telefon</label><br>
   <input type="text" id="telefon" name="telefon" value="<?php echo $result['TELEFON']; ?>" maxlength="25" ><br>
 
-  <input type="submit" value="Änderungen Speichern">
+  <input type="submit" name="SaveProfile" value="Änderungen Speichern">
 </form>
 </br>
 <form action="/profil" method="post">
-  <input type="hidden" name="action" value="changepw">
 
   <h3> Passwort Ändern </h3>
 
@@ -103,5 +97,5 @@
   <label for="passwd_new2">Passwort Wiederholen</label><br>
   <input type="password" id="passwd_new2" name="passwd_new2"  maxlength="50" required><br>
 
-  <input type="submit" value="Passwort Ändern">
+  <input type="submit" name="ChangePassword" value="Passwort Ändern">
 </form>
