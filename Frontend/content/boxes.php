@@ -12,7 +12,7 @@
   }
 
   # execute sql statement
-  $result = sql_query($query, False);
+  $result = sql_fetch($query, False);
 
   while($row = $result->fetch_assoc()) {
     echo "dataset";
