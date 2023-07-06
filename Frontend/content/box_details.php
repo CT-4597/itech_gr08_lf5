@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
                 echo '<td>' . $row_content['ZUTATENMENGE'] . '</td>';
                 echo '</tr>';
 
-                if ($maxAmount = NULL) {
+                if ($maxAmount == NULL) {
                     $maxAmount =floor($row_content['BESTAND'] / $row_content['ZUTATENMENGE']);
                 } else {
                     if ($maxAmount > ($row_content['BESTAND'] / $row_content['ZUTATENMENGE'])) {
