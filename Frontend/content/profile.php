@@ -19,13 +19,13 @@
   <label for="strasse">Straße:</label><br>
   <input type="text" id="strasse" name="strasse" value="<?php echo $result['STRASSE']; ?>" maxlength="50" required><br>
   <label for="hausnummer">Hausnummer:</label><br>
-  <input type="text" id="hausnummer" name="hausnummer" required><br>
+  <input type="text" id="hausnummer" name="hausnummer" value="<?php echo $result['HAUSNR']; ?>" required><br>
   <label for="plz">PLZ:</label><br>
   <input type="text" id="plz" name="plz" value="<?php echo $result['PLZ']; ?>" maxlength="5" required><br>
   <label for="ort">Ort:</label><br>
   <input type="text" id="ort" name="ort" value="<?php echo $result['ORT']; ?>" maxlength="50" required><br>
   <label for="telefon">Telefon:</label><br>
-  <input type="text" id="telefon" name="telefon"><br>
+  <input type="text" id="telefon" name="telefon" value="<?php echo $result['TELEFON']; ?>" maxlength="25" ><br>
 
   <input type="submit" value="Änderungen Speichern">
 </form>
