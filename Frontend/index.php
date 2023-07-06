@@ -57,7 +57,7 @@
     }
 
     function get_order_items() {
-      return (string)(count($_SESSION['shopping_card_ingredients']) + ount($_SESSION['shopping_card_boxes']));
+      return (string)(count($_SESSION['shopping_card_ingredients']) + count($_SESSION['shopping_card_boxes']));
     }
 ?>
 <!DOCTYPE html>
