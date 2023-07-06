@@ -1,6 +1,6 @@
 <?php
   # $user_id = $_SESSION['userid'];
-  $order_id = $_GET['id']
+  $order_id = $_GET['id'];
   $query = "SELECT * FROM BESTELLUNG WHERE BESTELLNR=$order_id";
 
   $result = sql_fetch($query, False);
