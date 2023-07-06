@@ -13,8 +13,8 @@
     $passwd_new2 = $_SESSION['passwd_new2'];
     $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT=$passwd");
 
-    $err_pwcheck = True
-    $err_pwmatch = True
+    $err_pwcheck = True;
+    $err_pwmatch = True;
     # if result is not False, the old password was correct.
     if($result != False){
       $err_pwcheck = False;
