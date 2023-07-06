@@ -3,8 +3,9 @@
 
   # DSGVO DELETE
   if(isset($_POST['dsgvo_form_delete'])) {
-    echo "delete";
-    header("Location: /");
+    $query_dsgvo_delete = "UPDATE KUNDE SET EMAIL='', PASSWORT='', VORNAME='', NACHNAME='', GEBURTSDATUM='', STRASSE='', HAUSNR='', PLZ='', ORT='', TELEFON='' WHERE KUNDENNR=$userid";
+    sql_execute($query);
+    header("Location: /logout");
   }
 
   # Save changed profile Action Block
