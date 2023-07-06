@@ -293,6 +293,10 @@ span.sql_keyword {
     padding: 0;
 }
 
+.details_boxcontent {
+    grid-column: 1;
+}
+
 .details_info {
     grid-column: 1;
     padding-left: 40px;

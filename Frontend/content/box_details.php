@@ -46,8 +46,8 @@ if ($result->num_rows > 0) {
             </tr>
             <?php
             while ($row_content = $result_content->fetch_assoc()) {
-                echo '<td>' . $row_content['ZUTATENNR'] . '</td>';
                 echo '<td>' . $row_content['BEZEICHNUNG'] . '</td>';
+                echo '<td>' . $row_content['ZUTATENMENGE'] . '</td>';
             }
             ?>
         </table>
