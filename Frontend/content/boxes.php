@@ -5,7 +5,7 @@
             ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE';
             
   foreach ($_SESSION['allergies'] as $id) {
-    $sql = $sql . ' OR ZUTATALLERGEN.ALLERGENNR = ' . $id . ')';
+    $sql = $sql . ' OR ZUTATALLERGEN.ALLERGENNR = ' . $id;
   }
 
   $sql = $sql . ') sub ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR WHERE SAMMLUNGMITALLERGENNR IS NULL';
