@@ -27,6 +27,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
       $query_boxes .= ($first ? ' ': ' OR ') . " SAMMLUNG.SAMMLUNGSNR=$box";
       $first = False;
     }
+    $query_boxes .= " GROUP BY SAMMLUNG.SAMMLUNGSNR";
 }
 ?>
 <table>
