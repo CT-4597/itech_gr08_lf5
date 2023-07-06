@@ -35,7 +35,6 @@
           $_SESSION['allergies'] = $_POST['allergies'];
         else
           $_SESSION['allergies'] = array();
-        debug_log(var_dump($_POST['allergies']));
       }
     }
     # Check if Filtering is active
