@@ -16,7 +16,7 @@ if (isset($_SESSION['shopping_card_ingredients']) && count($_SESSION['shopping_c
 # Building query for Boxes
 if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_boxes']) > 0) {
     // Schleife über den Warenkorb
-    $query_boxes = "SELECT SAMMLUNG.SAMMLUNGSBEZEICHNUNG, sum(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) AS 'Gesamtpreis',
+    $query_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, sum(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) AS 'Gesamtpreis',
                       sum(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE)-round(sum(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE)*(SAMMLUNG.RABATT/100),2) AS 'RabattPreis'
                       FROM SAMMLUNG
                       LEFT JOIN SAMMLUNGZUTAT ON SAMMLUNGZUTAT.SAMMLUNGSNR = SAMMLUNG.SAMMLUNGSNR
