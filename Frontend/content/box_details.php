@@ -24,7 +24,8 @@ $result_content = $conn->query($sql_content);
 
 if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
-    $maxAmount = 1;
+    $maxAmount = NULL;
+
 ?>
 <h1 class="details_headline"><?php echo $row['SAMMLUNGSBEZEICHNUNG']; ?></h1>
 <div class="details_container">
@@ -42,9 +43,13 @@ if ($result->num_rows > 0) {
                 echo '<td>' . $row_content['ZUTATENMENGE'] . '</td>';
                 echo '</tr>';
 
-                if ($maxAmount < ($row_content['BESTAND'] / $row_content['ZUTATENMENGE'])) {
+                if ($maxAmount = NULL) {
                     $maxAmount =floor($row_content['BESTAND'] / $row_content['ZUTATENMENGE']);
-                }
+                } else {
+                    if ($maxAmount > ($row_content['BESTAND'] / $row_content['ZUTATENMENGE'])) {
+                        $maxAmount =floor($row_content['BESTAND'] / $row_content['ZUTATENMENGE']);
+                    }
+                }  
             }
             ?>
         </table>
