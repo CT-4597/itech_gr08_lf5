@@ -28,6 +28,7 @@
     } else {
       debug_log("no active session</br>");
     }
+
     if(isset($_GET['newsession'])) {
       debug_log("Session Vars reinitialised.</br>");
     }
@@ -43,7 +44,6 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
         <div class="header_login">
         <?php
@@ -80,7 +80,6 @@
         var_dump($_SESSION['categories']);
           $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
-          $_SESSION['allergies'] = array();
 
 
           if ($result->num_rows > 0) {
@@ -95,7 +94,6 @@
           }
           $sql = log_sql("SELECT * FROM ERNAEHRUNGSKATEGORIE");
 	      $result = $conn->query($sql);
-          $_SESSION['categories'] = NULL;
 
           echo '<label for="all">Alle</label>';
           echo '<input type="radio" id="all" name="all" value="0">';
@@ -119,18 +117,16 @@
         <?php include($page); ?>
     </div>
 
-</body>
-<script>
-    <?php
-
-      echo "document.getElementById(\"sql_logger\").innerHTML = '";
+    <div class="sql_logger" id="sql_logger">
+      <?php
       sql_print();
       if($debugging) {
         log_print();
       }
-      echo "';";
       ?>
-
+    </div>
+</body>
+<script>
       function toggleFilter() {
         var x = document.getElementById("filterbox");
         if (x.style.display === "none") {
