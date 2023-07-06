@@ -22,7 +22,7 @@
       if($result != False){
         # Do the new Passwords Match??
         if($passwd_new == $passwd_new2){
-
+          sql_fetch("UPDATE KUNDE SET PASSWORT='$passwd_new' WHERE KUNDENNR=$userid");
         } else {
           $err = 'pwmatch';
         }
