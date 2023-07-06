@@ -81,7 +81,7 @@
             echo 'Hallo, ' .  $result['VORNAME'] . ' ' . $result['NACHNAME'] . '</br>';
             echo '</br>';
             echo '<a href="/profil">Profil</a> &nbsp;';
-            echo '<a href="/profil">Bestellungen</a> &nbsp;';
+            echo '<a href="/bestellungen">Bestellungen</a> &nbsp;';
             echo '<a href="/logout">Logout</a>';
           }
          ?>
