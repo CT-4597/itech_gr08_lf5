@@ -9,16 +9,16 @@
 
   $sql = $sql . ') sub ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR WHERE SAMMLUNGMITALLERGENNR IS NULL';
 
-  if($_GET['type'] == 'discount'){
-    $sql .= " AND SAMMLUNGSTYPNR = 2"
+  if($_GET['type'] == 'discount') {
+    $sql .= " AND SAMMLUNGSTYPNR = 2";
   }
 
-  if($_GET['type'] == 'bio'){
-    $sql .= " AND SAMMLUNGSTYPNR = 3"
+  if($_GET['type'] == 'bio') {
+    $sql .= " AND SAMMLUNGSTYPNR = 3";
   }
 
-  if($_GET['type'] == 'recipe'){
-    $sql .= " AND SAMMLUNGSTYPNR = 1"
+  if($_GET['type'] == 'recipe') {
+    $sql .= " AND SAMMLUNGSTYPNR = 1";
   }
 
   # execute sql statement
@@ -31,7 +31,7 @@
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
             ?>
-            <a href="/zutat/<?php echo $row["SAMMLUNGSNR"] ?>" class="ingredients_flexitem">
+            <a href="/zutat/<?php echo $row["SAMMLUNGSNR"]; ?>" class="ingredients_flexitem">
                 <div><img src="<?php get_image("s", $row['SAMMLUNGSNR']); ?>" alt="Bild der Box" class="ingredients_pic"></div>
                 <div><?php echo $row['SAMMLUNGSBEZEICHNUNG']; ?></div>
             </a>
