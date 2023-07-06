@@ -24,7 +24,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
                       WHERE";
     $first = True;
     foreach ($_SESSION['shopping_card_boxes'] as $box => $amount) {
-      $query_boxes .= ($first ? ' ': ' OR ') . " SAMMLUNG.SAMMLUNGSNR =$box";
+      $query_boxes .= ($first ? ' ': ' OR ') . " SAMMLUNG.SAMMLUNGSNR=$box";
       $first = False;
     }
 }
