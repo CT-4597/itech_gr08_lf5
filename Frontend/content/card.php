@@ -64,7 +64,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
     $result = sql_fetch($query_boxes, False);
     if($result != False)
       while($row = $result->fetch_assoc()) {
-      echo $row['SAMMLUNG.SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNG.SAMMLUNGSNR']] . '</br>';
+      echo $row['SAMMLUNGSBEZEICHNUNG'] . '&nbsp;' . $_SESSION['shopping_card_boxes'][$row['SAMMLUNGSNR']] . '</br>';
     }
   }
 ?>
