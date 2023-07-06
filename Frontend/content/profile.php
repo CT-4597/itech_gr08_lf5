@@ -8,18 +8,6 @@
     header("Location: /logout");
   }
 
-  # DSGVO dump
-  if(isset($_POST['dsgvo_form_download'])) {
-    $user_id = $_SESSION['userid'];
-    $query_dsgvo_download = "SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM KUNDE
-    LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
-    LEFT JOIN BESTELLUNGSAMMLUNG ON BESTELLUNGSAMMLUNG.BESTELLNR = BESTELLUNG.BESTELLNR
-    LEFT JOIN SAMMLUNG ON SAMMLUNG.SAMMLUNGSNR = BESTELLUNGSAMMLUNG.SAMMLUNGSNR
-    WHERE KUNDE.KUNDENNR = $user_id";
-    sql_fetch($query_dsgvo_download);
-
-  }
-
   # Save changed profile Action Block
   if(isset($_POST['SaveProfile'])) {
     $EMAIL = $_POST['email'];
@@ -118,7 +106,7 @@
   <input type="submit" name="ChangePassword" value="Passwort Ändern">
 </form>
 <br/>
-<form action="/profil" id="dsgvo_form_download" method="post">
+<form action="/dsgvodump" id="dsgvo_form_download" method="post">
   <h3>Daten Beantragen</h3>
   <p>Hier können sie alle ihre Personenbezogen Daten direkt beantragen.</p>
   <input type="submit" name="dsgvo_form_download" value="Download Dump">
