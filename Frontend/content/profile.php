@@ -107,11 +107,11 @@
   <input type="submit" name="dsgvo_getdata" value="Download Dump">
   <h3>Daten Löschen</h3>
   <p>Hier können sie ihr Konto und alle dazugehörigen Personenbezogenen Daten löschen.</p>
-  <input type="submit" name="dsgvo_Delete" value="Konto löschen">
+  <input type="button" onclick="dsgvo_delete_confirmation()" name="dsgvo_Delete" value="Konto löschen">
 </form>
 
 <script>
-  function bestätigen() {
+  function dsgvo_delete_confirmation() {
     var response = confirm("Möchten sie wirklich ihr Benutzerkonto löschen? Dieser Vorgang kann nicht rückgängig gemacht werden!");
     if (response == true) {
       document.getElementById('dsgvo_form').submit();
