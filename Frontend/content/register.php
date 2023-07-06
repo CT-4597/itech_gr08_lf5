@@ -55,7 +55,7 @@
  ?>
 
 <form action="/registrieren" method="post">
-  <h1>Login</h1>
+  <h1>Registrierung</h1>
   <label for="email">email:</label><br>
   <input type="text" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>

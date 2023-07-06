@@ -10,7 +10,7 @@
 
   $sql = $sql . ') sub ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR WHERE SAMMLUNGMITALLERGENNR IS NULL';
 
-  if($_GET['type'] == 'discount') {
+  if($_GET['type'] == 'rabatte') {
     $sql .= " AND SAMMLUNGSTYPNR = 2";
   }
 
@@ -18,7 +18,7 @@
     $sql .= " AND SAMMLUNGSTYPNR = 3";
   }
 
-  if($_GET['type'] == 'recipe') {
+  if($_GET['type'] == 'rezepte') {
     $sql .= " AND SAMMLUNGSTYPNR = 1";
   }
 
