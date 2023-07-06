@@ -264,7 +264,7 @@ span.sql_keyword {
 
 .details_headline {
     margin-top: 0;
-    margin-left: 5%;
+    padding-left: 50px;
     padding-top: 30px;
 }
 
@@ -295,7 +295,15 @@ span.sql_keyword {
 
 .details_info {
     grid-column: 1;
+    padding-left: 40px;
 }
+
+.details_info ul{
+    list-style-type: none;
+    font-size: 1em;
+    padding: 0;
+}
+
 
 .details_order {
     grid-column: 2;
