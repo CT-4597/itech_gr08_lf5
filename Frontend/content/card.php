@@ -1,3 +1,4 @@
+<form>
 <?php
 if (isset($_SESSION['shopping_card_ingredients'])) {
     // Schleife über den Warenkorb
@@ -6,3 +7,10 @@ if (isset($_SESSION['shopping_card_ingredients'])) {
     }
 }
  ?>
+ <?php
+  if(isset($_SESSION['userid']))
+    echo "<input type=\"button\" name=\"Order\" value=\"Bestellen\">";
+  else
+    echo "<p>Bitte loggen sie sich ein um zu Bestellen.</p>";
+ ?>
+</form>
