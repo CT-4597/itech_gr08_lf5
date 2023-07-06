@@ -13,7 +13,6 @@
     # Change Passwort Action block
     if($_POST['action'] == 'changepw') {
       $err_pwcheck = True;
-      $err_pwmatch = True;
       # prpare vars for sql
       $userid = $_SESSION['userid'];
       $passwd = $_POST['passwd'];
@@ -24,6 +23,7 @@
       # if result is not False, the old password was correct.
       if($result != False){
         $err_pwcheck = False;
+        $err_pwmatch = True;
         # Do the new Passwords Match??
         if($passwd_new == $passwd_new2){
           $err_pwmatch = False;
