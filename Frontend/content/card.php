@@ -21,7 +21,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
                       FROM SAMMLUNG
                       LEFT JOIN SAMMLUNGZUTAT ON SAMMLUNGZUTAT.SAMMLUNGSNR = SAMMLUNG.SAMMLUNGSNR
                       LEFT JOIN ZUTAT ON ZUTAT.ZUTATENNR = SAMMLUNGZUTAT.ZUTATENNR
-                      WHERE"
+                      WHERE";
     $first = True;
     foreach ($_SESSION['shopping_card_boxes'] as $box => $amount) {
       $query .= ($first ? ' ': ' OR ') . " SAMMLUNG.SAMMLUNGSNR =$box";
