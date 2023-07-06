@@ -6,7 +6,25 @@
 
     # Save changed profile Action Block
     if($_POST['action'] == 'save') {
-
+      $EMAIL = $_POST['email'];
+      $VORNAME = $_POST['vorname'];
+      $NACHNAME = $_POST['nachname'];
+      $GEBURTSDATUM = $_POST['geburtsdatum'];
+      $STRASSE = $_POST['strasse'];
+      $HAUSNR = $_POST['hausnummer'];
+      $PLZ = $_POST['plz'];
+      $ORT = $_POST['ort'];
+      $TELEFON = $_POST['telefon'];
+      sql_execute("UPDATE KUNDE SET
+        EMAIL='$EMAIL',
+        VORNAME='$VORNAME',
+        NACHNAME='$NACHNAME',
+        GEBURTSDATUM=STR_TO_DATE('$GEBURTSDATUM', '%Y-%m-%d'),
+        STRASSE='$STRASSE',
+        HAUSNR='$HAUSNR',
+        PLZ='$PLZ',
+        ORT='$ORT',
+        TELEFON='$TELEFON'");
     }
 
     # Change Passwort Action block
