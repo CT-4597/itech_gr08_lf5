@@ -3,7 +3,7 @@
 
   function debug_log($log_str) {
     global $log_arr;
-    array_push($log_arr, $log_str);
+    array_push($log_arr, str_replace("'", "\'", $log_str));
   }
 
   function log_print() {
