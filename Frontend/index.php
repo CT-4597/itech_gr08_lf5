@@ -89,6 +89,7 @@
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
         <a href="/warenkorb" class="navitem"><img src="/images/icon_shopping_card.svg" width="48" height="48">&nbsp;</a>
+        <?php if($filter_active) echo " checked"; ?>
         <?php
           if($filter_active)
             echo '<a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter_used.svg" width="48" height="48">&nbsp;</a>';
