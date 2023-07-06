@@ -32,6 +32,9 @@
   # header("Content-Disposition: attachment; filename=$output_filename");
 
   // CSV-Daten an den Browser senden
+  echo $query_dsgvo_download;
+  echo "<br>";
+  echo "<br>";
   echo $csv_data;
   # exit;
 
