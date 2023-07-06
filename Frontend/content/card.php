@@ -59,6 +59,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
 </table>
 <?php
   # getting boxes
+  var_dump($_SESSION['shopping_card_boxes']);
   if(isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_boxes']) > 0){
     $result = sql_fetch($query_boxes, False);
     if($result != False)
