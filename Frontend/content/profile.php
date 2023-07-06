@@ -1,26 +1,31 @@
 <?php
-  # Save changed profile Action Block
-  if($_POST['action'] == 'save') {
+  $err_pwcheck = True;
+  $err_pwmatch = True;
 
-  }
 
-  # Change Passwort Action block
-  if($_POST['action'] == 'changepw') {
-    # prpare vars for sql
-    $userid = $_SESSION['userid'];
-    $passwd = $_SESSION['passwd'];
-    $passwd_new = $_SESSION['passwd_new'];
-    $passwd_new2 = $_SESSION['passwd_new2'];
-    $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT=$passwd");
+  if(isset($_POST['action'])) {
 
-    $err_pwcheck = True;
-    $err_pwmatch = True;
-    # if result is not False, the old password was correct.
-    if($result != False){
-      $err_pwcheck = False;
-      # Do the new Passwords Match??
-      if($passwd_new == $passwd_new2){
-        $err_pwmatch = False;
+    # Save changed profile Action Block
+    if($_POST['action'] == 'save') {
+
+    }
+
+    # Change Passwort Action block
+    if($_POST['action'] == 'changepw') {
+      # prpare vars for sql
+      $userid = $_SESSION['userid'];
+      $passwd = $_SESSION['passwd'];
+      $passwd_new = $_SESSION['passwd_new'];
+      $passwd_new2 = $_SESSION['passwd_new2'];
+      $result = sql_fetch("SELECT * FROM KUNDE WHERE KUNDENNR=$userid AND PASSWORT=$passwd");
+
+      # if result is not False, the old password was correct.
+      if($result != False){
+        $err_pwcheck = False;
+        # Do the new Passwords Match??
+        if($passwd_new == $passwd_new2){
+          $err_pwmatch = False;
+        }
       }
     }
   }
