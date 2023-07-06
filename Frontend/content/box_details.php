@@ -10,6 +10,6 @@
   $vorname = $row['VORNAME'];
   $nachname = $row['NACHNAME'];
 
-  echo "$vorname</br>"
-  echo "$nachname</br>"
+  echo "$vorname</br>";
+  echo "$nachname</br>";
 ?>
