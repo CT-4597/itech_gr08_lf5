@@ -51,7 +51,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
   }
 ?>
 <tr>
-  <td colspan="5" style=\"text-align: right\"><?php echo $price_ingredients; ?> €</td>
+  <td colspan="5" style="text-align: right"><?php echo $price_ingredients; ?> €</td>
 </tr>
 </table>
 <table>
@@ -73,7 +73,7 @@ if (isset($_SESSION['shopping_card_boxes']) && count($_SESSION['shopping_card_bo
   }
 ?>
 <tr>
-  <td colspan="4" style=\"text-align: right\"><?php echo $price_boxes; ?></td>
+  <td colspan="4" style="text-align: right"><?php echo $price_boxes; ?></td>
 </tr>
 </table>
 <h3><?php echo (string)($price_ingredients + $price_boxes) ?> €</h3>
