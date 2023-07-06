@@ -30,6 +30,7 @@
           $_SESSION['categories'] = NULL;
         else
           $_SESSION['categories'] = $_POST['categories'];
+        debug_log(var_dump($_POST['allergies']));
       }
     }
 
