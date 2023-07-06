@@ -28,8 +28,6 @@ if(isset($_POST['Order'])) {
 ?>
 
 <form action="/" method="post">
-  <?php echo $query_order; ?><br>
-  <?php echo $order_id; ?><br>
   Vielen dank für ihre Bestellung.
   <input type="submit" name="back" value="Zurück zur Startseite">
 </form>
