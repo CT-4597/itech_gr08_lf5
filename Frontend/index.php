@@ -16,6 +16,9 @@
     if(isset($_GET['newsession']) || !isset($_SESSION['shopping_card_ingredients'])) {
       $_SESSION['shopping_card_ingredients'] = array();
     }
+    if(isset($_GET['newsession']) || !isset($_SESSION['shopping_card_boxes'])) {
+      $_SESSION['shopping_card_boxes'] = array();
+    }
     if(isset($_GET['newsession']) || !isset($_SESSION['allergies'])) {
       $_SESSION['allergies'] = array();
     }
@@ -96,7 +99,6 @@
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
           <h3>Allergene</h3>
-          <h4>Test: <?php if($filter_active) echo " checked"; ?></h4>
         <?php
         $sql = log_sql("SELECT * FROM ALLERGEN");
 	      $result = $conn->query($sql);
