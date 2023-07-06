@@ -35,10 +35,12 @@
 
   <h3> Passwort Ändern </h3>
 
-  <label for="passwd">Ales Passwort</label><br>
+  <label for="passwd">Altes Passwort</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
   <label for="passwd">Neues Passwort</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
   <label for="passwd">Passwort Wiederholen</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="5" required><br>
+
+  <input type="submit" value="Passwort Ändern">
 </form>
