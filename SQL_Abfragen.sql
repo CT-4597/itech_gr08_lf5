@@ -75,8 +75,13 @@ JOIN ZUTAT ON ZUTAT.ZUTATENNR = SAMMLUNGZUTAT.ZUTATENNR
 WHERE SAMMLUNGSBEZEICHNUNG = 'Bolognese-Box'
 
 
--- Auswahl aller Rezepte einer bestimmten Ernährungskategorie
+-- Auswahl aller Sammlungen einer bestimmten Ernährungskategorie (Es muss natürlich noch der Sammlungstyp angehängt werden)
+	auch macht es bei High Protein nicht zwingend Sinn, da dort nicht zwingend alle Zutaten HP sein müssten
 
+SELECT * FROM SAMMLUNG WHERE NOT EXISTS 
+(SELECT SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM SAMMLUNG AS SUB JOIN SAMMLUNGZUTAT ON SAMMLUNG.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR WHERE NOT EXISTS 
+(SELECT ZUTATKATEGORIE.ZUTATENNR FROM ZUTATKATEGORIE WHERE SAMMLUNGZUTAT.ZUTATENNR = ZUTATKATEGORIE.ZUTATENNR AND ZUTATKATEGORIE.KATEGORIENR = 3) 
+AND SUB.SAMMLUNGSNR = SAMMLUNG.SAMMLUNGSNR)
 
 
 -- Auswahl aller Rezepte, die eine gewisse Zutat enthalten
