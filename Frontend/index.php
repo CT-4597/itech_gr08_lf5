@@ -62,7 +62,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kraut & Rüben</title>
     <link rel="stylesheet" href="/style.css">
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </head>
 <body>
     <div class="header">
