@@ -2,9 +2,6 @@
     <tr>
         <td>ID</td>
         <td>Name</td>
-        <td>Lieferant</td>
-        <td>Einheit</td>
-        <td>Preis</td>
     </tr>
 <?php foreach($vars['ingredients'] as $ingredient) { ?>
     <tr>
