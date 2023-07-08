@@ -41,7 +41,7 @@ class ControllerTemplate {
         # DB Request with only a single row expected
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
-        $controller_vars['ingredients'] = $this->db->executeSingleRowQuery($query, $params);
+        $controller_vars['ingredients'][] = $this->db->executeSingleRowQuery($query, $params);
     }
 
     public function late() {
