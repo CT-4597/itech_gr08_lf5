@@ -3,7 +3,7 @@
     include('includes/config.php');
     include('includes/database.php');
     Logger::log("Dies ist ein Logger.");
-    Logger::log("Hier kann ganz viel tolles rein.");
+    Logger::log("Hier <h1>kann</h1> ganz viel tolles rein.");
     Logger::log("Und Fehler auch.");
 ?>
 <!DOCTYPE html>

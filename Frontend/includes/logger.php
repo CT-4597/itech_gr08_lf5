@@ -3,7 +3,7 @@
     private static $log = array();
 
     public static function log($msg) {
-      array_push(self::$log, $msg);
+      array_push(self::$log, htmlspecialchars($msg));
     }
 
     public static function getLog() {
