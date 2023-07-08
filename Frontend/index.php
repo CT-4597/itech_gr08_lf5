@@ -42,7 +42,7 @@
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
-                include("controller/{$controller->viewer}.php");
+                include("viewer/{$controller->viewer}.php");
     }
 ?>
 <!DOCTYPE html>
