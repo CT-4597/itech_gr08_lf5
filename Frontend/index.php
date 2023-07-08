@@ -29,17 +29,17 @@
 
     # Execute all early methods
     foreach ($controllers as $controller)
-        if (method_exists($controller, 'early')) {
+        if (method_exists($controller, 'RunEarly')) {
             $controller->RunEarly();
         }
     # Execute all default methods
     foreach ($controllers as $controller)
-        if (method_exists($controller, 'late')) {
+        if (method_exists($controller, 'RunDefault')) {
             $controller->RunDefault();
         }
     # Execute all late methods
     foreach ($controllers as $controller)
-        if (method_exists($controller, 'late')) {
+        if (method_exists($controller, 'RunLate')) {
             $controller->RunLate();
         }
 
