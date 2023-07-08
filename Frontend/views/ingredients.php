@@ -10,10 +10,6 @@
     <tr>
         <td><?php echo $ingredient['ZUTATENNR']; ?></td>
         <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>
-        <td><?php echo $ingredient['EINHEIT']; ?></td>
-        <td><?php echo $ingredient['LIEFERANT']; ?></td>
-        <td><?php echo $ingredient['NETTOPREIS']; ?></td>
-
     </tr>
  <?php } ?>
  </table>
