@@ -30,8 +30,12 @@ class ControllerFilters {
     public function RunDefault() {
         global $vars;
 
-        if(isset($_POST["FiltersApply"]))
+        if(isset($_POST["FiltersApply"])){
             Logger::log("Apply filters");
+            Logger::log(var_dump($_POST['allergies']));
+            Logger::log(var_dump($_POST['categories']));
+        }
+
         if(isset($_POST["FiltersClear"]))
             Logger::log("Clear filters");
         $query = "SELECT ALLERGENNR, ALLERGENBEZEICHNUNG FROM ALLERGEN";
