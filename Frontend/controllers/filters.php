@@ -26,15 +26,7 @@ class ControllerFilters {
     public function RunEarly() {
         global $vars;
 
-        # Check if vars are assigned
-        if (!(isset($_SESSION['category']) || is_null($_SESSION['category']))) {
-            $_SESSION['category'] = NULL;
-            Logger::log('Category not set.');
-        }
-        if (!(isset($_SESSION['allergies']) || is_null($_SESSION['allergies']))) {
-            $_SESSION['allergies'] = array();
-            Logger::log('Allergy not set.');
-        }
+
 
         # Clear Filters
         if(isset($_POST["FiltersClear"]))
