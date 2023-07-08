@@ -45,12 +45,12 @@ class ControllerIngredients {
             $params[':allergen_' . $id] = $id;
         }
 
-        $sql .= ' AND (' . implode(' AND ', $placeholders) . ')';
+        $query .= ' AND (' . implode(' AND ', $placeholders) . ')';
 
-        $sql .= ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
+        $query .= ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
 
         if ($_SESSION['categories'] != NULL && $_SESSION['categories'] != "0") {
-            $sql .= ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
+            $query .= ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['categories'];
         }
 
