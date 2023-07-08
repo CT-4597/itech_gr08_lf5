@@ -25,6 +25,20 @@ class ControllerFilters {
 
     public function RunEarly() {
         global $vars;
+
+        # Check if vars are assigned
+        if (!(isset($_SESSION['category']) || is_null($_SESSION['category']))) {
+            $_SESSION['category'] = NULL;
+        }
+        if (!(isset($_SESSION['allergies']) || is_null($_SESSION['allergies']))) {
+            $_SESSION['allergies'] = array();
+        }
+
+        # Clear Filters
+        if(isset($_POST["FiltersClear"]))
+            $_SESSION['category'] = NULL;
+            $_SESSION['allergies'] = array();
+
         # Apply Filters
         if(isset($_POST['FiltersApply'])) {
           if($_POST['category'] == 'NULL')
@@ -37,11 +51,6 @@ class ControllerFilters {
           else
             $_SESSION['allergies'] = array();
         }
-
-        # Clear Filters
-        if(isset($_POST["FiltersClear"]) || !isset($_SESSION['category']) || !$_SESSION['allergies'])
-            $_SESSION['category'] = NULL;
-            $_SESSION['allergies'] = array();
 
         # Check if Filtering is active
         $vars['filters_active'] = True;
