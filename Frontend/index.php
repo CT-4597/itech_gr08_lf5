@@ -4,6 +4,7 @@
     include('includes/database.php');
 
     session_start();
+    Logger::log("Session ID: " . session_id());
     # establish database connection
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
