@@ -27,14 +27,14 @@ class ControllerFilters {
         global $vars;
 
         # Check if vars are assigned
-        if (!(isset($_SESSION['category']) || is_null($_SESSION['category']))) {
-            $_SESSION['category'] = NULL;
-            Logger::log('Category not set.');
-        }
-        if (!(isset($_SESSION['allergies']) || is_null($_SESSION['allergies']))) {
-            $_SESSION['allergies'] = array();
-            Logger::log('Allergy not set.');
-        }
+        if (!isset($_SESSION['category']))
+            if(!is_null($_SESSION['category']))
+                $_SESSION['category'] = NULL;
+
+        if (!(isset($_SESSION['allergies']))
+            if(!is_null($_SESSION['allergies']))
+                $_SESSION['allergies'] = array();
+
         # Clear Filters
         if(isset($_POST["FiltersClear"])) {
             Logger::log('Clearing Filters.');
