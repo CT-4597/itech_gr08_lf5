@@ -65,7 +65,7 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger"><?php if($CONFIG['logger']) Logger::printLog(); ?></div>
+        <div class="sql_logger" id="sql_logger"></div>
         <img src="/images/user_icon.png" class="header_user_icon">
         <div class="header_login"><?php loadViewer("HeaderUser"); ?></div>
     </div>
@@ -87,4 +87,5 @@
     <div class="content">
         <?php loadViewer("Content"); ?>
     </div>
+    <div class="sql_logger_inner" id="sql_logger_inner"><?php if($CONFIG['logger']) Logger::printLog(); ?></div>
 </body>
