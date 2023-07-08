@@ -24,10 +24,6 @@ class ControllerHeaderUser {
     public function late() {
         Logger::log("{$this->view} late.");
     }
-
-    public function loadView() {
-        include("views/{$this->view}.php");
-    }
 }
 
 new ControllerHeaderUser($controllers, $db);

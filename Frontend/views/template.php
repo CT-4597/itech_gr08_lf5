@@ -5,7 +5,7 @@
         <td>Einheit</td>
         <td>Preis</td>
     </tr>
-<?php foreach($this->$result_ingredients as $ingredient) { ?>
+<?php foreach($controller_vars['ingredients'] as $ingredient) { ?>
     <tr>
         <td><?php echo $ingredient['ZUTATENNR']; ?></td>
         <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>

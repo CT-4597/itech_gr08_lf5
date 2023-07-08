@@ -24,10 +24,6 @@ class ControllerMain {
     public function late() {
         Logger::log("{$this->view} late.");
     }
-
-    public function loadView() {
-        include("views/{$this->view}.php");
-    }
 }
 
 new ControllerMain($controllers, $db);

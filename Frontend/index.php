@@ -13,6 +13,7 @@
 
     # Array of alle controller classes
     $controllers = array();
+    $controller_vars = array();
 
     include("controllers/header_user.php");
 
@@ -42,8 +43,7 @@
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
-                $controller->loadView();
-                #include("views/{$controller->view}.php");
+                include("views/{$controller->view}.php");
     }
 
     $db->closeConnection();
