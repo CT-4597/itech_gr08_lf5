@@ -44,8 +44,8 @@ class ControllerIngredients {
             $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR != :allergen_' . $id;
             $params[':allergen_' . $id] = $id;
         }
-
-        $query .= ' AND (' . implode(' AND ', $placeholders) . ')';
+        if(count($_SESSION['allergies']) > 0)
+            $query .= ' AND (' . implode(' AND ', $placeholders) . ')';
 
         $query .= ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
 
