@@ -15,7 +15,7 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger"></div>
+        <div class="sql_logger" id="sql_logger">Console</div>
         <img src="/images/user_icon.png" class="header_user_icon">
         <div class="header_login">User Krams</div>
     </div>
@@ -39,9 +39,5 @@
 
     <div class="content">
         Content
-    </div>
-
-    <div class="sql_logger_inner" id="sql_logger_inner">
-      SQL Logger
     </div>
 </body>
