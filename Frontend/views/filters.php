@@ -5,6 +5,8 @@
         <input type="checkbox" id="<?php echo  $allergy['ALLERGENNR']; ?>" name="allergies[]" value="<?php echo  $allergy['ALLERGENNR']; ?>"<?php  in_array((string)$allergy['ALLERGENNR'], $_SESSION['allergies']) ? ' checked>':''; ?>>
     <?php }?>
     <h3>Kategorien</h3>
+    <label for="all">Alle</label>
+    <input type="radio" id="all" name="category" value="NULL"<?php ($_SESSION['categories'] == NULL) ? echo ' checked' : '';?>>
     <?php foreach($vars['nutrition_categories'] as $category) { ?>
         <label for="<?php echo  $category['KATEGORIENR']; ?>"><?php echo  $category['KATEGORIEBEZEICHNUNG']; ?></label>
         <input type="radio" id="<?php echo  $category['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php ($category['KATEGORIENR'] == $_SESSION['category']) ? '' : ' checked'; ?>>
