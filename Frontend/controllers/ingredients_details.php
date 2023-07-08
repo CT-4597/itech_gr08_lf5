@@ -1,7 +1,7 @@
 <?php
 
 # Be sure to give it a unique name.
-class ControllerIngredientDetails {
+class ControllerIngredientsDetails {
     # Do you need to be loggin for this controller?
     public bool $logged_in = False;
     public string $logged_in_redirect = '/';
@@ -11,7 +11,7 @@ class ControllerIngredientDetails {
 
     # The viewer name. without suffix.
     # views can be reused if build for
-    public string $view = 'ingredient_details';
+    public string $view = 'ingredients_details';
     # the container the viewer is rendered in.
     public string $container = 'Content';
 
@@ -43,5 +43,5 @@ class ControllerIngredientDetails {
 }
 
 # Needs to be the same as class [NAME]
-new ControllerIngredientDetails($controllers, $db);
+new ControllerIngredientsDetails($controllers, $db);
 ?>
