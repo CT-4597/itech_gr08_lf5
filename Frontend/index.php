@@ -11,11 +11,11 @@
     Logger::log("Und Fehler auch.");
     Logger::log("DBUser: {$CONFIG['dbuser']}");
 
-    $controller = "controller/{$CONFIG['default_page']}.php"
-    $viewer = "viewer/{$CONFIG['default_page']}.php"
+    $controller = "controller/{$CONFIG['default_page']}.php";
+    $viewer = "viewer/{$CONFIG['default_page']}.php";
     if(isset($_GET['page'])){
-        $controller = "controller/{$_GET['page']}.php"
-        $viewer = "viewer/{$_GET['page']}.php"
+        $controller = "controller/{$_GET['page']}.php";
+        $viewer = "viewer/{$_GET['page']}.php";
     }
 ?>
 <!DOCTYPE html>
