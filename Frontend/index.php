@@ -13,7 +13,7 @@
 
     # Array of alle controller classes
     $controllers = array();
-    $controller_vars = array();
+    $vars = array();
 
     include("controllers/header_user.php");
 
@@ -44,7 +44,7 @@
         }
 
     function loadViewer($container) {
-        global $controller_vars;
+        global $vars;
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
