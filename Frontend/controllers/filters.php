@@ -64,7 +64,7 @@ class ControllerFilters {
     }
 
     public function RunLate() {
-
+        Logger::log($_SESSION['category']);
     }
 }
 
