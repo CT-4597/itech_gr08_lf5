@@ -18,15 +18,15 @@ class ControllerHeaderUser {
     }
 
     public function RunEarly() {
-        Logger::log("{$this->view} early.");
+
     }
 
     public function RunDefault() {
-        Logger::log("{$this->view} early.");
+
     }
 
     public function RunLate() {
-        Logger::log("{$this->view} late.");
+
     }
 }
 

@@ -37,7 +37,7 @@ class ControllerIngredients {
     }
 
     public function RunLate() {
-        Logger::log("{$this->view} late.");
+
     }
 }
 
