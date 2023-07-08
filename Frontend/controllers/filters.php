@@ -27,10 +27,10 @@ class ControllerFilters {
         global $vars;
         # Apply Filters
         if(isset($_POST['FiltersApply'])) {
-          if($_POST['categories'] == 'NULL')
-            $_SESSION['categories'] = NULL;
+          if($_POST['category'] == 'NULL')
+            $_SESSION['category'] = NULL;
           else
-            $_SESSION['categories'] = $_POST['categories'];
+            $_SESSION['category'] = $_POST['category'];
           # if no allergies are selected, the var isn set
           if(isset($_POST['allergies']))
             $_SESSION['allergies'] = $_POST['allergies'];
@@ -39,13 +39,13 @@ class ControllerFilters {
         }
 
         # Clear Filters
-        if(isset($_POST["FiltersClear"]) || !isset($_SESSION['categories']) || !$_SESSION['allergies'])
-            $_SESSION['categories'] = NULL;
+        if(isset($_POST["FiltersClear"]) || !isset($_SESSION['category']) || !$_SESSION['allergies'])
+            $_SESSION['category'] = NULL;
             $_SESSION['allergies'] = array();
 
         # Check if Filtering is active
         $vars['filters_active'] = True;
-        if($_SESSION['categories'] == NULL AND count($_SESSION['allergies']) == 0)
+        if($_SESSION['category'] == NULL AND count($_SESSION['allergies']) == 0)
           $vars['filters_active'] = False;
     }
 
