@@ -34,14 +34,14 @@ class ControllerTemplate {
         $controller_vars['ingredients'] = $this->db->executeQuery($query, array());*/
 
         # DB Request with params
-        $query = "SELECT * FROM ZUTAT WHERE EINHEIT=:unit";
+        /*$query = "SELECT * FROM ZUTAT WHERE EINHEIT=:unit";
         $params = array(':unit' => 'Stück');
-        $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
+        $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);*/
 
         # DB Request with only a single row expected
-        $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
+        /*$query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
-        $controller_vars['ingredients'][] = $this->db->executeSingleRowQuery($query, $params);
+        $controller_vars['ingredients'][] = $this->db->executeSingleRowQuery($query, $params);*/
     }
 
     public function late() {
