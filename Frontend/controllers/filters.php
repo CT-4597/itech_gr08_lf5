@@ -38,7 +38,7 @@ class ControllerFilters {
     }
 
     public function RunLate() {
-        Logger::log("{$this->view} late.");
+
     }
 }
 

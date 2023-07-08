@@ -47,7 +47,7 @@ class ControllerTemplate {
     }
 
     public function RunLate() {
-        Logger::log("{$this->view} late.");
+        
     }
 }
 
