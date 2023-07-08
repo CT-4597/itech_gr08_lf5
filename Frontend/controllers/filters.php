@@ -33,7 +33,7 @@ class ControllerFilters {
         if(isset($_POST["FiltersApply"])){
             Logger::log("Apply filters");
             Logger::log(var_dump($_POST['allergies']));
-            Logger::log(var_dump($_POST['categories']));
+            Logger::log(var_dump($_POST['category']));
         }
 
         if(isset($_POST["FiltersClear"]))
