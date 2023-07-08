@@ -30,14 +30,13 @@ class ControllerTemplate {
         global $controller_vars;
 
         # DB Request without params
-        $query = "SELECT * FROM ZUTAT";
-        $controller_vars['ingredients'] = $this->db->executeQuery($query, array());
+        /*$query = "SELECT * FROM ZUTAT";
+        $controller_vars['ingredients'] = $this->db->executeQuery($query, array());*/
 
         # DB Request with params
-        # $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
-        # $params = array(':id' => 1001);
-        # $controller_vars += ['ingredients' => $this->db->executeQuery($query, $params)];
-        # $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
+        $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
+        $params = array(':id' => 1001);
+        $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
     }
 
     public function late() {
