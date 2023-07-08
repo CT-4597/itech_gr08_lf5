@@ -6,12 +6,7 @@
     # establish database connection
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
-    Logger::log("Dies ist ein Logger.");
-    Logger::log("Hier kann ganz viel tolles rein.");
-    Logger::log("Und Fehler auch.");
-    Logger::log("DBUser: {$CONFIG['dbuser']}");
-
-    # Array of alle controller classes
+    # Array of all controller classes
     $controllers = array();
     $vars = array();
 
@@ -25,7 +20,7 @@
         $PageController = "controllers/{$CONFIG['default_page']}.php";
     }
 
-    # Load the controllers
+    # Load the page controller
     include($PageController);
 
     # Execute all early methods
