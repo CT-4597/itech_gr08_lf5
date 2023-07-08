@@ -25,16 +25,16 @@
     include($PageController);
 
     # Execute all early methods
-    foreach ($controllers as $controller) {
-    if (method_exists($controller, 'early')) {
-        $controller->early();
-    }
+    foreach ($controllers as $controller)
+        if (method_exists($controller, 'early')) {
+            $controller->early();
+        }
 
     # Execute all late methods
-    foreach ($controllers as $controller) {
-    if (method_exists($controller, 'late')) {
-        $controller->late();
-    }
+    foreach ($controllers as $controller)
+        if (method_exists($controller, 'late')) {
+            $controller->late();
+        }
 }
 ?>
 <!DOCTYPE html>
