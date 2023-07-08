@@ -53,10 +53,11 @@ class ControllerIngredients {
             $query .= ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['categories'];
         }
-
+        Logger::log($query);
+        Logger::log($params);
         # DB Request with params
-        # $query = "SELECT * FROM ZUTAT WHERE EINHEIT=:unit";
-        # $params = array(':unit' => 'Stück');
+        $query = "SELECT * FROM ZUTAT WHERE EINHEIT=:unit";
+        $params = array(':unit' => 'Stück');
         $vars['ingredients'] = $this->db->executeQuery($query, $params);
     }
 
