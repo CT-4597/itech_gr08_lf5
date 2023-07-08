@@ -15,8 +15,12 @@ class ControllerTemplate {
     # the container the viewer is rendered in.
     public string $container = 'Content';
 
+    # var holden the database class
+    public var $db;
+
     public function __construct(array &$arr, &$db) {
         array_push($arr, $this);
+        $this->db = $db;
     }
 
     public function early() {
