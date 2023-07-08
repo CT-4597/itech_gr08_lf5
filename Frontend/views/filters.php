@@ -7,7 +7,7 @@
     <h3>Kategorien</h3>
     <?php foreach($vars['nutrition_categories'] as $category) { ?>
         <label for="<?php echo  $category['KATEGORIENR']; ?>"><?php echo  $category['KATEGORIEBEZEICHNUNG']; ?></label>
-        <input type="radio" id="<?php echo  $allergy['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php ($allergy['KATEGORIENR'] == $_SESSION['category']) ? '' : ' checked'; ?>>
+        <input type="radio" id="<?php echo  $category['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php ($category['KATEGORIENR'] == $_SESSION['category']) ? '' : ' checked'; ?>>
     <?php }?>
 
 <input type="submit" name="FiltersApply" value="Übernehmen">
