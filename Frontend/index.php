@@ -80,8 +80,7 @@
     </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
-        Filters????
-        <?php loadViewer("Filter"); ?>
+        <?php loadViewer("Filters"); ?>
     </div>
 
     <div class="content">
