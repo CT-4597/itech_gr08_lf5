@@ -16,6 +16,7 @@
     $vars = array();
 
     include("controllers/header_user.php");
+    include("controllers/filters.php");
 
     # Set controller and model to page or to the default page
     if(isset($_GET['page'])){
