@@ -73,7 +73,7 @@ class ControllerFilters {
     }
 
     public function RunLate() {
-        Logger::log("Filter Allergies:" . implode(" ", $_SESSION['allergies']));
+        # Logger::log("Filter Allergies:" . implode(" ", $_SESSION['allergies']));
         Logger::log("Filter Category: {$_SESSION['category']}");
     }
 }
