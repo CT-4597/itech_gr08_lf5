@@ -3,7 +3,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "krautundrueben";
+    $dbname = "sandbox";
 
     $debugging = True;
 
