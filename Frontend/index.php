@@ -14,6 +14,8 @@
     # Array of alle controller classes
     $controllers = array();
 
+    include("controller/header_user.php");
+
     # Set controller and model to page or to the default page
     if(isset($_GET['page'])){
         $PageController = "controller/{$_GET['page']}.php";
