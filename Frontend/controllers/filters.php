@@ -28,12 +28,10 @@ class ControllerFilters {
 
         # Check if vars are assigned
         if (!isset($_SESSION['category']))
-            if(!is_null($_SESSION['category']))
-                $_SESSION['category'] = NULL;
+            $_SESSION['category'] = NULL;
 
         if (!isset($_SESSION['allergies']))
-            if(!is_null($_SESSION['allergies']))
-                $_SESSION['allergies'] = array();
+            $_SESSION['allergies'] = array();
 
         # Clear Filters
         if(isset($_POST["FiltersClear"])) {
