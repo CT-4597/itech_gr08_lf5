@@ -16,7 +16,7 @@ class DatabaseConnection {
         try {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);
-            LOGGER::log($stmt->queryString);
+            LOGGER::log(completeQuery($stmt->queryString, $params));
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
@@ -35,6 +35,15 @@ class DatabaseConnection {
 
     public function closeConnection() {
         $this->conn = null;
+    }
+
+    # Creates the complete sql query for logging
+    public function completeQuery($query, $params = array()) {
+        $sql = $query;
+        foreach ($params as $param => $value) {
+            $sql = str_replace($param, "'" . $value . "'", $sql);
+        }
+        return $sql;
     }
 }
 /* Example
