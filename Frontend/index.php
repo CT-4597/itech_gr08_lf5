@@ -80,11 +80,7 @@
     </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
-        <form method="post">
-            <h3>Allergene</h3>
-            <h3>Kategorien</h3>
-            <input type="submit" name="ApplyFilter" value="Übernehmen">
-        </form>
+        <?php loadViewer("Filter"); ?>
     </div>
 
     <div class="content">

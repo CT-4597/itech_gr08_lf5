@@ -13,7 +13,7 @@ class ControllerTemplate {
     # views can be reused if build for
     public string $view = 'template';
     # the container the viewer is rendered in.
-    public string $container = 'Content';
+    public string $container = 'Filters';
 
     # var holden the database class
     public $db;
