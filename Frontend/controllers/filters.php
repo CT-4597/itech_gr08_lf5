@@ -24,18 +24,36 @@ class ControllerFilters {
     }
 
     public function RunEarly() {
+        global $vars;
+        # Apply Filters
+        if(isset($_POST['FiltersApply'])) {
+          if($_POST['categories'] == 'NULL')
+            $_SESSION['categories'] = NULL;
+          else
+            $_SESSION['categories'] = $_POST['categories'];
+          # if no allergies are selected, the var isn set
+          if(isset($_POST['allergies']))
+            $_SESSION['allergies'] = $_POST['allergies'];
+          else
+            $_SESSION['allergies'] = array();
+        }
 
+        # Clear Filters
+        if(isset($_POST["FiltersClear"]) || !isset($_SESSION['categories']) || !$_SESSION['allergies'])
+            $_SESSION['categories'] = NULL;
+            $_SESSION['allergies'] = array();
+
+        # Check if Filtering is active
+        $vars['filters_active'] = True;
+        if($_SESSION['categories'] == NULL AND count($_SESSION['allergies']) == 0)
+          $vars['filters_active'] = False;
     }
 
     public function RunDefault() {
         global $vars;
 
-        if(isset($_POST["FiltersApply"])){
+        if(isset($_POST["FiltersApply"]))
             Logger::log("Apply filters");
-            Logger::log(var_dump($_POST['allergies']));
-            Logger::log(var_dump($_POST['category']));
-        }
-
         if(isset($_POST["FiltersClear"]))
             Logger::log("Clear filters");
         $query = "SELECT ALLERGENNR, ALLERGENBEZEICHNUNG FROM ALLERGEN";
