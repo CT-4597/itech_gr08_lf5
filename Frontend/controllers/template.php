@@ -29,7 +29,7 @@ class ControllerTemplate {
     public function early() {
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
-        $this->result_ingredients = $db->executeQuery($query, $params);
+        $this->result_ingredients = $this->db->executeQuery($query, $params);
     }
 
     public function late() {
