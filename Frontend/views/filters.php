@@ -11,5 +11,5 @@
     <?php }?>
 
 <input type="submit" name="FiltersApply" value="Übernehmen">
-<input type="submit" name="FilterClear" value="Zurücksetzen">
+<input type="submit" name="FiltersClear" value="Zurücksetzen">
 </form>
