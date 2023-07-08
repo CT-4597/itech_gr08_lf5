@@ -34,8 +34,8 @@ class ControllerTemplate {
         $controller_vars['ingredients'] = $this->db->executeQuery($query, array());*/
 
         # DB Request with params
-        $query = "SELECT * FROM ZUTAT WHERE LIEFERANT=:supplierid";
-        $params = array(':EINHEIT' => 'Stück');
+        $query = "SELECT * FROM ZUTAT WHERE EINHEIT=:unit";
+        $params = array(':unit' => 'Stück');
         $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
 
         # DB Request with only a single row expected
