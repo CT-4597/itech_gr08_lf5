@@ -35,7 +35,6 @@
         if (method_exists($controller, 'late')) {
             $controller->late();
         }
-}
 ?>
 <!DOCTYPE html>
 <html>
