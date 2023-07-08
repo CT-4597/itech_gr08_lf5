@@ -16,7 +16,7 @@ class ControllerTemplate {
     public string $container = 'Content';
 
     # var holden the database class
-    public var $db;
+    public $db;
 
     public function __construct(array &$arr, &$db) {
         array_push($arr, $this);
