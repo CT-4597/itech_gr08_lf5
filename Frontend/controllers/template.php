@@ -19,7 +19,6 @@ class ControllerTemplate {
     public $db;
 
     # Create your vars here
-    global $controller_vars;
     public $result_ingredients;
 
     public function __construct(array &$arr, &$db) {
@@ -28,6 +27,7 @@ class ControllerTemplate {
     }
 
     public function early() {
+        global $controller_vars;
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
         $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
