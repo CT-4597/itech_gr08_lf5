@@ -26,5 +26,5 @@ class ControllerHeaderUser {
     }
 }
 
-new ControllerMain($controllers, $db);
+new ControllerHeaderUser($controllers, $db);
 ?>
