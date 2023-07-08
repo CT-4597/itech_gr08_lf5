@@ -27,6 +27,7 @@ class DatabaseConnection {
         try {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);
+            LOGGER::log($this->completeQuery($stmt->queryString, $params));
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
