@@ -49,7 +49,11 @@
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
+            {
                 include("views/{$controller->view}.php");
+                return;
+            }
+        Logger::log("No view found for container {$container}.");
     }
 
     $db->closeConnection();
