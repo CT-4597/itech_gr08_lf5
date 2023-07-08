@@ -35,6 +35,10 @@ class ControllerTemplate {
     public function late() {
         Logger::log("{$this->view} late.");
     }
+
+    public function loadView() {
+        include("views/{$this->view}.php");
+    }
 }
 
 # Needs to be the same as class [NAME]

@@ -42,7 +42,8 @@
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
-                include("views/{$controller->view}.php");
+                $controller->loadView();
+                #include("views/{$controller->view}.php");
     }
 
     $db->closeConnection();
