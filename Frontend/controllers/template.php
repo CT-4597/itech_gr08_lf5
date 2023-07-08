@@ -31,7 +31,7 @@ class ControllerTemplate {
         $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
-        $controller_vars += ['ingredients' => $this->db->executeQuery($query, $params)]
+        $controller_vars += ['ingredients' => $this->db->executeQuery($query, $params)];
         # $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
     }
 
