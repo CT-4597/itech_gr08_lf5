@@ -2,10 +2,21 @@
     include('includes/logger.php');
     include('includes/config.php');
     include('includes/database.php');
+
+    # establish database connection
+    $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
+
     Logger::log("Dies ist ein Logger.");
     Logger::log("Hier kann ganz viel tolles rein.");
     Logger::log("Und Fehler auch.");
     Logger::log("DBUser: {$CONFIG['dbuser']}");
+
+    if(isset($_GET['page'])){
+
+    } else {
+        $controller = "controller/{$CONFIG['default_page']}.php"
+        $viewer = "viewer/{$CONFIG['default_page']}.php"
+    }
 ?>
 <!DOCTYPE html>
 <html>
