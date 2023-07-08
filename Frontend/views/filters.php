@@ -6,7 +6,7 @@
     <?php }?>
     <h3>Kategorien</h3>
     <label for="all">Alle</label>
-    <input type="radio" id="all" name="category" value="NULL"<?php ($_SESSION['categories'] == NULL) ? echo ' checked' : '';?>>
+    <input type="radio" id="all" name="category" value="NULL"<?php ($_SESSION['categories'] == NULL) ? ' checked' : '';?>>
     <?php foreach($vars['nutrition_categories'] as $category) { ?>
         <label for="<?php echo  $category['KATEGORIENR']; ?>"><?php echo  $category['KATEGORIEBEZEICHNUNG']; ?></label>
         <input type="radio" id="<?php echo  $category['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php ($category['KATEGORIENR'] == $_SESSION['category']) ? '' : ' checked'; ?>>
