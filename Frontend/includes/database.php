@@ -22,6 +22,16 @@ class DatabaseConnection {
         }
     }
 
+    public function executeSingleRowQuery($query, $params = array()) {
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
+        }
+    }
+
     public function closeConnection() {
         $this->conn = null;
     }

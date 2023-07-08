@@ -34,9 +34,14 @@ class ControllerTemplate {
         $controller_vars['ingredients'] = $this->db->executeQuery($query, array());*/
 
         # DB Request with params
-        $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
-        $params = array(':id' => 1001);
+        $query = "SELECT * FROM ZUTAT WHERE LIEFERANT=:supplierid";
+        $params = array(':supplierid' => 101);
         $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);
+
+        # DB Request with only a single row expected
+        /*$query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
+        $params = array(':id' => 1001);
+        $controller_vars['ingredients'] = $this->db->executeQuery($query, $params);*/
     }
 
     public function late() {
