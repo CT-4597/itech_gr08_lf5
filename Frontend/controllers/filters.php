@@ -26,14 +26,6 @@ class ControllerFilters {
     public function RunEarly() {
         global $vars;
 
-
-
-        # Clear Filters
-        if(isset($_POST["FiltersClear"]))
-            Logger::log('Clearing Filters.');
-            $_SESSION['category'] = NULL;
-            $_SESSION['allergies'] = array();
-
         # Apply Filters
         if(isset($_POST['FiltersApply'])) {
             Logger::log('Apply Filters');
@@ -50,8 +42,7 @@ class ControllerFilters {
 
         # Check if Filtering is active
         $vars['filters_active'] = True;
-        if($_SESSION['category'] == NULL AND count($_SESSION['allergies']) == 0)
-          $vars['filters_active'] = False;
+
     }
 
     public function RunDefault() {
