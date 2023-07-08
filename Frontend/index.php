@@ -2,9 +2,9 @@
     include('includes/logger.php');
     include('includes/config.php');
     include('includes/database.php');
-    Logger::("Dies ist ein Logger.");
-    Logger::("Hier kann ganz viel tolles rein.");
-    Logger::("Und Fehler auch.");
+    Logger::log("Dies ist ein Logger.");
+    Logger::log("Hier kann ganz viel tolles rein.");
+    Logger::log("Und Fehler auch.");
 ?>
 <!DOCTYPE html>
 <html>
