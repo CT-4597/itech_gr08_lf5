@@ -3,6 +3,7 @@
     include('includes/config.php');
     include('includes/database.php');
 
+    session_start();
     # establish database connection
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
