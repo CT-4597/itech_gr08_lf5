@@ -11,7 +11,7 @@ class ControllerTemplate {
 
     # The viewer name. without suffix.
     # views can be reused if build for
-    public string $view = 'template';
+    public string $view = 'filters';
     # the container the viewer is rendered in.
     public string $container = 'Filters';
 
