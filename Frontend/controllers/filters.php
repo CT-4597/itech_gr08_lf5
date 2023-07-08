@@ -31,7 +31,7 @@ class ControllerFilters {
             if(!is_null($_SESSION['category']))
                 $_SESSION['category'] = NULL;
 
-        if (!(isset($_SESSION['allergies']))
+        if (!isset($_SESSION['allergies']))
             if(!is_null($_SESSION['allergies']))
                 $_SESSION['allergies'] = array();
 
