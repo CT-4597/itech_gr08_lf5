@@ -29,6 +29,7 @@ class ControllerTemplate {
     public function early() {
         global $controller_vars;
         $query = "SELECT * FROM ZUTAT";
+        $params = array();
         # $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         # $params = array(':id' => 1001);
         # $controller_vars += ['ingredients' => $this->db->executeQuery($query, $params)];
