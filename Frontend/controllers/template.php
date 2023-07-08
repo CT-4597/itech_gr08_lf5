@@ -18,13 +18,18 @@ class ControllerTemplate {
     # var holden the database class
     public $db;
 
+    # Create your vars here
+    public $result_ingredients;
+
     public function __construct(array &$arr, &$db) {
         array_push($arr, $this);
         $this->db = $db;
     }
 
     public function early() {
-        Logger::log("{$this->view} early.");
+        $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
+        $params = array(':id' => 1001);
+        $this->result_ingredients = $db->executeQuery($query, $params);
     }
 
     public function late() {

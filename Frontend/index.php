@@ -44,6 +44,8 @@
             if($controller->container == $container)
                 include("views/{$controller->view}.php");
     }
+
+    $db->closeConnection();
 ?>
 <!DOCTYPE html>
 <html>
