@@ -7,5 +7,7 @@ function toggleFilter() {
     }
 }
 
-var logger_container = document.getElementById('sql_logger_inner');
-document.getElementById('sql_logger').appendChild('logger_container');
+function moveLogger() {
+    var logger_container = document.getElementById('sql_logger_inner');
+    document.getElementById('sql_logger').appendChild(logger_container);
+}

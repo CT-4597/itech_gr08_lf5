@@ -88,4 +88,7 @@
         <?php loadViewer("Content"); ?>
     </div>
     <div class="sql_logger_inner" id="sql_logger_inner"><?php if($CONFIG['logger']) Logger::printLog(); ?></div>
+    <script>
+        moveLogger();
+    </script>
 </body>
