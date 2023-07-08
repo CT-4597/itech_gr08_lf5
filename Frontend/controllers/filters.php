@@ -38,11 +38,13 @@ class ControllerFilters {
 
         # Clear Filters
         if(isset($_POST["FiltersClear"]))
+            Logger::log('Clearing Filters.');
             $_SESSION['category'] = NULL;
             $_SESSION['allergies'] = array();
 
         # Apply Filters
         if(isset($_POST['FiltersApply'])) {
+            Logger::log('Apply Filters');
           if($_POST['category'] == 'NULL')
             $_SESSION['category'] = NULL;
           else
