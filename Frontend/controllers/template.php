@@ -26,7 +26,11 @@ class ControllerTemplate {
         $this->db = $db;
     }
 
-    public function early() {
+    public function RunEarly() {
+
+    }
+
+    public function RunDefault() {
         global $controller_vars;
 
         # DB Request without params
@@ -44,7 +48,7 @@ class ControllerTemplate {
         $controller_vars['ingredients'][] = $this->db->executeSingleRowQuery($query, $params);*/
     }
 
-    public function late() {
+    public function RunLate() {
         Logger::log("{$this->view} late.");
     }
 }

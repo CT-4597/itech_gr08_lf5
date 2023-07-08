@@ -30,13 +30,17 @@
     # Execute all early methods
     foreach ($controllers as $controller)
         if (method_exists($controller, 'early')) {
-            $controller->early();
+            $controller->RunEarly();
         }
-
+    # Execute all default methods
+    foreach ($controllers as $controller)
+        if (method_exists($controller, 'late')) {
+            $controller->RunDefault();
+        }
     # Execute all late methods
     foreach ($controllers as $controller)
         if (method_exists($controller, 'late')) {
-            $controller->late();
+            $controller->RunLate();
         }
 
     function loadViewer($container) {
