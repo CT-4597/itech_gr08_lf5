@@ -1,8 +1,10 @@
 <?php
+    include('includes/logger.php');
     include('includes/config.php');
     include('includes/database.php');
-
-
+    Logger::("Dies ist ein Logger.");
+    Logger::("Hier kann ganz viel tolles rein.");
+    Logger::("Und Fehler auch.");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
 <body>
     <div class="header">
         <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger">Console</div>
+        <div class="sql_logger" id="sql_logger"><?php Logger::printLog(); ?></div>
         <img src="/images/user_icon.png" class="header_user_icon">
         <div class="header_login">User Krams</div>
     </div>
