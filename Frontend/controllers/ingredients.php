@@ -49,9 +49,9 @@ class ControllerIngredients {
 
         $query .= ' OR ZUTATALLERGEN.ALLERGENNR IS NULL)';
 
-        if ($_SESSION['categories'] != NULL && $_SESSION['categories'] != "0") {
+        if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
             $query .= ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
-            $params[':category'] = $_SESSION['categories'];
+            $params[':category'] = $_SESSION['category'];
         }
         Logger::log($query);
         Logger::log($params);
