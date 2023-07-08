@@ -5,6 +5,7 @@
     Logger::log("Dies ist ein Logger.");
     Logger::log("Hier kann ganz viel tolles rein.");
     Logger::log("Und Fehler auch.");
+    Logger::log("DBUser: {$CONFIG['dbuser']}");
 ?>
 <!DOCTYPE html>
 <html>
