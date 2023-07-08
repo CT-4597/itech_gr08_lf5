@@ -14,13 +14,13 @@
     # Array of alle controller classes
     $controllers = array();
 
-    include("controller/header_user.php");
+    include("controllers/header_user.php");
 
     # Set controller and model to page or to the default page
     if(isset($_GET['page'])){
-        $PageController = "controller/{$_GET['page']}.php";
+        $PageController = "controllers/{$_GET['page']}.php";
     } else {
-        $PageController = "controller/{$CONFIG['default_page']}.php";
+        $PageController = "controllers/{$CONFIG['default_page']}.php";
     }
 
     # Load the controllers
@@ -42,7 +42,7 @@
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
-                include("viewer/{$controller->viewer}.php");
+                include("views/{$controller->viewer}.php");
     }
 ?>
 <!DOCTYPE html>

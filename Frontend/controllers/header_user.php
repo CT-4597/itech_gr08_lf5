@@ -9,7 +9,7 @@ class ControllerHeaderUser {
     public string $admin_redirect = '/';
 
     # The viewer name. without suffix.
-    public string $viewer = 'header_user';
+    public string $view = 'header_user';
     # the container the viewer is rendered in.
     public string $container = 'HeaderUser';
 
@@ -18,11 +18,11 @@ class ControllerHeaderUser {
     }
 
     public function early() {
-        Logger::log("{$this->viewer} early.");
+        Logger::log("{$this->view} early.");
     }
 
     public function late() {
-        Logger::log("{$this->viewer} late.");
+        Logger::log("{$this->view} late.");
     }
 }
 

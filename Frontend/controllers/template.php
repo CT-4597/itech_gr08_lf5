@@ -1,6 +1,7 @@
 <?php
 
-class ControllerMain {
+# Be sure to give it a unique name.
+class ControllerTemplate {
     # Do you need to be loggin for this controller?
     public bool $logged_in = False;
     public string $logged_in_redirect = '/';
@@ -9,7 +10,8 @@ class ControllerMain {
     public string $admin_redirect = '/';
 
     # The viewer name. without suffix.
-    public string $viewer = 'main';
+    # views can be reused if build for
+    public string $view = 'template';
     # the container the viewer is rendered in.
     public string $container = 'Content';
 
@@ -18,13 +20,14 @@ class ControllerMain {
     }
 
     public function early() {
-        Logger::log("{$this->viewer} early.");
+        Logger::log("{$this->view} early.");
     }
 
     public function late() {
-        Logger::log("{$this->viewer} late.");
+        Logger::log("{$this->view} late.");
     }
 }
 
-new ControllerMain($controllers, $db);
+# Needs to be the same as class [NAME]
+new ControllerTemplate($controllers, $db);
 ?>
