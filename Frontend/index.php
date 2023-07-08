@@ -40,6 +40,7 @@
         }
 
     function loadViewer($container) {
+        global $controller_vars;
         global $controllers;
         foreach ($controllers as $controller)
             if($controller->container == $container)
