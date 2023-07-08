@@ -10,5 +10,6 @@
         <input type="checkbox" id="<?php echo  $allergy['KATEGORIENR']; ?>" name="allergies[]" value="<?php echo  $category['KATEGORIENR']; ?>">
     <?php }?>
 
-<input type="submit" name="ApplyFilter" value="Übernehmen">
+<input type="submit" name="FiltersApply" value="Übernehmen">
+<input type="submit" name="FilterClear" value="Zurücksetzen">
 </form>

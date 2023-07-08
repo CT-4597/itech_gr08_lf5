@@ -30,6 +30,10 @@ class ControllerFilters {
     public function RunDefault() {
         global $vars;
 
+        if(isset($_POST["FiltersApply"]))
+            Logger::log("Apply filters");
+        if(isset($_POST["FiltersClear"]))
+            Logger::log("Clear filters");
         $query = "SELECT ALLERGENNR, ALLERGENBEZEICHNUNG FROM ALLERGEN";
         $vars['allergies'] = $this->db->executeQuery($query, array());
         $query = "SELECT KATEGORIENR, KATEGORIEBEZEICHNUNG FROM ERNAEHRUNGSKATEGORIE";
