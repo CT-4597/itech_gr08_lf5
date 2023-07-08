@@ -9,7 +9,7 @@
     <input type="radio" id="all" name="category" value="NULL"<?php echo ($_SESSION['category'] == NULL) ? ' checked' : '';?>>
     <?php foreach($vars['nutrition_categories'] as $category) { ?>
         <label for="<?php echo  $category['KATEGORIENR']; ?>"><?php echo  $category['KATEGORIEBEZEICHNUNG']; ?></label>
-        <input type="radio" id="<?php echo  $category['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php echo ($category['KATEGORIENR'] == $_SESSION['category']) ? '' : ' checked'; ?>>
+        <input type="radio" id="<?php echo  $category['KATEGORIENR']; ?>" name="category" value="<?php echo  $category['KATEGORIENR']; ?>"<?php echo ($category['KATEGORIENR'] == $_SESSION['category']) ? ' checked' : ''; ?>>
     <?php }?>
 
 <input type="submit" name="FiltersApply" value="Übernehmen">
