@@ -11,7 +11,7 @@ class ControllerMain {
     # The viewer name. without suffix.
     private string $viewer = 'main';
     # the container the viewer is rendered in.
-    private string $container = 'content';
+    private string $container = 'Content';
 
     public function __construct(array &$arr, &$db) {
         array_push($arr, $this);

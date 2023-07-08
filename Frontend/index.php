@@ -37,6 +37,13 @@
         if (method_exists($controller, 'late')) {
             $controller->late();
         }
+
+    function loadViewer($container) {
+        global controllers;
+        foreach ($controllers as $controller)
+            if($controller->container == $container)
+                include("controller/{$controller->viewer}.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +59,7 @@
         <img src="/images/Logo.png" class="header_logo">
         <div class="sql_logger" id="sql_logger"><?php if($CONFIG['logger']) Logger::printLog(); ?></div>
         <img src="/images/user_icon.png" class="header_user_icon">
-        <div class="header_login">User Krams</div>
+        <div class="header_login"><?php loadViewer("HeaderUser"); ?></div>
     </div>
     <div class="navigation">
         <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>
@@ -73,6 +80,6 @@
     </div>
 
     <div class="content">
-        Content
+        <?php loadViewer("Content"); ?>
     </div>
 </body>
