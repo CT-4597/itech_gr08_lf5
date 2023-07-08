@@ -1,7 +1,7 @@
 <?php
 
 # Be sure to give it a unique name.
-class ControllerTemplate {
+class ControllerFilters {
     # Do you need to be loggin for this controller?
     public bool $logged_in = False;
     public string $logged_in_redirect = '/';
@@ -43,5 +43,5 @@ class ControllerTemplate {
 }
 
 # Needs to be the same as class [NAME]
-new ControllerTemplate($controllers, $db);
+new ControllerFilters($controllers, $db);
 ?>
