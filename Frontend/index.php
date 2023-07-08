@@ -11,22 +11,40 @@
     Logger::log("Und Fehler auch.");
     Logger::log("DBUser: {$CONFIG['dbuser']}");
 
+    # Array of alle controller classes
+    $controllers = array();
+
     # Set controller and model to page or to the default page
     if(isset($_GET['page'])){
-        $controller = "controller/{$_GET['page']}.php";
-        $viewer = "viewer/{$_GET['page']}.php";
+        $PageController = "controller/{$_GET['page']}.php";
     } else {
-        $controller = "controller/{$CONFIG['default_page']}.php";
-        $viewer = "viewer/{$CONFIG['default_page']}.php";
+        $PageController = "controller/{$CONFIG['default_page']}.php";
     }
+
+    # Load the controllers
+    include($PageController);
+
+    # Execute all early methods
+    foreach ($controllers as $controller) {
+    if (method_exists($controller, 'early')) {
+        $controller->early();
+    }
+
+    # Execute all late methods
+    foreach ($controllers as $controller) {
+    if (method_exists($controller, 'late')) {
+        $controller->late();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kraut & Rüben</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kraut & Rüben</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="scripts.js"></script>
 </head>
 <body>
     <div class="header">
@@ -47,9 +65,9 @@
 
     <div class="filterbox" id="filterbox" style="display: none">
         <form method="post">
-          <h3>Allergene</h3>
-        <h3>Kategorien</h3>
-        <input type="submit" name="ApplyFilter" value="Übernehmen">
+            <h3>Allergene</h3>
+            <h3>Kategorien</h3>
+            <input type="submit" name="ApplyFilter" value="Übernehmen">
         </form>
     </div>
 
