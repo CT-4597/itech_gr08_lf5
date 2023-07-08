@@ -34,7 +34,7 @@ class ControllerIngredientsDetails {
         # Take a look at controllers/header_user.php for a better example
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => $_GET['id']);
-        $vars['ingredient'][] = $this->db->executeSingleRowQuery($query, $params);
+        $vars['ingredient'] = $this->db->executeSingleRowQuery($query, $params);
     }
 
     public function RunLate() {
