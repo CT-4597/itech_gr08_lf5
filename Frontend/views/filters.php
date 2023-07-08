@@ -2,7 +2,7 @@
     <h3>Allergene</h3>
     <?php foreach($vars['allergies'] as $allergy) { ?>
         <label for="<?php echo  $allergy['ALLERGENNR']; ?>"><?php echo  $allergy['ALLERGENBEZEICHNUNG']; ?></label>
-        <input type="checkbox" id="<?php echo  $allergy['ALLERGENNR']; ?>" name="allergies[]" value="<?php echo  $allergy['ALLERGENNR']; ?>"<?php  echo in_array((string)$allergy['ALLERGENNR'], $_SESSION['allergies']) ? ' checked>':''; ?>>
+        <input type="checkbox" id="<?php echo  $allergy['ALLERGENNR']; ?>" name="allergies[]" value="<?php echo  $allergy['ALLERGENNR']; ?>"<?php  echo in_array((string)$allergy['ALLERGENNR'], $_SESSION['allergies']) ? ' checked':''; ?>>
     <?php }?>
     <h3>Kategorien</h3>
     <label for="all">Alle</label>
