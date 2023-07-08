@@ -16,6 +16,7 @@ class DatabaseConnection {
         try {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);
+            LOGGER::log($stmt->getExtendedStatement()->queryString);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
@@ -26,6 +27,7 @@ class DatabaseConnection {
         try {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);
+            LOGGER::log($stmt->getExtendedStatement()->queryString);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
