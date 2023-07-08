@@ -18,11 +18,11 @@ class ControllerHeaderUser {
     }
 
     public function early() {
-
+        Logger::log("{$this->viewer} early.");
     }
 
     public function late() {
-
+        Logger::log("{$this->viewer} late.");
     }
 }
 
