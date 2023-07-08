@@ -6,7 +6,7 @@ class ControllerMain {
     private string $logged_in_redirect = '/';
     # Do you need to be a admin?
     private bool $admin = False;
-    private string $logged_in_redirect = '/';
+    private string $admin_redirect = '/';
 
     # The viewer name. without suffix.
     private string $viewer = 'main';
