@@ -46,9 +46,9 @@
         global $vars;
         global $controllers;
         foreach ($controllers as $controller)
-            if($controller->container == $container)
+            if($controller->Container() == $container)
             {
-                include("views/{$controller->view}.php");
+                include("views/{$controller->View()}.php");
                 return;
             }
         Logger::log("No view found for container {$container}.");
