@@ -19,7 +19,7 @@ class DatabaseConnection {
             LOGGER::log($this->completeQuery($stmt->queryString, $params));
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
-            throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
+            throw new Exception("Fehler bei der Abfrage: " . $e->getMessage() . "<br> Query: " . $query);
         }
     }
 
