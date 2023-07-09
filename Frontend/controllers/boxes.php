@@ -52,7 +52,7 @@ class ControllerBoxes {
                     LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
                     ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE $query_catergory) sub
                     ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR
-                    WHERE SAMMLUNGMITALLERGENNR IS NULL$query_catergory";
+                    WHERE SAMMLUNGMITALLERGENNR IS NULL$query_catergory AND SAMMLUNGSTYPNR={$_GET['id']}";
 
         $vars['boxes'] = $this->db->executeQuery($query, $params);
     }
