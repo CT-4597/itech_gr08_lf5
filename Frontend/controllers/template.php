@@ -1,4 +1,6 @@
 <?php
+# Needs to be the same as class [NAME]
+new ControllerTemplate($controllers, $db, 'template', 'Content');
 
 # Be sure to give it a unique name.
 class ControllerTemplate extends BaseController {
@@ -22,6 +24,5 @@ class ControllerTemplate extends BaseController {
     }
 }
 
-# Needs to be the same as class [NAME]
-new ControllerTemplate($controllers, $db, 'template', 'Content');
+
 ?>
