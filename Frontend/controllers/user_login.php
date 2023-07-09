@@ -12,19 +12,28 @@ class ControllerUserLogin extends BaseController {
         # DB Request with only a single row expected
         # Take a look at controllers/header_user.php for a better example
         if(isset($_POST['LoginUser'])) {
-            $query = "SELECT KUNDENNR FROM KUNDE WHERE EMAIL=:email AND PASSWORT=:password";
-            $params = array(':email' => $_POST['email'],
-                            ':password' => $_POST['passwd']);
-            $row = $this->db->executeSingleRowQuery($query, $params);
-            Logger::log('User ID: ' . $row['KUNDENNR']);
+            $query = "SELECT KUNDENNR, PASSWORT FROM KUNDE WHERE EMAIL=:email";
+            $params = array(':email' => $_POST['email']);
 
-            # Set Session ID
-            $query = "UPDATE KUNDE SET SESSIONID=:sessionid WHERE KUNDENNR=:kundennr";
-            $params = array(':sessionid' => session_id(),
-                            ':kundennr' => $row['KUNDENNR']);
-            $this->db->execute($query, $params);
-            header("Location: /zutaten");
-            exit();
+            # TODO Check if email even exists
+            if($row !== false) {
+                $row = $this->db->executeSingleRowQuery($query, $params);
+
+                if(password_verify($_POST['passwd'], $row['PASSWORT'])){
+                    # Set Session ID
+                    $query = "UPDATE KUNDE SET SESSIONID=:sessionid WHERE KUNDENNR=:kundennr";
+                    $params = array(':sessionid' => session_id(),
+                                    ':kundennr' => $row['KUNDENNR']);
+                    $this->db->execute($query, $params);
+                    header("Location: /zutaten");
+                    exit();
+                } else {
+                    Logger::log('Wrong Password.');
+                }
+            } else {
+                Logger::log('EMail not found.');
+            }
+
         }
     }
 }
