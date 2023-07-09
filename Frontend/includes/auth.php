@@ -1,17 +1,28 @@
 <?php
-    $auth = new authentification();
+    $auth = new authentification($db);
 
     class authentification {
+        protected $db;
         protected bool $logged_in;
         protected bool $is_admin;
 
-        public function __construct() {
+        public function __construct(&$db) {
+            $this->db = $db;
             session_id();
             $this->logged_in = False;
             $this->is_admin = False;
 
             Logger::log("Session ID: " . session_id());
             # test if session id is in KUNDEN
+        }
+
+        public function isLoggedIn() {
+            $query = "SELECT * FROM KUNDE WHERE SESSIONID=:sessionid";
+            $params = array(':sessionid' => session_id());
+            if($this->db->executeExists($query, $params))
+                Logger::log("User logged in with Session ID.");
+            else
+                Logger::log("No User with session id found.");
         }
 
         public function login(string $username, string $password) {

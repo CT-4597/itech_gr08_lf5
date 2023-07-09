@@ -34,6 +34,18 @@ class DatabaseConnection {
         }
     }
 
+    public function executeExists($query, $params = array()) {
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+            LOGGER::log($this->completeQuery($stmt->queryString, $params));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return ($row !== false);
+        } catch(PDOException $e) {
+            throw new Exception("Fehler bei der Abfrage: " . $e->getMessage());
+        }
+    }
+
     public function closeConnection() {
         $this->conn = null;
     }
