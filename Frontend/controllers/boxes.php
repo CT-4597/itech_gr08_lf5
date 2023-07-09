@@ -43,7 +43,7 @@ class ControllerBoxes {
 
         # Adding category clause placeholder to query
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
-            $query_catergory .= ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
+            $query_catergory = ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['category'];
         }
 
@@ -52,7 +52,7 @@ class ControllerBoxes {
                     LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
                     ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE $query_catergory) sub
                     ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR
-                    WHERE SAMMLUNGMITALLERGENNR IS NULL$query_catergory AND SAMMLUNGSTYPNR={$_GET['id']}";
+                    WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR={$_GET['typeid']}";
 
         $vars['boxes'] = $this->db->executeQuery($query, $params);
     }
