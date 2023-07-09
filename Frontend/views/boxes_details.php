@@ -1,8 +1,3 @@
-<form>
-<?php echo $vars['box']['SAMMLUNGSNR']; ?><br>
-<?php echo $vars['box']['SAMMLUNGSBEZEICHNUNG']; ?><br>
-</form>
-
 <h1 class="details_headline"><?php echo $vars['box']['SAMMLUNGSBEZEICHNUNG']; ?></h1>
 <div class="details_container">
 
