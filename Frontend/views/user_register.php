@@ -5,7 +5,8 @@
   <label for="passwd">Passwort:</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
   <label for="passwd2">Passwort wiederholen:</label><br>
-  <input type="password" id="passwd2" name="passwd2"  maxlength="50" required><br>
+  <input type="password" id="passwd2" name="passwd2"  maxlength="50" required onkeyup="checkPasswordMatch()"><br>
+  <p id="passwordMatch"></p>
   <hr>
   <label for="vorname">Vorname:</label><br>
   <input type="text" id="vorname" name="vorname"  maxlength="50" required><br>
@@ -24,5 +25,17 @@
   <label for="telefon">Telefon (optional):</label><br>
   <input type="tel" id="telefon" name="telefon"><br>
 
-  <input type="submit" value="Registrieren">
+  <input type="submit" id="btnRegister" value="Registrieren" disabled>
 </form>
+
+<script>
+function checkPasswordMatch() {
+    if (document.getElementById("password").value === document.getElementById("passwd2").value) {
+        document.getElementById("btnRegister").disabled = false;
+        document.getElementById("passwordMatch").innerHTML = "";
+    } else {
+        document.getElementById("btnRegister").disabled = true;
+        document.getElementById("passwordMatch").innerHTML = "Die Passwörter stimmen nicht überein.";
+    }
+}
+</script>
