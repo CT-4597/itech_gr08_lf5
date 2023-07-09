@@ -44,15 +44,15 @@ class BaseController {
     }
 
     public function HasView($container) {
-        if(isset($views[$container]))
+        if(array_key_exists($container, $this->views))
             return True;
         else
             return False;
     }
 
     public function GetView($container) {
-        if(isset($views[$container]))
-            return $views[$container];
+        if(array_key_exists($container, $this->views))
+            return $this->views[$container];
         else
             return NULL;
     }
