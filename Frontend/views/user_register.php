@@ -1,6 +1,6 @@
 <form action="/registrieren" method="post" class="loginform">
   <h1>Registrierung</h1>
-  <label for="email">email:</label><br>
+  <label for="email">E-Mail:</label><br>
   <input type="text" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
@@ -21,7 +21,7 @@
   <input type="text" id="plz" name="plz" maxlength="5" required><br>
   <label for="ort">Ort:</label><br>
   <input type="text" id="ort" name="ort"  maxlength="50" required><br>
-  <label for="telefon">Telefon:</label><br>
+  <label for="telefon">Telefon (optional):</label><br>
   <input type="text" id="telefon" name="telefon"><br>
 
   <input type="submit" value="Registrieren">
