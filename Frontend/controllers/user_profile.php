@@ -2,7 +2,7 @@
 # Needs to be the same as class [NAME]
 new ControllerUserProfile($controllers, $db, ["Content" => "user_profile"]);
 # Be sure to give it a unique name.
-class ControllerTemplate extends BaseController {
+class ControllerUserProfile extends BaseController {
     public function RunDefault() {
         global $vars;
         # DB Request with only a single row expected
