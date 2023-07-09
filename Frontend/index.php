@@ -4,8 +4,6 @@
     include('includes/database.php');
     include('includes/BaseController.php');
 
-    session_start();
-    Logger::log("Session ID: " . session_id());
     # establish database connection
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
@@ -25,6 +23,10 @@
 
     # Load the page controller
     include($PageController);
+
+    # Authentification
+    session_start();
+    include('includes/auth.php');
 
     # Execute all early methods
     foreach ($controllers as $controller)
