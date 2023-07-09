@@ -11,12 +11,12 @@ class ControllerUserRegister extends BaseController {
             $query = "INSERT INTO KUNDE
                         (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON)
                         VALUES
-                        (:email, :passwort, :vorname, :nachname, STR_TO_DATE(':geburtsdatum', '%Y-%m-%d'), :strasse, :hausnr, :plz, :ort, :telefon)";
+                        (:email, :passwort, :vorname, :nachname, :geburtsdatum, :strasse, :hausnr, :plz, :ort, :telefon)";
             $params = [':email' => $_POST['email'],
                         ':passwort' => $_POST['passwd'],
                         ':vorname' => $_POST['vorname'],
                         ':nachname' => $_POST['nachname'],
-                        ':geburtsdatum' => $_POST['geburtsdatum'],
+                        ':geburtsdatum' => date('Y-m-d', strtotime($_POST['geburtsdatum'])),
                         ':strasse' => $_POST['strasse'],
                         ':hausnr' => $_POST['hausnummer'],
                         ':plz' => $_POST['plz'],
