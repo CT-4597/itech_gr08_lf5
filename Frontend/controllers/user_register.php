@@ -7,6 +7,7 @@ class ControllerUserRegister extends BaseController {
         global $vars;
 
         # TODO Add Checks for fields
+        # TODO Check if EMAILS already exists
         if(isset($_POST['RegisterUser'])) {
             $query = "INSERT INTO KUNDE
                         (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON)

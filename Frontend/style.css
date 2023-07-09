@@ -332,4 +332,9 @@ span.sql_keyword {
     width: 100%;
     background-color: #7e7e7e;
     color: white;
+
+}
+
+.FilterLabel:checked {
+    background-color: #f0f0f0;
 }
