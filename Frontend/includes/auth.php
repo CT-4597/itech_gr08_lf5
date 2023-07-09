@@ -13,6 +13,7 @@
             $this->is_admin = False;
 
             Logger::log("Session ID: " . session_id());
+            isLoggedIn();
             # test if session id is in KUNDEN
         }
 
