@@ -37,7 +37,6 @@
                 Loggen sie sich ein um zu Bestellen.
                 <input type="button" name="login" value="zum Login" onclick="window.location.href = '/login';">
             <?php }?>
-
         </form>
     </div>
 
