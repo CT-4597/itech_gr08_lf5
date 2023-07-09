@@ -22,7 +22,7 @@
             $params = array(':sessionid' => session_id());
             $row = $this->db->executeSingleRowQuery($query, $params);
             if($row !== False) {
-                $this->userid = $row['KUNDENNR']
+                $this->userid = $row['KUNDENNR'];
                 return True;
             } else {
                 return False;
