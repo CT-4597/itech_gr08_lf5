@@ -15,8 +15,14 @@ class ControllerUserLogin extends BaseController {
             $query = "SELECT KUNDENNR FROM KUNDE WHERE EMAIL=:email AND PASSWORT=:password";
             $params = array(':email' => $_POST['email'],
                             ':password' => $_POST['passwd']);
-            $vars['userlogin'] = $this->db->executeSingleRowQuery($query, $params);
-            Logger::log('User ID: ' . $vars['userlogin']['KUNDENNR']);
+            $row = $this->db->executeSingleRowQuery($query, $params);
+            Logger::log('User ID: ' . $row['KUNDENNR']);
+
+            # Set Session ID
+            $query = "UPDATE KUNDE SET SESSIONID=:sessionid WHERE KUNDENNR=:kundennr";
+            $params = array(':sessionid' => session_id(),
+                            ':kundennr' => $row['KUNDENNR']);
+            $this->db->execute($query, $params);
         }
     }
 }
