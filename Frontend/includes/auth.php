@@ -21,10 +21,12 @@
             $query = "SELECT KUNDENNR FROM KUNDE WHERE SESSIONID=:sessionid";
             $params = array(':sessionid' => session_id());
             $row = $this->db->executeSingleRowQuery($query, $params);
-            if($row !== False)
+            if($row !== False) {
+                $this->userid = $row['KUNDENNR']
                 return True;
-            else
+            } else {
                 return False;
+            }
         }
 
         private function checkAdmin() {
