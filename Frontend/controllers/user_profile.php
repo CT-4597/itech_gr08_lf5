@@ -9,7 +9,7 @@ class ControllerUserProfile extends BaseController {
         # Take a look at controllers/header_user.php for a better example
         $query = "SELECT * FROM KUNDE WHERE SESSIONID=:sessionid";
         $params = array(':sessionid' => session_id());
-        $vars['user_profile'][] = $this->db->executeSingleRowQuery($query, $params);
+        $vars['user_profile'] = $this->db->executeSingleRowQuery($query, $params);
     }
 }
 

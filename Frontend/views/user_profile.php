@@ -1,12 +1,3 @@
-<?php if($err != NULL){ ?>
-  <form>
-  <?php
-    if($err == 'pwcheck') echo "<p class=\"error\">Falsches Passwort.</p>";
-    if($err == 'pwmatch') echo "<p class=\"error\">Die neuen Passwörter stimmen nicht überein.";
-   ?>
- </form>
-<?php } ?>
-
 <form action="/profil" method="post">
   <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
