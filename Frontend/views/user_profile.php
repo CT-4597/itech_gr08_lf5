@@ -1,23 +1,23 @@
 <form action="/profil" method="post">
   <h3> Profil </h3>
   <label for="email">E-Mail</label><br>
-  <input type="text" id="email" name="email" value="<?php echo $var['user_profile']['EMAIL']; ?>" maxlength="50" required><br>
+  <input type="text" id="email" name="email" value="<?php echo $vars['user_profile']['EMAIL']; ?>" maxlength="50" required><br>
   <label for="vorname">Vorname</label><br>
-  <input type="text" id="vorname" name="vorname" value="<?php echo $var['user_profile']['VORNAME']; ?>" maxlength="50" required><br>
+  <input type="text" id="vorname" name="vorname" value="<?php echo $vars['user_profile']['VORNAME']; ?>" maxlength="50" required><br>
   <label for="nachname">Nachname</label><br>
-  <input type="text" id="nachname" name="nachname" value="<?php echo $var['user_profile']['NACHNAME']; ?>" maxlength="50" required><br>
+  <input type="text" id="nachname" name="nachname" value="<?php echo $vars['user_profile']['NACHNAME']; ?>" maxlength="50" required><br>
   <label for="geburtsdatum">Geburtsdatum</label><br>
-  <input type="date" id="geburtsdatum" name="geburtsdatum" value="<?php echo $var['user_profile']['GEBURTSDATUM']; ?>" min="1900-01-02" required><br>
+  <input type="date" id="geburtsdatum" name="geburtsdatum" value="<?php echo $vars['user_profile']['GEBURTSDATUM']; ?>" min="1900-01-02" required><br>
   <label for="strasse">Straße</label><br>
-  <input type="text" id="strasse" name="strasse" value="<?php echo $var['user_profile']['STRASSE']; ?>" maxlength="50" required><br>
+  <input type="text" id="strasse" name="strasse" value="<?php echo $vars['user_profile']['STRASSE']; ?>" maxlength="50" required><br>
   <label for="hausnummer">Hausnummer</label><br>
-  <input type="text" id="hausnummer" name="hausnummer" value="<?php echo $var['user_profile']['HAUSNR']; ?>" required><br>
+  <input type="text" id="hausnummer" name="hausnummer" value="<?php echo $vars['user_profile']['HAUSNR']; ?>" required><br>
   <label for="plz">PLZ</label><br>
-  <input type="text" id="plz" name="plz" value="<?php echo $var['user_profile']['PLZ']; ?>" maxlength="5" required><br>
+  <input type="text" id="plz" name="plz" value="<?php echo $vars['user_profile']['PLZ']; ?>" maxlength="5" required><br>
   <label for="ort">Ort</label><br>
-  <input type="text" id="ort" name="ort" value="<?php echo $var['user_profile']['ORT']; ?>" maxlength="50" required><br>
+  <input type="text" id="ort" name="ort" value="<?php echo $vars['user_profile']['ORT']; ?>" maxlength="50" required><br>
   <label for="telefon">Telefon</label><br>
-  <input type="text" id="telefon" name="telefon" value="<?php echo $var['user_profile']['TELEFON']; ?>" maxlength="25" ><br>
+  <input type="text" id="telefon" name="telefon" value="<?php echo $vars['user_profile']['TELEFON']; ?>" maxlength="25" ><br>
 
   <input type="submit" name="SaveProfile" value="Änderungen Speichern">
 </form>
