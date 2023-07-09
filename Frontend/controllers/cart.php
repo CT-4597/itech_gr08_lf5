@@ -6,8 +6,8 @@ class ControllerCart extends BaseController {
     public function RunDefault() {
         global $vars;
 
+        $query = "SELECT count(*) FROM BESTELLUNG WHERE STATUS=:status AND KUNDENNR=:userid";
         
-
     }
 }
 ?>

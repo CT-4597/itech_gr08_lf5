@@ -3,6 +3,7 @@
         protected $db;
         protected bool $logged_in;
         protected bool $is_admin;
+        protected int $userid;
 
         public function __construct(&$db) {
             $this->db = $db;
@@ -17,9 +18,10 @@
         }
 
         private function checkLogin() {
-            $query = "SELECT * FROM KUNDE WHERE SESSIONID=:sessionid";
+            $query = "SELECT KUNDENNR FROM KUNDE WHERE SESSIONID=:sessionid";
             $params = array(':sessionid' => session_id());
-            if($this->db->executeExists($query, $params))
+            $row = $this->db->executeSingleRowQuery($query, $params);
+            if($row !== False)
                 return True;
             else
                 return False;
@@ -40,6 +42,10 @@
 
         public function Admin() {
             return $this->is_admin;
+        }
+
+        public function UserID() {
+            return $this->userid;
         }
     }
     # initialize vars

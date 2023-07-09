@@ -19,7 +19,7 @@ class ControllerTemplate extends BaseController {
         # Take a look at controllers/header_user.php for a better example
         $query = "SELECT * FROM ZUTAT WHERE ZUTATENNR=:id";
         $params = array(':id' => 1001);
-        $vars['ingredients'][] = $this->db->executeSingleRowQuery($query, $params);
+        $vars['ingredients'] = $this->db->executeSingleRowQuery($query, $params);
     }
 }
 
