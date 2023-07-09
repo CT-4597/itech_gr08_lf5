@@ -15,9 +15,10 @@ class ControllerUserLogin extends BaseController {
             $query = "SELECT KUNDENNR, PASSWORT FROM KUNDE WHERE EMAIL=:email";
             $params = array(':email' => $_POST['email']);
 
+            $row = $this->db->executeSingleRowQuery($query, $params);
+
             # TODO Check if email even exists
             if($row !== false) {
-                $row = $this->db->executeSingleRowQuery($query, $params);
 
                 if(password_verify($_POST['passwd'], $row['PASSWORT'])){
                     # Set Session ID
