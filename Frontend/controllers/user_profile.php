@@ -4,6 +4,30 @@ new ControllerUserProfile($controllers, $db, ["Content" => "user_profile"]);
 # Be sure to give it a unique name.
 class ControllerUserProfile extends BaseController {
     public function RunEarly() {
+        # Save Profile
+        if(isset($_POST['SaveProfile'])){
+            # TODO Check for wrong data
+            $query = "UPDATE KUNDE SET VORNAME=:vorname,
+                                        NACHNAME=:nachname,
+                                        GEBURTSDATUM=:geburtsdatum,
+                                        STRASSE=:strasse,
+                                        HAUSNR=:hausnr,
+                                        PLZ=:plz,
+                                        ORT=:ort,
+                                        TELEFON=:telefon
+                                        WHERE SESSIONID=:sessionid";
+            $params = [':vorname' => $_POST['vorname'],
+                        ':nachname' => $_POST['nachname'],
+                        ':geburtsdatum' => date('Y-m-d', strtotime($_POST['geburtsdatum'])),
+                        ':strasse' => $_POST['strasse'],
+                        ':hausnr' => $_POST['hausnummer'],
+                        ':plz' => $_POST['plz'],
+                        ':ort' => $_POST['ort'],
+                        ':telefon' => $_POST['telefon'],
+                        ':sessionid' => session_id()];
+            $this->db->execute($query, $params);
+        }
+
         # Change Passwort
         if(isset($_POST['ChangePassword'])){
             # TODO Check password
@@ -24,6 +48,5 @@ class ControllerUserProfile extends BaseController {
         $vars['user_profile'] = $this->db->executeSingleRowQuery($query, $params);
     }
 }
-
 
 ?>
