@@ -1,3 +1,2 @@
-Hallo Testi<br>
-Hier sind womöglich<br>
-demnächst buttons.
+<a href="/login">Login</a>
+<a href="/registrieren">Register</a>
