@@ -23,6 +23,9 @@ class ControllerUserRegister extends BaseController {
                         ':ort' => $_POST['ort'],
                         ':telefon' => $_POST['telefon']];
             $this->db->execute($query, $params);
+
+            header("Location: /login");
+            exit();
         }
     }
 }
