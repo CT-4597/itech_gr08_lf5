@@ -32,5 +32,12 @@ class BaseController {
     public function runLate() {
         // Standardimplementierung oder leer lassen
     }
+
+    public function Container() {
+        return $this->container;
+    }
+    public function View() {
+        return $this->view;
+    }
 }
 ?>
