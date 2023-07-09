@@ -342,5 +342,5 @@ input[type="radio"] {
 
 input[type="checkbox"]:checked + Label,
 input[type="radio"]:checked + Label {
-    background-color: #f0f0f0;
+    background-color: rgb(177, 134, 183);
 }
