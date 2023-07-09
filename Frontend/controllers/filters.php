@@ -1,7 +1,8 @@
 <?php
-
+# Needs to be the same as class [NAME]
+new ControllerFilters($controllers, $db, 'filters', 'Filters');
 # Be sure to give it a unique name.
-class ControllerFilters {
+class ControllerFilters extends BaseController {
     # Do you need to be loggin for this controller?
     public bool $logged_in = False;
     public string $logged_in_redirect = '/';
@@ -74,7 +75,4 @@ class ControllerFilters {
 
     }
 }
-
-# Needs to be the same as class [NAME]
-new ControllerFilters($controllers, $db);
 ?>

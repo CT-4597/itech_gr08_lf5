@@ -1,32 +1,8 @@
 <?php
-
+# Needs to be the same as class [NAME]
+new ControllerBoxesDetails($controllers, $db);
 # Be sure to give it a unique name.
-class ControllerBoxesDetails {
-    # Do you need to be loggin for this controller?
-    public bool $logged_in = False;
-    public string $logged_in_redirect = '/';
-    # Do you need to be a admin?
-    public bool $admin = False;
-    public string $admin_redirect = '/';
-
-    # The viewer name. without suffix.
-    # views can be reused if build for
-    public string $view = 'boxes_details';
-    # the container the viewer is rendered in.
-    public string $container = 'Content';
-
-    # var holden the database class
-    public $db;
-
-    public function __construct(array &$arr, &$db) {
-        array_push($arr, $this);
-        $this->db = $db;
-    }
-
-    public function RunEarly() {
-
-    }
-
+class ControllerBoxesDetails extends BaseController {
     public function RunDefault() {
         global $vars;
 
@@ -36,12 +12,5 @@ class ControllerBoxesDetails {
         $params = array(':id' => $_GET['id']);
         $vars['box'] = $this->db->executeSingleRowQuery($query, $params);
     }
-
-    public function RunLate() {
-
-    }
 }
-
-# Needs to be the same as class [NAME]
-new ControllerBoxesDetails($controllers, $db);
 ?>
