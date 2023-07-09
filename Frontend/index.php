@@ -10,6 +10,7 @@
     # Authentification
     session_start();
     include('includes/auth.php');
+    $auth = new authentification($db);
 
     # Array of all controller classes
     $controllers = array();
@@ -45,6 +46,7 @@
         }
 
     function loadViewer($container) {
+        global $auth;
         global $vars;
         global $controllers;
         foreach ($controllers as $controller)

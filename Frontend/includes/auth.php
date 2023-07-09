@@ -1,6 +1,4 @@
 <?php
-    $auth = new authentification($db);
-
     class authentification {
         protected $db;
         protected bool $logged_in;
