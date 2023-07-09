@@ -25,7 +25,7 @@
 
     <div class="details_info">
         <ul>
-            <li>Verfügbar: </li>
+            <li>Verfügbar: <?php echo $vars['box']['maxAmount']; ?></li>
             <li>Einzelpreis der Zutaten: <?php echo $vars['box']['Gesamtpreis']; ?> €</li>
             <li>Preis in netto: <?php echo $vars['box']['RabattPreis']; ?> €</li>
         </ul>
@@ -35,7 +35,7 @@
         <form action="/box/<?php echo $vars['box']['SAMMLUNGSNR']; ?>" method="post">
     	    <input type="hidden" name="SAMMLUNGSNR" value="<?php echo $vars['box']['SAMMLUNGSNR']; ?>">
             <label for="amount">Menge</label>
-            <input type="number" id="amount" name="amount" min="1" max="10" value="1">
+            <input type="number" id="amount" name="amount" min="1" max="<?php echo $vars['box']['maxAmount']; ?>" value="1">
             <input type="submit" name="AddToCard" value="Zum Warenkorb hinzufügen">
         </form>
     </div>
