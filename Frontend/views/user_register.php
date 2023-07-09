@@ -4,6 +4,8 @@
   <input type="text" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>
   <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
+  <label for="passwd2">Passwort wiederholen:</label><br>
+  <input type="password" id="passwd2" name="passwd2"  maxlength="50" required><br>
   <hr>
   <label for="vorname">Vorname:</label><br>
   <input type="text" id="vorname" name="vorname"  maxlength="50" required><br>
