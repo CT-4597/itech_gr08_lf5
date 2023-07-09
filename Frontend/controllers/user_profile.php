@@ -3,6 +3,18 @@
 new ControllerUserProfile($controllers, $db, ["Content" => "user_profile"]);
 # Be sure to give it a unique name.
 class ControllerUserProfile extends BaseController {
+    public function RunEarly() {
+        # Change Passwort
+        if(isset($_POST['ChangePassword'])){
+            # TODO Check password
+            # TODO Check password Repeat
+            $query = "UPDATE KUNDE SET PASSWORT=:password WHERE SESSIONID=:sessionid";
+            $params =[':password' => password_hash($_POST['passwd_new'], PASSWORD_DEFAULT),
+                        ':sessionid' => session_id()];
+            $this->db->execute($query, $params);
+        }
+    }
+
     public function RunDefault() {
         global $vars;
         # DB Request with only a single row expected
