@@ -7,6 +7,10 @@
     # establish database connection
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
+    # Authentification
+    session_start();
+    include('includes/auth.php');
+
     # Array of all controller classes
     $controllers = array();
     $vars = array();
@@ -23,10 +27,6 @@
 
     # Load the page controller
     include($PageController);
-
-    # Authentification
-    session_start();
-    include('includes/auth.php');
 
     # Execute all early methods
     foreach ($controllers as $controller)
