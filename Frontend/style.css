@@ -335,6 +335,11 @@ span.sql_keyword {
 
 }
 
+input[type="checkbox"],
+input[type="radio"] {
+    display: none;
+}
+
 input[type="checkbox"]:checked + Label,
 input[type="radio"]:checked + Label {
     background-color: #f0f0f0;
