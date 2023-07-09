@@ -335,7 +335,7 @@ span.sql_keyword {
 
 }
 
-input[type="checkbox"]:checked + label,
-input[type="radio"]:checked + label {
+.FilterLabel input[type="checkbox"]:checked + label,
+.FilterLabel input[type="radio"]:checked + label {
     background-color: #f0f0f0;
 }
