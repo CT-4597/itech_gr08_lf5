@@ -344,8 +344,3 @@ input[type="checkbox"]:checked + Label,
 input[type="radio"]:checked + Label {
     background-color: rgb(177, 134, 183);
 }
-
-input[type="checkbox"]:hover + Label,
-input[type="radio"]:hover + Label {
-    background-color: #aa76aa;
-}
