@@ -171,14 +171,14 @@ div.sql_logger {
 }
 
 span.sql_text {
-    font-size: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-family: Verdana;
     color: #000000;
 }
 
 span.sql_keyword {
-    font-size: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-family: Verdana;
     font-weight: bold;
     color: #c695c6;
 }
