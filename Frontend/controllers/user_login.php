@@ -13,8 +13,8 @@ class ControllerUserLogin extends BaseController {
         # Take a look at controllers/header_user.php for a better example
         if(isset($_POST['LoginUser'])) {
             $query = "SELECT id FROM KUNDE WHERE EMAIL=:email AND PASSWORT=:password";
-            $params = array(':email' => $_GET['email'],
-                            ':password' => $_GET['passwd']);
+            $params = array(':email' => $_POST['email'],
+                            ':password' => $_POST['passwd']);
             $vars['userlogin'] = $this->db->executeSingleRowQuery($query, $params);
             Logger::log('User ID: ' . $vars['userlogin']['KUNDENNR']);
         }
