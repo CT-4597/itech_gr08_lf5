@@ -131,6 +131,7 @@ body {
     float: right;
     padding-right: 1em;
     padding-top: 2em;
+    text-align: right;
 }
 
 .header_login a {

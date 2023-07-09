@@ -11,11 +11,12 @@
             $this->is_admin = False;
 
             Logger::log("Session ID: " . session_id());
-            $this->logged_in = $this->isLoggedIn();
+            $this->logged_in = $this->checkLogin();
+            $this->logged_in = $this->checkAdmin();
             # test if session id is in KUNDEN
         }
 
-        public function isLoggedIn() {
+        private function checkLogin() {
             $query = "SELECT * FROM KUNDE WHERE SESSIONID=:sessionid";
             $params = array(':sessionid' => session_id());
             if($this->db->executeExists($query, $params))
@@ -24,16 +25,20 @@
                 return False;
         }
 
-        public function login(string $username, string $password) {
-            # test if user and pw returns a valid row
-            # update session id
+        private function checkAdmin() {
+            $query = "SELECT * FROM KUNDE WHERE ADMIN=True AND SESSIONID=:sessionid";
+            $params = array(':sessionid' => session_id());
+            if($this->db->executeExists($query, $params))
+                return True;
+            else
+                return False;
         }
 
-        public function logged_in() {
+        public function LoggedIn() {
             return $this->logged_in;
         }
 
-        public function is_admin() {
+        public function Admin() {
             return $this->is_admin();
         }
     }
