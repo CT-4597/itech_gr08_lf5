@@ -3,7 +3,7 @@
   <label for="email">E-Mail:</label><br>
   <input type="email" id="email" name="email"  maxlength="50" required><br>
   <label for="passwd">Passwort:</label><br>
-  <input type="password" id="passwd" name="passwd"  maxlength="50" required><br>
+  <input type="password" id="passwd" name="passwd"  maxlength="50" required onkeyup="checkPasswordMatch()"><br>
   <label for="passwd2">Passwort wiederholen:</label><br>
   <input type="password" id="passwd2" name="passwd2"  maxlength="50" required onkeyup="checkPasswordMatch()"><br>
   <p id="passwordMatch"></p>
@@ -25,7 +25,7 @@
   <label for="telefon">Telefon (optional):</label><br>
   <input type="tel" id="telefon" name="telefon"><br>
 
-  <input type="submit" id="btnRegister" value="Registrieren" disabled>
+  <input type="submit" id="btnRegister" name="RegisterUser" value="Registrieren" disabled>
 </form>
 
 <script>
