@@ -39,7 +39,7 @@
         }
 
         public function Admin() {
-            return $this->is_admin();
+            return $this->is_admin;
         }
     }
     # initialize vars
