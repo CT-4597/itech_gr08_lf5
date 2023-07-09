@@ -2,8 +2,8 @@
     $auth = new authentification();
 
     class authentification {
-        protected bool logged_in;
-        protected bool is_admin;
+        protected bool $logged_in;
+        protected bool $is_admin;
 
         public function __construct() {
             session_id();
