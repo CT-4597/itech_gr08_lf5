@@ -5,8 +5,8 @@ class BaseController {
     protected string $logged_in_redirect;
     protected bool $admin;
     protected string $admin_redirect;
-    protected string $view;
-    protected string $container;
+    public string $view;
+    public string $container;
     protected $db;
 
     public function __construct(array &$arr, &$db, string $view = 'template', string $container = 'Content', bool $logged_in = false, string $logged_in_redirect = '/', bool $admin = false, string $admin_redirect = '/') {
