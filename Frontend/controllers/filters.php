@@ -1,6 +1,6 @@
 <?php
 # Needs to be the same as class [NAME]
-new ControllerFilters($controllers, $db, 'filters', 'Filters');
+new ControllerFilters($controllers, $db, ["Filters" => "filters"]);
 # Be sure to give it a unique name.
 class ControllerFilters extends BaseController {
     # Do you need to be loggin for this controller?

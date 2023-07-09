@@ -1,6 +1,6 @@
 <?php
 # Needs to be the same as class [NAME]
-new ControllerTemplate($controllers, $db, 'template', 'Content');
+new ControllerTemplate($controllers, $db, ["Content" => "template"]);
 # Be sure to give it a unique name.
 class ControllerTemplate extends BaseController {
     public function RunDefault() {

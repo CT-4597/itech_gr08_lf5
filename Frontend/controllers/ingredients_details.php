@@ -1,6 +1,6 @@
 <?php
 # Needs to be the same as class [NAME]
-new ControllerIngredientsDetails($controllers, $db, 'ingredients_details', 'Content');
+new ControllerIngredientsDetails($controllers, $db, ["Content" => "ingredients_details"]);
 # Be sure to give it a unique name.
 class ControllerIngredientsDetails extends BaseController {
     public function RunDefault() {

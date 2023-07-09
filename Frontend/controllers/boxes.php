@@ -1,6 +1,6 @@
 <?php
 # Needs to be the same as class [NAME]
-new ControllerBoxes($controllers, $db, 'boxes', 'Content');
+new ControllerBoxes($controllers, $db, ["Content" => "boxes"]);
 # Be sure to give it a unique name.
 class ControllerBoxes extends BaseController {
     public function RunDefault() {
