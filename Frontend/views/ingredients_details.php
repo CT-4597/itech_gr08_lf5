@@ -23,7 +23,7 @@
     	    <input type="hidden" name="ZUTATENNR" value="<?php echo $vars['ingredient']['ZUTATENNR']; ?>">
             <label for="amount">Menge</label>
             <input type="number" id="amount" name="amount" min="1" max="<?php echo $vars['ingredient']['BESTAND']; ?>" value="1">
-            <input type="submit" name="AddToCard" value="Zum Warenkorb hinzufügen">
+            <input type="submit" name="AddToCart" value="Zum Warenkorb hinzufügen">
         </form>
     </div>
 

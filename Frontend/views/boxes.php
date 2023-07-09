@@ -1,12 +1,8 @@
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-    </tr>
-<?php foreach($vars['boxes'] as $box) { ?>
-    <tr>
-        <td><?php echo $box['SAMMLUNGSNR']; ?></td>
-        <td><a href="/box/<?php echo $box['SAMMLUNGSNR']; ?>"><?php echo $box['SAMMLUNGSBEZEICHNUNG']; ?></a></td>
-    </tr>
- <?php } ?>
- </table>
+<div class="ingredients_flexbox">
+    <?php foreach($vars['boxes'] as $box) { ?>
+        <a href="/box/<?php echo $box["SAMMLUNGSNR"]; ?>" class="ingredients_flexitem">
+            <div><img src="<?php get_image("s", $box['SAMMLUNGSNR']); ?>" alt="Bild der Box" class="ingredients_pic"></div>
+            <div><?php echo $box['SAMMLUNGSBEZEICHNUNG']; ?></div>
+        </a>
+    <?php } ?>
+</div>
