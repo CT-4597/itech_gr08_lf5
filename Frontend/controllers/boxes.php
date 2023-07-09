@@ -45,6 +45,8 @@ class ControllerBoxes {
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
             $query_catergory = ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['category'];
+        } else {
+            $query_catergory = '';
         }
 
         # query with allergies and category
