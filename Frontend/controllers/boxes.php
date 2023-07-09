@@ -38,8 +38,9 @@ class ControllerBoxes {
             $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR != :allergen_' . $id;
             $params[':allergen_' . $id] = $id;
         }
+        $query_allergies = '';
         if(count($_SESSION['allergies']) > 0)
-            $query_allergies .= implode(' OR ', $placeholders);
+            $query_allergies = implode(' OR ', $placeholders);
 
         # Adding category clause placeholder to query
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
