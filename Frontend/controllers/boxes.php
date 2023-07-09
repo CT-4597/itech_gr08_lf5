@@ -40,7 +40,7 @@ class ControllerBoxes {
         }
         $query_allergies = '';
         if(count($_SESSION['allergies']) > 0)
-            $query_allergies = implode(' OR ', $placeholders);
+            $query_allergies = ' OR 'implode(' OR ', $placeholders);
 
         # Adding category clause placeholder to query
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
@@ -53,7 +53,7 @@ class ControllerBoxes {
         # query with allergies and category
         $query = "SELECT * FROM SAMMLUNG
                     LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
-                    ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE $query_allergies) sub
+                    ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE$query_allergies) sub
                     ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR
                     WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR={$_GET['typeid']}";
 
