@@ -1,12 +1,8 @@
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-    </tr>
-<?php foreach($vars['ingredients'] as $ingredient) { ?>
-    <tr>
-        <td><?php echo $ingredient['ZUTATENNR']; ?></td>
-        <td><a href="zutat/<?php echo $ingredient['ZUTATENNR']; ?>"><?php echo $ingredient['BEZEICHNUNG']; ?></a></td>
-    </tr>
- <?php } ?>
- </table>
+<div class="ingredients_flexbox">
+    <?php foreach($vars['ingredients'] as $ingredient) { ?>
+    <a href="/zutat/<?php echo $ingredient['ZUTATENNR']; ?>" class="ingredients_flexitem">
+        <div><img src="<?php get_image("z", $ingredient['ZUTATENNR']); ?>" alt="Bild der Zutat" class="ingredients_pic"></div>
+        <div><?php echo $ingredient['BEZEICHNUNG']; ?></div>
+    </a>
+    <?php } ?>
+</div>
