@@ -43,7 +43,7 @@ form {
     text-align: center;
 }
 
-input[type=text], input[type=password], input[type=date] {
+input[type=text], input[type=password], input[type=date], input[type=email], input[type=tel] {
     display: inline-block;
     box-sizing: border-box;
     padding: 0.5em;
