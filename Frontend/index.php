@@ -1,5 +1,6 @@
 <?php
     include('includes/logger.php');
+    include('includes/helper.php');
     include('includes/config.php');
     include('includes/database.php');
     include('includes/BaseController.php');
