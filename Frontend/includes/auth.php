@@ -13,7 +13,7 @@
             $this->is_admin = False;
 
             Logger::log("Session ID: " . session_id());
-            $this->isLoggedIn();
+            $this->logged_in = $this->isLoggedIn();
             # test if session id is in KUNDEN
         }
 
@@ -21,9 +21,9 @@
             $query = "SELECT * FROM KUNDE WHERE SESSIONID=:sessionid";
             $params = array(':sessionid' => session_id());
             if($this->db->executeExists($query, $params))
-                Logger::log("User logged in with Session ID.");
+                return True;
             else
-                Logger::log("No User with session id found.");
+                return False;
         }
 
         public function login(string $username, string $password) {
