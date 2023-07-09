@@ -28,9 +28,10 @@ class ControllerBoxesDetails extends BaseController {
 
         # Get Max Possible Box amount depending on ingredients
         $vars['box']['maxAmount'] = NULL;
-        foreach($vars['box_content'] as $content)
+        foreach($vars['box_content'] as $content) {
             if(is_null($vars['box']['maxAmount']) || ($vars['box']['maxAmount'] > $content['BESTAND'] / $content['ZUTATENMENGE']))
                 $vars['box']['maxAmount'] = floor($content['BESTAND'] / $content['ZUTATENMENGE'])
+        }
 
     }
 }
