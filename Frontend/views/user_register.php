@@ -30,7 +30,7 @@
 
 <script>
 function checkPasswordMatch() {
-    if (document.getElementById("password").value === document.getElementById("passwd2").value) {
+    if (document.getElementById("passwd").value === document.getElementById("passwd2").value) {
         document.getElementById("btnRegister").disabled = false;
         document.getElementById("passwordMatch").innerHTML = "";
     } else {
