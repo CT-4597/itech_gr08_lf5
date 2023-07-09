@@ -12,7 +12,7 @@ class ControllerHeaderUser extends BaseController {
             # Take a look at controllers/header_user.php for a better example
             $query = "SELECT VORNAME, NACHNAME FROM KUNDE WHERE SESSIONID=:sessionid";
             $params = array(':sessionid' => session_id());
-            $vars['user_header'][] = $this->db->executeSingleRowQuery($query, $params);
+            $vars['user_header'] = $this->db->executeSingleRowQuery($query, $params);
         }
     }
 }
