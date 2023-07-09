@@ -2,6 +2,7 @@
     include('includes/logger.php');
     include('includes/config.php');
     include('includes/database.php');
+    include('includes/BaseController.php');
 
     session_start();
     Logger::log("Session ID: " . session_id());
