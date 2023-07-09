@@ -23,6 +23,8 @@ class ControllerUserLogin extends BaseController {
             $params = array(':sessionid' => session_id(),
                             ':kundennr' => $row['KUNDENNR']);
             $this->db->execute($query, $params);
+            header("Location: /zutaten");
+            exit();
         }
     }
 }
