@@ -7,7 +7,7 @@ class ControllerHeaderUser extends BaseController {
         global $vars;
         global $auth;
 
-        if($auth->logged_in()) {
+        if($auth->LoggedIn()) {
             # DB Request with only a single row expected
             # Take a look at controllers/header_user.php for a better example
             $query = "SELECT VORNAME, NACHNAME FROM KUNDE WHERE SESSIONID=:sessionid";
