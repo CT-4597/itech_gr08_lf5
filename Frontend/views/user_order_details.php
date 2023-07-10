@@ -14,7 +14,7 @@
     <table>
 
     <?php foreach($vars['order_ingredients'] as $ingredient) { ?>
-        <tr>
+        <tr onclick="window.location.href = '/zutat/<?php echo $ingredient['ZUTATENNR']; ?>'">
             <td><?php echo $ingredient['ZUTATENNR']; ?></td>
             <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>
             <td><?php echo $ingredient['MENGE']; ?></td>
@@ -28,7 +28,7 @@
     <table>
 
     <?php foreach($vars['order_boxes'] as $box) { ?>
-        <tr>
+        <tr onclick="window.location.href = '/box/<?php echo $box['SAMMLUNGSNR']; ?>'">
             <td><?php echo $box['SAMMLUNGSNR']; ?></td>
             <td><?php echo $box['SAMMLUNGSBEZEICHNUNG']; ?></td>
             <td><?php echo $box['MENGE']; ?></td>
