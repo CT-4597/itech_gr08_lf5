@@ -80,6 +80,7 @@ input[type=submit]:hover, input[type=button]:hover {
 
 label {
     margin: 20px;
+    transition-duration: 0.4s;
 }
 
 p.error {
@@ -346,7 +347,7 @@ input[type="radio"]:checked + Label {
     background-color: rgb(177, 134, 183);
 }
 
-input[type="checkbox"]:checked + Label:hover,
-input[type="radio"]:checked + Label:hover {
+input[type="checkbox"] + Label:hover,
+input[type="radio"] + Label:hover {
     background-color: #aa76aa;
 }
