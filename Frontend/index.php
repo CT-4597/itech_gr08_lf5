@@ -73,9 +73,9 @@
 <body>
     <div class="header-wrapper">
         <div class="header">
-            <div>&nbsp</div>
-            <div>&nbsp</div>
-            <div>&nbsp</div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
     <div class="navigation">
