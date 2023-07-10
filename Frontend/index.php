@@ -19,6 +19,7 @@
 
     include("controllers/header_user.php");
     include("controllers/filters.php");
+    include("controllers/cart_manager.php");
 
     # Set controller and model to page or to the default page
     if(isset($_GET['page'])){
@@ -82,7 +83,7 @@
         <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
         <a href="/box/bio" class="navitem">Bio-Boxen</a>
         <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
-        <a href="/warenkorb" class="navitem" id="order_item_count"><img src="/images/icon_shopping_cart.svg" width="48" height="48"></a>
+        <a href="/warenkorb" class="navitem" id="order_item_count"><img src="/images/icon_shopping_cart.svg" width="48" height="48"><?php loadViewer("CartDisplay"); ?></a>
         <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($vars['filters_active']) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
     </div>
 
