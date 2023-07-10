@@ -4,6 +4,20 @@ new ControllerCartManager($controllers, $db, ["CartDisplay" => 'cart_display']);
 
 # Be sure to give it a unique name.
 class ControllerCartManager extends BaseController {
+
+    public function RunEarly() {
+        global $vars;
+        global $auth;
+        if(isset($_POST['AddToCartIngredient'])) {
+            # id of cart
+            $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
+            $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+            $cart_id = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+            Logger::log("Cart ID: " . $cart_id);
+        }
+
+    }
+
     public function RunDefault() {
         global $vars;
         global $auth;
@@ -20,7 +34,7 @@ class ControllerCartManager extends BaseController {
 
         $vars['cart_num_items'] = $row['Anzahl_Zutaten'];
 
-        # num items in cart - ingredients
+        # num items in cart - boxes
         $query = "SELECT SUM(BESTELLUNGSAMMLUNG.MENGE) AS Anzahl_Zutaten FROM BESTELLUNG
                     JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
                     JOIN BESTELLUNGSAMMLUNG ON BESTELLUNG.BESTELLNR = BESTELLUNGSAMMLUNG.BESTELLNR

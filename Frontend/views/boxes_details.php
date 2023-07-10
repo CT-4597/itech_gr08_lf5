@@ -32,7 +32,7 @@
             <?php if($auth->LoggedIn()) { ?>
                 <label for="amount">Menge</label>
                 <input type="number" id="amount" name="amount" min="1" max="<?php echo $vars['box']['maxAmount']; ?>" value="1">
-                <input type="submit" name="AddToCard" value="Zum Warenkorb hinzufügen">
+                <input type="submit" name="AddToCartIngredient" value="Zum Warenkorb hinzufügen">
             <?php } else { ?>
                 Loggen sie sich ein um zu Bestellen.
                 <input type="button" name="login" value="zum Login" onclick="window.location.href = '/login';">
