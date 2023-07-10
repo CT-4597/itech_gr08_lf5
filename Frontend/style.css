@@ -127,14 +127,14 @@ body {
     float:right;
 }
 
-.header-right {
+#header-right {
     color: white;
     padding-right: 1em;
     padding-top: 2em;
     text-align: right;
 }
 
-.header-right a {
+#header-right a {
     color: white;
     padding: 2px;
     text-decoration: none;
@@ -142,7 +142,7 @@ body {
     border-radius: 5px;
 }
 
-.header-right a:visited {
+#header-right a:visited {
     color: white;
 }
 .header-wrapper {
