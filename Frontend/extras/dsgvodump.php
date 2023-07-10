@@ -20,10 +20,10 @@
   $query_orders = "SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM KUNDE LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR LEFT JOIN BESTELLUNGSAMMLUNG ON BESTELLUNGSAMMLUNG.BESTELLNR = BESTELLUNG.BESTELLNR LEFT JOIN SAMMLUNG ON SAMMLUNG.SAMMLUNGSNR = BESTELLUNGSAMMLUNG.SAMMLUNGSNR WHERE KUNDE.KUNDENNR = :userid";
 
   function resultToCSV($result) {
-      $fields = array_keys($result);
+      $fields = array_keys($result[0]);
       foreach ($fields as $field) {
           echo $field;
-          $column_names[] = $field->name;
+          //$column_names[] = $field->name;
       }
       return '';
   }
