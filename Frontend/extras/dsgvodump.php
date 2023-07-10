@@ -1,9 +1,15 @@
 <?php
   include('../includes/config.php');
+  include('../includes/database.php');
+  include('../includes/auth.php');
 
+  $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
+
+  # Authentification
   session_start();
+  $auth = new authentification($db);
 
-  function getcsv($query) {
+  /*function getcsv($query) {
     global $conn;
     $result = $conn->query($query);
 
@@ -42,6 +48,6 @@
 
   // CSV-Daten an den Browser senden
   echo $csv_data;
-  exit;
+  exit;*/
 
  ?>
