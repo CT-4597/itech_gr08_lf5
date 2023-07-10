@@ -13,8 +13,8 @@ class ControllerCartManager extends BaseController {
             # id of cart
             $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
             $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
-            $cart_id = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
-            Logger::log("Cart ID: " . $cart_id);
+            $row = $this->db->executeSingleRowQuery($query, $params);
+            Logger::log("Cart ID: " . $row['BESTELLNR']);
         }
 
     }
