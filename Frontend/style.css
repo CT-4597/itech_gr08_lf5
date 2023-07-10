@@ -127,15 +127,14 @@ body {
     float:right;
 }
 
-.header_login {
+.header-right {
     color: white;
-    float: right;
     padding-right: 1em;
     padding-top: 2em;
     text-align: right;
 }
 
-.header_login a {
+.header-right a {
     color: white;
     padding: 2px;
     text-decoration: none;
@@ -143,7 +142,7 @@ body {
     border-radius: 5px;
 }
 
-.header_login a:visited {
+.header-right a:visited {
     color: white;
 }
 .header-wrapper {
@@ -166,7 +165,7 @@ body {
     flex-grow: 1;
 }
 #header-right {
-    width: 200px;
+    width: 500px;
 }
 
 #sqllogger {
