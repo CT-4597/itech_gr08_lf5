@@ -8,6 +8,7 @@ class ControllerCartManager extends BaseController {
     public function RunEarly() {
         global $vars;
         global $auth;
+        Logger::log("### Cart Manager Early ###");
         if(isset($_POST['AddToCartIngredient'])) {
             # id of cart
             $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
