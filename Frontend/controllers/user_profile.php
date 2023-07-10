@@ -7,7 +7,8 @@ class ControllerUserProfile extends BaseController {
         # Save Profile
         if(isset($_POST['SaveProfile'])){
             # TODO Check for wrong data
-            $query = "UPDATE KUNDE SET VORNAME=:vorname,
+            $query = "UPDATE KUNDE SET  EMAIL=:email,
+                                        VORNAME=:vorname,
                                         NACHNAME=:nachname,
                                         GEBURTSDATUM=:geburtsdatum,
                                         STRASSE=:strasse,
@@ -16,7 +17,8 @@ class ControllerUserProfile extends BaseController {
                                         ORT=:ort,
                                         TELEFON=:telefon
                                         WHERE SESSIONID=:sessionid";
-            $params = [':vorname' => $_POST['vorname'],
+            $params = [':email' => $_POST['email'],
+                        ':vorname' => $_POST['vorname'],
                         ':nachname' => $_POST['nachname'],
                         ':geburtsdatum' => date('Y-m-d', strtotime($_POST['geburtsdatum'])),
                         ':strasse' => $_POST['strasse'],
