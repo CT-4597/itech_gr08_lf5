@@ -1,4 +1,6 @@
 <?php
+include('sql_highlights.php');
+
   class Logger {
     private static $log = array();
 
@@ -12,7 +14,7 @@
 
     public static function printLog() {
         foreach(self::$log as $line) {
-            echo "$line <br>";
+            echo highlightKeywords($line) . "<br>";
         }
     }
   }
