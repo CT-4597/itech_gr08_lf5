@@ -10,6 +10,7 @@
             session_id();
             $this->logged_in = False;
             $this->is_admin = False;
+            $this->userid = 0;
 
             Logger::log("Session ID: " . session_id());
             $this->logged_in = $this->checkLogin();
