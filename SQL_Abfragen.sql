@@ -123,7 +123,7 @@ SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM KUNDE LEFT JOIN
 
 SELECT * FROM 
 
--- alte Subquery für Allergene, benannt nach subAll: nach FALSE muss entsprechend den Allergenen " OR ZUTATALLERGEN.ALLERGENNR != $ID_ALLERGEN" angehängt werden
+-- alte Subquery für Allergene, benannt nach subAll: nach FALSE muss entsprechend den Allergenen " OR ZUTATALLERGEN.ALLERGENNR = $ID_ALLERGEN" angehängt werden
 (SELECT * FROM SAMMLUNG
                     LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
                     ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE) sub
