@@ -17,7 +17,7 @@ class ControllerCartManager extends BaseController {
                 # test if the ingredient is already in the cart
                 $query = "SELECT * FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                 $params = [':orderid' => $orderid,
-                            ':ingredientid' => $_POST['ZUTATENNR'];
+                            ':ingredientid' => $_POST['ZUTATENNR']];
                 if($this->db->executeExists($query, $params)){
                     # Update row
                 } else {
