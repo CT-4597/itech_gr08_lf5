@@ -12,7 +12,7 @@ class ControllerBoxes extends BaseController {
 
         # Building strings for allergies
         foreach ($_SESSION['allergies'] as $allergyid) {
-            $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR != :allergen_' . $allergyid;
+            $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR == :allergen_' . $allergyid;
             $params[':allergen_' . $allergyid] = $allergyid;
         }
         $query_allergies = '';
