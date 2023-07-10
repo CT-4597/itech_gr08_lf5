@@ -10,10 +10,12 @@
             session_id();
             $this->logged_in = False;
             $this->is_admin = False;
+            $this->$userid = NULL;
 
             Logger::log("Session ID: " . session_id());
             $this->logged_in = $this->checkLogin();
             $this->is_admin = $this->checkAdmin();
+            Logger::log("User ID: " . $this->UserID());
             # test if session id is in KUNDEN
         }
 
