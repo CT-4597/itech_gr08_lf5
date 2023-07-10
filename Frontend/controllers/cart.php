@@ -31,6 +31,14 @@ class ControllerCart extends BaseController {
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
 
         $vars['cart_boxes'] = $this->db->executeQuery($query_cart_boxes, $params);
+
+        # Get Order Total Price
+        $vars['order_price_total'] = 0;
+        foreach($vars['cart_ingeredients'] as $ingredient)
+            $vars['order_price_total'] += $ingredient['GESAMTPREIS'];
+        foreach($vars['cart_boxes'] as $box)
+            $vars['order_price_total'] += $box['GESAMTPREIS'];
+
     }
 }
 ?>

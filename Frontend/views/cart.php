@@ -27,7 +27,7 @@
 <?php } ?>
 </table>
 
-<h3 style="text-align: right;">{PriceOrder} €</h3>
+<h3 style="text-align: right;"><?php echo $vars['order_price_total']; ?> €</h3>
 
 <input type="submit" name="Order" value="Bestellen">
 
