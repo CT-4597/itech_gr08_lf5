@@ -14,11 +14,20 @@ class ControllerCartManager extends BaseController {
             $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
             $orderid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
             if(isset($_POST['AddToCartIngredient'])) {
-                $query = "INSERT INTO BESTELLUNGZUTAT (BESTELLNR, ZUTATENNR, MENGE) VALUES (:orderid, :ingredientid, :amount)";
+                # test if the ingredient is already in the cart
+                $query = "SELECT * FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                 $params = [':orderid' => $orderid,
-                            ':ingredientid' => $_POST['ZUTATENNR'],
-                            ':amount' => $_POST['amount']];
-                $this->db->execute($query, $params);
+                            ':ingredientid' => $_POST['ZUTATENNR'];
+                if($this->db->executeExists($query, $params)){
+                    # Update row
+                } else {
+                    # insert new
+                    $query = "INSERT INTO BESTELLUNGZUTAT (BESTELLNR, ZUTATENNR, MENGE) VALUES (:orderid, :ingredientid, :amount)";
+                    $params = [':orderid' => $orderid,
+                                ':ingredientid' => $_POST['ZUTATENNR'],
+                                ':amount' => $_POST['amount']];
+                    $this->db->execute($query, $params);
+                }
             }
         }
 
