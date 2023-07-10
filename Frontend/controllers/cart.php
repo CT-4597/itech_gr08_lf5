@@ -8,7 +8,12 @@ class ControllerCart extends BaseController {
         global $auth;
 
         # boxes in cart
-        $query_cart_ingredients = "SELECT ZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG FROM KUNDE LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR LEFT JOIN BESTELLUNGZUTAT ON BESTELLUNGZUTAT.BESTELLNR = BESTELLUNG.BESTELLNR LEFT JOIN ZUTAT ON ZUTAT.ZUTATENNR = BESTELLUNGZUTAT.ZUTATENNR WHERE BESTELLUNG.STATUS=:orderstate AND KUNDE.KUNDENNR=:userid";
+        $query_cart_ingredients = "SELECT ZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG, ZUTAT.NETTOPREIS, ZUTAT.EINHEIT, BESTELLUNGZUTAT.MENGE
+                                    FROM BESTELLUNG
+                                    JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
+                                    JOIN BESTELLUNGZUTAT ON BESTELLUNG.BESTELLNR = BESTELLUNGZUTAT.BESTELLNR
+                                    JOIN ZUTAT ON BESTELLUNGZUTAT.ZUTATENNR = ZUTAT.ZUTATENNR
+                                    WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
 
         $vars['cart_ingeredients'] = $this->db->executeQuery($query_cart_ingredients, $params);
