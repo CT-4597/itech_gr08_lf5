@@ -53,7 +53,7 @@ class ControllerUserProfile extends BaseController {
             $params = [':email' => '',
                         ':vorname' => '',
                         ':nachname' => '',
-                        ':geburtsdatum' => 'Null',
+                        ':geburtsdatum' => null,
                         ':strasse' => '',
                         ':hausnr' => '',
                         ':plz' => '',
