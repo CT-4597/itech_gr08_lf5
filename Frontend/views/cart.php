@@ -1,3 +1,5 @@
+<form action="/bestellen" method="post">
+
 <table>
 
 <?php foreach($vars['cart_ingeredients'] as $ingredient) { ?>
@@ -28,3 +30,5 @@
 <?php foreach($vars['cart_boxes'] as $ingredient) { ?>
 
 <?php } ?>
+
+</form>
