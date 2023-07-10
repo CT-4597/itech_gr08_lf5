@@ -40,7 +40,29 @@ class ControllerUserProfile extends BaseController {
             $this->db->execute($query, $params);
         }
         if(isset($_POST['dsgvo_form_delete'])){
-            
+            $query = "UPDATE KUNDE SET  EMAIL=:email,
+                                        VORNAME=:vorname,
+                                        NACHNAME=:nachname,
+                                        GEBURTSDATUM=:geburtsdatum,
+                                        STRASSE=:strasse,
+                                        HAUSNR=:hausnr,
+                                        PLZ=:plz,
+                                        ORT=:ort,
+                                        TELEFON=:telefon
+                                        WHERE SESSIONID=:sessionid";
+            $params = [':email' => '',
+                        ':vorname' => '',
+                        ':nachname' => '',
+                        ':geburtsdatum' => '',
+                        ':strasse' => '',
+                        ':hausnr' => '',
+                        ':plz' => '',
+                        ':ort' => '',
+                        ':telefon' => '',
+                        ':sessionid' => session_id()];
+            $this->db->execute($query, $params);
+            header("Location: /logout");
+            exit();
         }
     }
 
