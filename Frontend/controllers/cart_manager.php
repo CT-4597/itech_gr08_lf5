@@ -19,6 +19,18 @@ class ControllerCartManager extends BaseController {
         $row = $this->db->executeSingleRowQuery($query, $params);
 
         $vars['cart_num_items'] = $row['Anzahl_Zutaten'];
+
+        # num items in cart - ingredients
+        $query = "SELECT SUM(BESTELLUNGSAMMLUNG.MENGE) AS Anzahl_Zutaten FROM BESTELLUNG
+                    JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
+                    JOIN BESTELLUNGSAMMLUNG ON BESTELLUNG.BESTELLNR = BESTELLUNGSAMMLUNG.BESTELLNR
+                    WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
+
+        $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+
+        $row = $this->db->executeSingleRowQuery($query, $params);
+
+        $vars['cart_num_items'] += $row['Anzahl_Zutaten'];
     }
 }
 ?>
