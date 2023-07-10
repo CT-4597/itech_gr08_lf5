@@ -185,6 +185,10 @@ body {
     box-sizing: border-box;
 }
 
+#sqllogger.expanded {
+    max-height: 1000px;
+}
+
 .sqllogger_inner {
     width: 100%;
 }

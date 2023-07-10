@@ -12,6 +12,11 @@ function moveLogger() {
     document.getElementById('header-middle').appendChild(logger_container);
 }
 
+function toggleLoggerFullscreen() {
+    var element = document.getElementById("sqllogger");
+    element.classList.toggle("expanded");
+}
+
 function dsgvo_delete_confirmation() {
   var response = confirm("Möchten sie wirklich ihr Benutzerkonto löschen? Dieser Vorgang kann nicht rückgängig gemacht werden!");
   if (response == true) {
