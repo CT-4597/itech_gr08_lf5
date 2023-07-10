@@ -27,8 +27,8 @@
 <?php } ?>
 </table>
 
-<?php foreach($vars['cart_boxes'] as $ingredient) { ?>
+<h3 style="text-align: right;">{PriceOrder} €</h3>
 
-<?php } ?>
+<input type="submit" name="Order" value="Bestellen">
 
 </form>
