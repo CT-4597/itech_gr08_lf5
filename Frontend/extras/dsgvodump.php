@@ -33,8 +33,11 @@
   $csv_data .= resultToCSV($db->executeQuery($query_orders_boxes, $params));
   $csv_data .= resultToCSV($db->executeQuery($query_orders, $params));
 
-
+  $output_filename = "dsgvodump_" . (string)$auth->UserID() . ".csv";
+  header("Content-Type: text/csv");
+  header("Content-Disposition: attachment; filename=$output_filename");
   echo $csv_data;
+  exit;
 
   /*function getcsv($query) {
     global $conn;
