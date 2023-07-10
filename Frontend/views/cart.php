@@ -13,7 +13,7 @@
     </tr>
 <?php } ?>
 </table>
-
+<br>
 <table>
 
 <?php foreach($vars['cart_boxes'] as $box) { ?>
