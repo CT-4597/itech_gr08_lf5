@@ -10,7 +10,7 @@ class ControllerCartManager extends BaseController {
         global $auth;
 
         # Test if the user has a Cart, otherwise create one.
-        $query = "SELECT * FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid"
+        $query = "SELECT * FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid";
         $params = [":orderstate" => 'Warenkorb', ":userid" => $auth->UserID()];
         if(!$this->db->executeExists($query, $params)) {
             Logger::log("User has no Cart.");
