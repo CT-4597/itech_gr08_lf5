@@ -94,7 +94,7 @@
     <div class="content">
         <?php loadViewer("Content"); ?>
     </div>
-    <div class="sql_logger_inner" id="sql_logger_inner"><?php if($CONFIG['logger']) Logger::printLog(); ?><img src="/images/icon_fullscreen.svg" width="24" height="24" style="position: absolute; top: 0px; right: 0px;"></div>
+    <div class="sql_logger_inner" id="sql_logger_inner"><?php if($CONFIG['logger']) Logger::printLog(); ?><img src="/images/icon_fullscreen.svg" width="24" height="24" style="position: relative; top: 0px; right: 0px;"></div>
     <script>
         moveLogger();
     </script>
