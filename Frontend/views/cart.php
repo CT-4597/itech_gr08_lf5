@@ -6,6 +6,7 @@
         <td><?php echo $ingredient['MENGE']; ?></td>
         <td><?php echo $ingredient['EINHEIT']; ?></td>
         <td><?php echo $ingredient['NETTOPREIS']; ?></td>
+        <td><?php echo $ingredient['GESAMTPREIS']; ?></td>
     </tr>
 <?php } ?>
 </table>
