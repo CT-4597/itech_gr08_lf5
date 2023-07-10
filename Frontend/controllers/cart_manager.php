@@ -15,6 +15,8 @@ class ControllerCartManager extends BaseController {
             $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
             $row = $this->db->executeSingleRowQuery($query, $params);
             Logger::log("Cart ID: " . $row['BESTELLNR']);
+        } else {
+            Logger::log("Did nothing.");
         }
 
     }
