@@ -10,6 +10,9 @@
   session_start();
   $auth = new authentification($db);
 
+  if(!$auth->LoggedIn())
+    exit();
+
   $params = [":userid" => $auth->UserID()];
   $query_user = "SELECT * FROM KUNDE WHERE KUNDENNR=:userid";
   $query_orders_ingredients = "SELECT * FROM BESTELLUNG JOIN BESTELLUNGZUTAT WHERE BESTELLUNG.KUNDENNR = :userid";
