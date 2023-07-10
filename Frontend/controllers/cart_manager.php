@@ -16,7 +16,7 @@ class ControllerCartManager extends BaseController {
 
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
 
-        $row = $this->db->executeSingleRowQuery($query_cart_boxes, $params);
+        $row = $this->db->executeSingleRowQuery($query, $params);
 
         $vars['cart_num_items'] = $row['Anzahl_Zutaten'];
     }
