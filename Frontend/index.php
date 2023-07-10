@@ -72,9 +72,11 @@
 </head>
 <body>
     <div class="header-wrapper">
-        <div id="header-left"><img src="/images/Logo.png" class="header_logo"></div>
-        <div id="header-middle"></div>
-        <div id="header-right"><?php loadViewer("HeaderUser"); ?></div>
+        <div class="header">
+            <div id="header-left"><img src="/images/Logo.png" class="header_logo"></div>
+            <div id="header-middle"></div>
+            <div id="header-right"><?php loadViewer("HeaderUser"); ?></div>
+        </div>
 
 
     </div>
