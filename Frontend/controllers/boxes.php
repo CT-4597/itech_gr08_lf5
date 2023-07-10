@@ -17,14 +17,14 @@ class ControllerBoxes extends BaseController {
         }
         $query_allergies = '';
         if(count($_SESSION['allergies']) > 0)
-            $query_allergies = ' OR ' . implode(' OR ', $placeholders);
+            $allergies = ' OR ' . implode(' OR ', $placeholders);
 
         # Adding category clause placeholder to query
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
-            $query_catergory = ' AND ZUTATKATEGORIE.KATEGORIENR = :category';
+            $catergory = ' AND ZUTATKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['category'];
         } else {
-            $query_catergory = '';
+            $catergory = '';
         }
 
 
