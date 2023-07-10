@@ -9,7 +9,7 @@ class ControllerCartManager extends BaseController {
         global $auth;
 
         # num items in cart - ingredients
-        $query = "SELECT COUNT(*) AS Anzahl_Zutaten FROM BESTELLUNG
+        $query = "SELECT SUM(BESTELLUNGZUTAT.MENGE) AS Anzahl_Zutaten FROM BESTELLUNG
                     JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
                     JOIN BESTELLUNGZUTAT ON BESTELLUNG.BESTELLNR = BESTELLUNGZUTAT.BESTELLNR
                     WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
