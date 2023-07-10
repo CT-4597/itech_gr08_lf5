@@ -21,11 +21,11 @@
 
   function resultToCSV($result) {
       $fields = array_keys($result[0]);
-      foreach ($fields as $field) {
-          echo $field;
-          //$column_names[] = $field->name;
+      $csv_data = implode(",", $fields) . "\n";
+      foreach ($result as $row) {
+          $csv_data .= implode(",", $row) . "\n";
       }
-      return '';
+      return $csv_data;
   }
 
   $csv_data = resultToCSV($db->executeQuery($query_user, $params));
@@ -33,6 +33,8 @@
   $csv_data .= resultToCSV($db->executeQuery($query_orders_boxes, $params));
   $csv_data .= resultToCSV($db->executeQuery($query_orders, $params));
 
+
+  echo $csv_data;
 
   /*function getcsv($query) {
     global $conn;
