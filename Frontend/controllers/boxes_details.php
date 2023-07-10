@@ -4,6 +4,42 @@ new ControllerBoxesDetails($controllers, $db, ["Content" => "boxes_details"]);
 # Be sure to give it a unique name.
 class ControllerBoxesDetails extends BaseController {
 
+    public function RunEarly() {
+        global $vars;
+        global $auth;
+        if(isset($_POST['AddToCartBoxes'])) {
+            # id of cart
+            $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND BESTELLUNG.KUNDENNR = :userid";
+            $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+            $orderid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+
+            # test if the ingredient is already in the cart
+            $query = "SELECT * FROM BESTELLUNGSAMMLUNG WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+            $params = [':orderid' => $orderid,
+                        ':boxid' => $_POST['SAMMLUNGSNR']];
+            if($this->db->executeExists($query, $params)){
+                # read amount
+                $query = "SELECT MENGE FROM BESTELLUNGSAMMLUNG WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                $params = [':orderid' => $orderid,
+                            ':boxid' => $_POST['SAMMLUNGSNR']];
+                $amount = $this->db->executeSingleRowQuery($query, $params)['MENGE'];
+                # Update row
+                $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                $params = [':orderid' => $orderid,
+                            ':boxid' => $_POST['SAMMLUNGSNR'],
+                            ':amount' => $amount + $_POST['amount']];
+                $this->db->execute($query, $params);
+            } else {
+                # insert new
+                $query = "INSERT INTO BESTELLUNGSAMMLUNG (BESTELLNR, SAMMLUNGSNR, MENGE) VALUES (:orderid, :boxid, :amount)";
+                $params = [':orderid' => $orderid,
+                            ':boxid' => $_POST['SAMMLUNGSNR'],
+                            ':amount' => $_POST['amount']];
+                $this->db->execute($query, $params);
+            }
+        }
+    }
+
     public function RunDefault() {
         global $vars;
 
