@@ -7,7 +7,7 @@ class ControllerCartOrder extends BaseController {
         global $vars;
         global $auth;
 
-        $query = "UPDATE BESTELLUNG SET BESTELLDATUM=:orderdate, RECHNUNGSBETRAG=:total_price, STATUS=:neworderstate WHERE STATUS:orderstate AND KUNDENNR=:userid";
+        $query = "UPDATE BESTELLUNG SET BESTELLDATUM=:orderdate, RECHNUNGSBETRAG=:total_price, STATUS=:neworderstate WHERE STATUS=:orderstate AND KUNDENNR=:userid";
         $params = [":orderdate" => date('Y-m-d'),
                     ":total_price" => 0,
                     ":neworderstate" => 'Bestellt',
