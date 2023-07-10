@@ -159,10 +159,6 @@ body {
     height: 130px;
 }
 
-.header > div {
-    border: 1px solid blue;
-}
-
 #header-left {
     width: 200px;
 }
@@ -174,7 +170,11 @@ body {
 }
 
 #sqllogger {
-    border: 1px solid red;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Verdana;
+    border: 1px solid black;
     box-sizing: border-box;
     max-height: 130px;
     overflow: auto;
