@@ -146,25 +146,15 @@ body {
 .header_login a:visited {
     color: white;
 }
-.header-wrapper {
-    position: sticky;
-    top: 0px;
-    background-color: rgb(177, 134, 183);
-}
 
 .header {
+    background-color: rgb(177, 134, 183);
+    position: sticky;
+    top: 0px;
+    height: 130px;
+    overflow: none;
     display: flex;
     align-items: stretch;
-    height: 130px;
-}
-
-.header > div {
-    border: 1px solid blue;
-}
-
-.header > div:first-child,
-.header > div:last-child {
-    width: 200px;
 }
 
 div.sql_logger {
