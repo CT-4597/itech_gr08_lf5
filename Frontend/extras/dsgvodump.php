@@ -21,6 +21,10 @@
 
   function resultToCSV($result) {
       $fields = array_keys($result);
+      foreach ($fields as $field) {
+          echo $field;
+          $column_names[] = $field->name;
+      }
       return '';
   }
 
