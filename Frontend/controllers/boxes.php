@@ -10,9 +10,10 @@ class ControllerBoxes extends BaseController {
         $params = array();
         $placeholders = array();
 
-        foreach ($_SESSION['allergies'] as $id) {
-            $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR != :allergen_' . $id;
-            $params[':allergen_' . $id] = $id;
+        # Building strings for allergies
+        foreach ($_SESSION['allergies'] as $allergyid) {
+            $placeholders[] = 'ZUTATALLERGEN.ALLERGENNR != :allergen_' . $allergyid;
+            $params[':allergen_' . $allergyid] = $allergyid;
         }
         $query_allergies = '';
         if(count($_SESSION['allergies']) > 0)
@@ -20,18 +21,24 @@ class ControllerBoxes extends BaseController {
 
         # Adding category clause placeholder to query
         if ($_SESSION['category'] != NULL && $_SESSION['category'] != "0") {
-            $query_catergory = ' AND ERNAEHRUNGSKATEGORIE.KATEGORIENR = :category';
+            $query_catergory = ' AND ZUTATKATEGORIE.KATEGORIENR = :category';
             $params[':category'] = $_SESSION['category'];
         } else {
             $query_catergory = '';
         }
 
+
         # query with allergies and category
-        $query = "SELECT * FROM SAMMLUNG
+
+        $query = "SELECT * FROM (SELECT * FROM SAMMLUNG
                     LEFT JOIN (SELECT SAMMLUNGZUTAT.SAMMLUNGSNR AS SAMMLUNGMITALLERGENNR FROM SAMMLUNGZUTAT JOIN ZUTATALLERGEN
-                    ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE$query_allergies) sub
+                    ON SAMMLUNGZUTAT.ZUTATENNR = ZUTATALLERGEN.ZUTATENNR WHERE FALSE{$allergies}) sub
                     ON SAMMLUNG.SAMMLUNGSNR = sub.SAMMLUNGMITALLERGENNR
-                    WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR={$_GET['typeid']}";
+                    WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR=2) subAll
+                    WHERE NOT EXISTS
+                    (SELECT subAll.SAMMLUNGSBEZEICHNUNG FROM SAMMLUNG AS SUB JOIN SAMMLUNGZUTAT ON subAll.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR WHERE NOT EXISTS
+                    (SELECT ZUTATKATEGORIE.ZUTATENNR FROM ZUTATKATEGORIE WHERE SAMMLUNGZUTAT.ZUTATENNR = ZUTATKATEGORIE.ZUTATENNR{$query_catergory})
+                    AND SUB.SAMMLUNGSNR = subAll.SAMMLUNGSNR)";
 
         $vars['boxes'] = $this->db->executeQuery($query, $params);
     }

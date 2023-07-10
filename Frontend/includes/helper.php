@@ -14,4 +14,9 @@ function get_image($type, $id){
 		echo "/images/noimage.svg";
 	}
 }
+
+static function test() {
+    return False;
+}
+
 ?>
