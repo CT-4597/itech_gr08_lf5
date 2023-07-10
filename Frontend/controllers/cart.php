@@ -7,11 +7,6 @@ class ControllerCart extends BaseController {
         global $vars;
         global $auth;
 
-        $query = "SELECT count(*) FROM BESTELLUNG WHERE STATUS=:status AND KUNDENNR=:userid";
-        $params = [':status' => 'Warenkorb', ':userid' => $auth->userid];
-
-        $vars['cart'] = $db->executeQuery($query, $params);
-
         # boxes in cart
         $query_cart_ingredients = "SELECT ZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG FROM KUNDE LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR LEFT JOIN BESTELLUNGZUTAT ON BESTELLUNGZUTAT.BESTELLNR = BESTELLUNG.BESTELLNR LEFT JOIN ZUTAT ON ZUTAT.ZUTATENNR = BESTELLUNGZUTAT.ZUTATENNR WHERE BESTELLUNG.STATUS=:orderstate AND KUNDE.KUNDENNR=:userid";
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
