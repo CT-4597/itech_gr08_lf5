@@ -71,11 +71,12 @@
     <script src="/scripts.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div>&nbsp</div>
-        <div>&nbsp</div>
-        <div>&nbsp</div>
-
+    <div class="header-wrapper">
+        <div class="header">
+            <div>&nbsp</div>
+            <div>&nbsp</div>
+            <div>&nbsp</div>
+        </div>
     </div>
     <div class="navigation">
         <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>

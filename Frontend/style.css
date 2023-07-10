@@ -146,15 +146,16 @@ body {
 .header_login a:visited {
     color: white;
 }
-
-.header {
-    background-color: rgb(177, 134, 183);
+.header-wrapper {
     position: sticky;
     top: 0px;
-    height: 130px;
-    overflow: none;
+    background-color: rgb(177, 134, 183);
+}
+
+.header {
     display: flex;
     align-items: stretch;
+    height: 130px;
 }
 
 .header > div {
