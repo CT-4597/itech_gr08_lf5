@@ -1,6 +1,6 @@
 <?php
 # Needs to be the same as class [NAME]
-new ControllerCartManager($controllers, $db, ["CartDisplay" => cart_display.php]);
+new ControllerCartManager($controllers, $db, ["CartDisplay" => 'cart_display']);
 
 # Be sure to give it a unique name.
 class ControllerCartManager extends BaseController {
