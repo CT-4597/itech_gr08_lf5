@@ -98,7 +98,7 @@
         <?php loadViewer("Content"); ?>
     </div>
     <div id="sqllogger">
-        <img src="/images/icon_fullscreen.svg" width="24" height="24" style="position: absolute; top: 4px; right: 4px;" onclick="toggleLoggerFullscreen();">
+        <img src="/images/icon_fullscreen.svg" id="sqllogger_fullscreen_icon" onclick="toggleLoggerFullscreen();">
         <?php if($CONFIG['logger']) Logger::printLog(); ?>
     </div>
     <script>

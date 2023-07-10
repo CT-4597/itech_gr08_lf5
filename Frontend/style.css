@@ -192,6 +192,14 @@ body {
     max-height: 1000px;
 }
 
+#sqllogger_fullscreen_icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
 .sqllogger_inner {
     width: 100%;
 }
