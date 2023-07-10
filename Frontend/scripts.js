@@ -8,8 +8,8 @@ function toggleFilter() {
 }
 
 function moveLogger() {
-    var logger_container = document.getElementById('header-middle');
-    document.getElementById('sql_logger').appendChild(logger_container);
+    var logger_container = document.getElementById('sqllogger');
+    document.getElementById('header-middle').appendChild(logger_container);
 }
 
 function dsgvo_delete_confirmation() {
