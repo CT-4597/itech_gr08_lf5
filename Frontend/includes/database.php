@@ -23,6 +23,17 @@ class DatabaseConnection {
         }
     }
 
+    public function executeQueryResult($query, $params = array()) {
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+            LOGGER::log($this->completeQuery($stmt->queryString, $params));
+            return $stmt;
+        } catch(PDOException $e) {
+            throw new Exception("Fehler bei der Abfrage: " . $e->getMessage() . "<br> Query: " . $query);
+        }
+    }
+
     public function executeSingleRowQuery($query, $params = array()) {
         try {
             $stmt = $this->conn->prepare($query);

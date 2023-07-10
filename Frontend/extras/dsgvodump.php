@@ -24,10 +24,10 @@
       return '';
   }
 
-  $csv_data = resultToCSV($db->executeQuery($query_user, $params));
-  $csv_data .= resultToCSV($db->executeQuery($query_orders_ingredients, $params));
-  $csv_data .= resultToCSV($db->executeQuery($query_orders_boxes, $params));
-  $csv_data .= resultToCSV($db->executeQuery($query_orders, $params));
+  $csv_data = resultToCSV($db->executeQueryResult($query_user, $params));
+  $csv_data .= resultToCSV($db->executeQueryResult($query_orders_ingredients, $params));
+  $csv_data .= resultToCSV($db->executeQueryResult($query_orders_boxes, $params));
+  $csv_data .= resultToCSV($db->executeQueryResult($query_orders, $params));
 
 
   /*function getcsv($query) {
