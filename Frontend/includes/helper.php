@@ -15,8 +15,4 @@ function get_image($type, $id){
 	}
 }
 
-static function test() {
-    return False;
-}
-
 ?>
