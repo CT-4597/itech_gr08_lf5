@@ -13,18 +13,18 @@ class ControllerUserOrderDetails extends BaseController {
         $vars['orderdetails'] = $this->db->executeSingleRowQuery($query, $params);
 
         # Order Ingredients
-        $query_cart_ingredients = "SELECT ZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG, ZUTAT.NETTOPREIS, ZUTAT.EINHEIT, BESTELLUNGZUTAT.MENGE, FORMAT((ZUTAT.NETTOPREIS * BESTELLUNGZUTAT.MENGE), 2) as GESAMTPREIS
+        $query_order_ingredients = "SELECT ZUTAT.ZUTATENNR, ZUTAT.BEZEICHNUNG, ZUTAT.NETTOPREIS, ZUTAT.EINHEIT, BESTELLUNGZUTAT.MENGE, FORMAT((ZUTAT.NETTOPREIS * BESTELLUNGZUTAT.MENGE), 2) as GESAMTPREIS
                                     FROM BESTELLUNG
                                     JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
                                     JOIN BESTELLUNGZUTAT ON BESTELLUNG.BESTELLNR = BESTELLUNGZUTAT.BESTELLNR
                                     JOIN ZUTAT ON BESTELLUNGZUTAT.ZUTATENNR = ZUTAT.ZUTATENNR
-                                    WHERE BESTELLNR=:orderid";
+                                    WHERE BESTELLUNG.BESTELLNR=:orderid";
         $params = [":orderid" => $_GET['id']];
 
-        $vars['order_ingredients'] = $this->db->executeQuery($query_cart_ingredients, $params);
+        $vars['order_ingredients'] = $this->db->executeQuery($query_order_ingredients, $params);
 
         # Order Boxes
-        $query_cart_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, BESTELLUNGSAMMLUNG.MENGE,
+        $query_order_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, BESTELLUNGSAMMLUNG.MENGE,
                                 FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)), 2) AS EINZELPREIS,
                                 FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)) * BESTELLUNGSAMMLUNG.MENGE, 2) AS GESAMTPREIS
                                 FROM BESTELLUNG
@@ -33,10 +33,10 @@ class ControllerUserOrderDetails extends BaseController {
                                 LEFT JOIN SAMMLUNG ON BESTELLUNGSAMMLUNG.SAMMLUNGSNR = SAMMLUNG.SAMMLUNGSNR
                                 LEFT JOIN SAMMLUNGZUTAT ON SAMMLUNG.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR
                                 LEFT JOIN ZUTAT ON SAMMLUNGZUTAT.ZUTATENNR = ZUTAT.ZUTATENNR
-                                WHERE BESTELLNR=:orderid GROUP BY SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG";
+                                WHERE BESTELLUNG.BESTELLNR=:orderid GROUP BY SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG";
         $params = [":orderid" => $_GET['id']];
 
-        $vars['order_boxes'] = $this->db->executeQuery($query_cart_boxes, $params);
+        $vars['order_boxes'] = $this->db->executeQuery($query_order_boxes, $params);
     }
 }
 ?>
