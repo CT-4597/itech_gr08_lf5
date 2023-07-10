@@ -75,10 +75,7 @@
         <div style="position: relative; left: 0px; top: 0px; border: 1px solid blue; height: 100%; width: 200px;">&nbsp</div>
         <div style="border: 1px solid blue; height: 100%;">&nbsp</div>
         <div style="position: relative; right: 0px; top: 0px; border: 1px solid blue; height: 100%; width: 200px;">&nbsp</div>
-        <img src="/images/Logo.png" class="header_logo">
-        <div class="sql_logger" id="sql_logger" style="position: relative;"><img src="/images/icon_fullscreen.svg" width="24" height="24" style="display: block; position: sticky; top: 0px; right: 0px;"></div>
-        <img src="/images/user_icon.png" class="header_user_icon">
-        <div class="header_login"><?php loadViewer("HeaderUser"); ?></div>
+
     </div>
     <div class="navigation">
         <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>

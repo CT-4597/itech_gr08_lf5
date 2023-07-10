@@ -153,6 +153,17 @@ body {
     top: 0px;
     height: 130px;
     overflow: none;
+    display: flex;
+    align-items: stretch;
+}
+
+.header > div {
+    border: 1px solid blue;
+}
+
+.header > div:first-child,
+.header > div:last-child {
+    width: 200px;
 }
 
 div.sql_logger {
