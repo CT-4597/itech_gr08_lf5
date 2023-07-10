@@ -14,7 +14,7 @@ include('sql_highlights.php');
 
     public static function printLog() {
         foreach(self::$log as $line) {
-            echo highlightKeywords($line) . "<br><hr class=\"linelogger\"><br>";
+            echo highlightKeywords($line) . "<br><hr class=\"linelogger\">";
         }
     }
   }
