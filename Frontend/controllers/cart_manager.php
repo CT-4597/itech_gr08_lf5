@@ -8,15 +8,18 @@ class ControllerCartManager extends BaseController {
     public function RunEarly() {
         global $vars;
         global $auth;
-        Logger::log("### Cart Manager Early ###");
         if(isset($_POST['AddToCartIngredient']) || isset($_POST['AddToCartBoxes'])) {
             # id of cart
             $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND BESTELLUNG.KUNDENNR = :userid";
             $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
-            $row = $this->db->executeSingleRowQuery($query, $params);
-            Logger::log("Cart ID: " . $row['BESTELLNR']);
-        } else {
-            Logger::log("Did nothing.");
+            $orderid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+            if(isset($_POST['AddToCartIngredient'])) {
+                $query = "INSERT INTO BESTELLUNGZUTAT (BESTELLNR, ZUTATENNR, MENGE) VALUES (:orderid, :ingredientid, :amount)";
+                $params = [':orderid' => $orderid,
+                            ':ingredientid' => $_POST['ZUTATENNR'],
+                            ':amount' => $_POST['amount']];
+                $this->db->execute($query, $params);
+            }
         }
 
     }
