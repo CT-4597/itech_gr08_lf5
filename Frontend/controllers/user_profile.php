@@ -39,6 +39,9 @@ class ControllerUserProfile extends BaseController {
                         ':sessionid' => session_id()];
             $this->db->execute($query, $params);
         }
+        if(isset($_POST['dsgvo_form_delete'])){
+            
+        }
     }
 
     public function RunDefault() {
