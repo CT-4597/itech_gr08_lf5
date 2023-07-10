@@ -19,11 +19,16 @@ class ControllerCartManager extends BaseController {
                 $params = [':orderid' => $orderid,
                             ':ingredientid' => $_POST['ZUTATENNR']];
                 if($this->db->executeExists($query, $params)){
+                    # read amount
+                    $query = "SELECT MENGE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
+                    $params = [':orderid' => $orderid,
+                                ':ingredientid' => $_POST['ZUTATENNR']];
+                    $amount = $this->db->executeSingleRowQuery($query, $params)['MENGE']
                     # Update row
                     $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                     $params = [':orderid' => $orderid,
                                 ':ingredientid' => $_POST['ZUTATENNR'],
-                                ':amount' => $_POST['amount']];
+                                ':amount' => $amount + $_POST['amount']];
                     $this->db->execute($query, $params);
                 } else {
                     # insert new
