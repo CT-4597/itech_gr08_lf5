@@ -9,6 +9,15 @@ class ControllerCartManager extends BaseController {
         global $vars;
         global $auth;
 
+        # Test if the user has a Cart, otherwise create one.
+        $query = "SELECT * FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid"
+        $params = [":orderstate" => 'Warenkorb', ":userid" => $auth->UserID()]
+        if(!$this->db->executeExists($query, $params)) {
+            $query = "INSERT INTO BESTELLUNG (KUNDENNR, STATUS)
+                        VALUES (:userid, :orderstate)";
+            $params = [":orderstate" => 'Warenkorb', ":userid" => $auth->UserID()];
+            $this->db->execute($query, $params);
+        }
         # num items in cart - ingredients
         $query = "SELECT SUM(BESTELLUNGZUTAT.MENGE) AS Anzahl_Zutaten FROM BESTELLUNG
                     JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
