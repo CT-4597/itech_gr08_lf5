@@ -153,8 +153,6 @@ body {
     top: 0px;
     height: 130px;
     overflow: none;
-    display: flex;
-    align-items: stretch;
 }
 
 div.sql_logger {
