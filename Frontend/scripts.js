@@ -8,7 +8,7 @@ function toggleFilter() {
 }
 
 function moveLogger() {
-    var logger_container = document.getElementById('sql_logger_inner');
+    var logger_container = document.getElementById('header-middle');
     document.getElementById('sql_logger').appendChild(logger_container);
 }
 

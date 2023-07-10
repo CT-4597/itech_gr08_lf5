@@ -146,26 +146,39 @@ body {
 .header_login a:visited {
     color: white;
 }
-
-.header {
-    background-color: rgb(177, 134, 183);
+.header-wrapper {
     position: sticky;
     top: 0px;
-    height: 130px;
-    overflow: none;
+    background-color: rgb(177, 134, 183);
+    margin: 0px;
 }
 
-div.sql_logger {
-    margin: 5px 0;
-    width: 60%;
-    max-height: 120px;
-    background-color: white;
-    border-radius: 5px;
-    overflow: auto;
-    float: left;
+.header {
+    display: flex;
+    align-items: stretch;
+    height: 130px;
+}
+
+.header > div {
+    border: 1px solid blue;
+}
+
+#header-left {
+    width: 200px;
+}
+#header-middle {
+    flex-grow: 1;
+}
+#header-right {
+    width: 200px;
+}
+
+#sqllogger {
+    border: 1px solid red;
     box-sizing: border-box;
-    font-size: 14px;
-    font-family: Verdana;
+    max-height: 500px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 .sqllogger_inner {
