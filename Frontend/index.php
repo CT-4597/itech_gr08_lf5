@@ -72,9 +72,9 @@
 </head>
 <body>
     <div class="header">
-        <div style="position: relative; left: 0px; top: 0px; border: 1px solid blue; height: 100%; width: 200px;">&nbsp</div>
-        <div style="border: 1px solid blue; height: 100%;">&nbsp</div>
-        <div style="position: relative; right: 0px; top: 0px; border: 1px solid blue; height: 100%; width: 200px;">&nbsp</div>
+        <div>&nbsp</div>
+        <div>&nbsp</div>
+        <div>&nbsp</div>
 
     </div>
     <div class="navigation">
