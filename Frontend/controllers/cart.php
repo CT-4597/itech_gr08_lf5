@@ -19,7 +19,7 @@ class ControllerCart extends BaseController {
         $vars['cart_ingeredients'] = $this->db->executeQuery($query_cart_ingredients, $params);
 
         $query_cart_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, BESTELLUNGSAMMLUNG.MENGE,
-                                (SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)) AS EINZELPREIS,
+                                FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)), 2) AS EINZELPREIS,
                                 (SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)) * BESTELLUNGSAMMLUNG.MENGE AS GESAMTPREIS
                                 FROM BESTELLUNG
                                 JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
