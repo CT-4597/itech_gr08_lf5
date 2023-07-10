@@ -22,6 +22,4 @@ class ControllerTemplate extends BaseController {
         $vars['ingredients'] = $this->db->executeSingleRowQuery($query, $params);
     }
 }
-
-
 ?>
