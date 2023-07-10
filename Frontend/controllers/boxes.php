@@ -16,6 +16,7 @@ class ControllerBoxes extends BaseController {
             $params[':allergen_' . $allergyid] = $allergyid;
         }
         $query_allergies = '';
+        $allergies = ''
         if(count($_SESSION['allergies']) > 0)
             $allergies = ' OR ' . implode(' OR ', $placeholders);
 
@@ -37,7 +38,7 @@ class ControllerBoxes extends BaseController {
                     WHERE SAMMLUNGMITALLERGENNR IS NULL AND SAMMLUNGSTYPNR=2) subAll
                     WHERE NOT EXISTS
                     (SELECT subAll.SAMMLUNGSBEZEICHNUNG FROM SAMMLUNG AS SUB JOIN SAMMLUNGZUTAT ON subAll.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR WHERE NOT EXISTS
-                    (SELECT ZUTATKATEGORIE.ZUTATENNR FROM ZUTATKATEGORIE WHERE SAMMLUNGZUTAT.ZUTATENNR = ZUTATKATEGORIE.ZUTATENNR{$query_catergory})
+                    (SELECT ZUTATKATEGORIE.ZUTATENNR FROM ZUTATKATEGORIE WHERE SAMMLUNGZUTAT.ZUTATENNR = ZUTATKATEGORIE.ZUTATENNR{$catergory})
                     AND SUB.SAMMLUNGSNR = subAll.SAMMLUNGSNR)";
 
         $vars['boxes'] = $this->db->executeQuery($query, $params);
