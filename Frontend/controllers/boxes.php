@@ -16,7 +16,7 @@ class ControllerBoxes extends BaseController {
             $params[':allergen_' . $allergyid] = $allergyid;
         }
         $query_allergies = '';
-        $allergies = ''
+        $allergies = '';
         if(count($_SESSION['allergies']) > 0)
             $allergies = ' OR ' . implode(' OR ', $placeholders);
 
