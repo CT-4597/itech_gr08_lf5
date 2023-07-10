@@ -159,13 +159,17 @@ body {
 }
 
 #header-left {
-    width: 200px;
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
 }
 #header-middle {
     flex-grow: 1;
 }
 #header-right {
-    width: 500px;
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
 }
 
 #sqllogger {
