@@ -20,14 +20,14 @@
   $query_orders = "SELECT KUNDE.*, BESTELLUNG.*, SAMMLUNG.SAMMLUNGSBEZEICHNUNG FROM KUNDE LEFT JOIN BESTELLUNG ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR LEFT JOIN BESTELLUNGSAMMLUNG ON BESTELLUNGSAMMLUNG.BESTELLNR = BESTELLUNG.BESTELLNR LEFT JOIN SAMMLUNG ON SAMMLUNG.SAMMLUNGSNR = BESTELLUNGSAMMLUNG.SAMMLUNGSNR WHERE KUNDE.KUNDENNR = :userid";
 
   function resultToCSV($result) {
-      $fields = $result->fetch_fields();
+      $fields = array_keys($result);
       return '';
   }
 
-  $csv_data = resultToCSV($db->executeQueryResult($query_user, $params));
-  $csv_data .= resultToCSV($db->executeQueryResult($query_orders_ingredients, $params));
-  $csv_data .= resultToCSV($db->executeQueryResult($query_orders_boxes, $params));
-  $csv_data .= resultToCSV($db->executeQueryResult($query_orders, $params));
+  $csv_data = resultToCSV($db->executeQuery($query_user, $params));
+  $csv_data .= resultToCSV($db->executeQuery($query_orders_ingredients, $params));
+  $csv_data .= resultToCSV($db->executeQuery($query_orders_boxes, $params));
+  $csv_data .= resultToCSV($db->executeQuery($query_orders, $params));
 
 
   /*function getcsv($query) {
