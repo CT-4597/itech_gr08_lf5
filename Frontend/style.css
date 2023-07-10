@@ -165,6 +165,7 @@ body {
 }
 #header-middle {
     flex-grow: 1;
+    position: relative;
 }
 #header-right {
     min-width: 300px;
