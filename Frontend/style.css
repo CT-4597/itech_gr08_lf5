@@ -176,7 +176,7 @@ body {
 #sqllogger {
     border: 1px solid red;
     box-sizing: border-box;
-    max-height: 500px;
+    max-height: 130px;
     overflow: auto;
     box-sizing: border-box;
 }
