@@ -24,7 +24,7 @@
             <label for="amount">Menge</label>
             <?php if($auth->LoggedIn()) { ?>
                 <input type="number" id="amount" name="amount" min="1" max="<?php echo $vars['ingredient']['BESTAND']; ?>" value="1">
-                <input type="submit" name="AddToCart" value="Zum Warenkorb hinzufügen">
+                <input type="submit" name="AddToCartIngredient" value="Zum Warenkorb hinzufügen">
             <?php } else { ?>
                 Loggen sie sich ein um zu Bestellen.
                 <input type="button" name="login" value="zum Login" onclick="window.location.href = '/login';">

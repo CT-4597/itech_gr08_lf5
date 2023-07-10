@@ -9,9 +9,9 @@ class ControllerCartManager extends BaseController {
         global $vars;
         global $auth;
         Logger::log("### Cart Manager Early ###");
-        if(isset($_POST['AddToCartIngredient'])) {
+        if(isset($_POST['AddToCartIngredient']) || isset($_POST['AddToCartBoxes'])) {
             # id of cart
-            $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
+            $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND BESTELLUNG.KUNDENNR = :userid";
             $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
             $row = $this->db->executeSingleRowQuery($query, $params);
             Logger::log("Cart ID: " . $row['BESTELLNR']);
