@@ -3,6 +3,21 @@
 new ControllerBoxesDetails($controllers, $db, ["Content" => "boxes_details"]);
 # Be sure to give it a unique name.
 class ControllerBoxesDetails extends BaseController {
+    public function RunEarly() {
+        global $vars;
+        global $auth;
+        Logger::log("### ControllerBoxesDetails Early ###");
+        if(isset($_POST['AddToCartIngredient'])) {
+            # id of cart
+            $query = "SELECT BESTELLUNG.BESTELLNR FROM BESTELLUNG WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid";
+            $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+            $row = $this->db->executeSingleRowQuery($query, $params);
+            Logger::log("Cart ID: " . $row['BESTELLNR']);
+        } else {
+            Logger::log("Did nothing.");
+        }
+    }
+
     public function RunDefault() {
         global $vars;
 
