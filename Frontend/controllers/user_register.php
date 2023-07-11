@@ -23,15 +23,7 @@ class ControllerUserRegister extends BaseController {
             if(strlen($_POST['telefon']) > 0)
                 $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[-\/+0-9]{0,30}$/', 'Ungültige Telefonnummer.'));
 
-            if($err) {
-                Logger::log("Some Error: " . implode(' - ', array_keys($vars['errors'])));
-            } else {
-                Logger::log("Form looks good.");
-            }
-        }
-
-        if(False) {
-            if(isset($_POST['RegisterUser'])) {
+            if(!$err)
                 $query = "INSERT INTO KUNDE
                             (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON)
                             VALUES
