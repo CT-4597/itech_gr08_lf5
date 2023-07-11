@@ -99,10 +99,9 @@ if(isset($_POST['validate'])){
  ?>
 <form method="POST">
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>">
-<br>
 <?php
     if(isset($errors['pw']))
-        echo implode('<br>', $errors['pw']);
+        echo "<br>" . implode('<br>', $errors['pw']);
 ?>
 
 <br>
