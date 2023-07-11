@@ -77,10 +77,10 @@ function validateDate(&$err, $date, $min = 1900) {
         if ($year >= $min) {
             return true;
         } else {
-            $err[] = "Das Datum darf nicht vor $min liegen.";
+            $err = "Das Datum darf nicht vor $min liegen.";
         }
     } else {
-        $err[] = "Da ist etwas schief gelaufen...";
+        $err = "Da ist etwas schief gelaufen...";
     }
     return False;
 }
