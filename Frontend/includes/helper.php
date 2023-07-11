@@ -93,7 +93,7 @@ if(isset($_POST['validate'])){
     if(empty($errors)) {
         echo "looks good";
     } else {
-        foreach($errors as $err['pw'])
+        foreach($errors['pw'] as $err)
             echo $err;
     }
 
