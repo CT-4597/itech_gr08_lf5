@@ -71,15 +71,6 @@
     <script src="/scripts.js"></script>
 </head>
 <body>
-    <div class="navigation">
-        <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>
-        <a href="/zutaten" class="navitem">Zutaten</a>
-        <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
-        <a href="/box/bio" class="navitem">Bio-Boxen</a>
-        <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
-        <a href="/warenkorb" class="navitem" id="order_item_count"><img src="/images/icon_shopping_cart.svg" width="48" height="48"><?php loadViewer("CartDisplay"); ?></a>
-        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($vars['filters_active']) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
-    </div>
     <div class="header-wrapper">
         <div class="header">
             <div id="header-left"><img src="/images/Logo.png" class="header_logo"></div>
@@ -89,7 +80,15 @@
 
 
     </div>
-
+    <div class="navigation">
+        <a href="/" class="navitem"><img src="/images/icon_home.svg" width="48" height="48">&nbsp;</a>
+        <a href="/zutaten" class="navitem">Zutaten</a>
+        <a href="/box/rabatte" class="navitem">Rabatt-Boxen</a>
+        <a href="/box/bio" class="navitem">Bio-Boxen</a>
+        <a href="/box/rezepte" class="navitem">Rezept-Boxen</a>
+        <a href="/warenkorb" class="navitem" id="order_item_count"><img src="/images/icon_shopping_cart.svg" width="48" height="48"><?php loadViewer("CartDisplay"); ?></a>
+        <a href="#" class="navitem" onclick="toggleFilter()"><img src="/images/icon_filter<?php if($vars['filters_active']) echo "_used"; ?>.svg" width="48" height="48">&nbsp;</a>
+    </div>
 
     <div class="filterbox" id="filterbox" style="display: none">
         <?php loadViewer("Filters"); ?>
