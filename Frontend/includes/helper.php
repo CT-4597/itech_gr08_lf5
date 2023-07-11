@@ -95,6 +95,8 @@ if(isset($_POST['validate'])){
 
     if(empty($errors)) {
         echo "looks good";
+    } else {
+        echo implode(' - ', $errors);
     }
 
 }
