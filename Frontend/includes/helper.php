@@ -39,7 +39,7 @@ function validateEmail($str) {
     return filter_var($str, FILTER_VALIDATE_EMAIL);
 }
 
-function validatePassword($password, &$err) {
+function validatePassword($password, &$err, $password2 = Null) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
@@ -59,6 +59,10 @@ function validatePassword($password, &$err) {
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
         $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
+    }
+    // Test if repeat matches
+    if(!is_null($password2) && $password != $password2){
+        $err['pw'][] = "Die Passwörter stimmen nicht überein.";
     }
 
     if(empty($err['pw']))
@@ -89,7 +93,7 @@ function validateDate($date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
 
-    validatePassword($_POST['pw1'], $errors);
+    validatePassword($_POST['pw1'], $errors, $_POST['pw2']);
 
     if(empty($errors)) {
         echo "looks good";
@@ -99,6 +103,7 @@ if(isset($_POST['validate'])){
  ?>
 <form method="POST">
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>">
+Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>">
 <?php
     if(isset($errors['pw']))
         echo "<br>" . implode('<br>', $errors['pw']);
