@@ -99,7 +99,8 @@ if(isset($_POST['validate'])){
  ?>
 <form method="POST">
 Password: <input type="text" name="field">
-<?php if(!empty($errors)) foreach($errors['pw'] as $err) echo $err; ?>
+<br>
+<?php if(!empty($errors)) foreach($errors['pw'] as $err) echo $err . '<br>'; ?>
 <br>
 <input type="submit" name="validate" value="check">
 </form>
