@@ -17,7 +17,7 @@ class ControllerUserRegister extends BaseController {
             $err = $err || (!validateString($vars['errors']['nachname'], $_POST['nachname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Nachname.'));
             $err = $err || (!validateDate($vars['errors']['geburtsdatum'], $_POST['geburtsdatum']));
             $err = $err || (!validateString($vars['errors']['strasse'], $_POST['strasse'], '/^[0-1a-zA-Z\- ]{3,50}$/', 'Ungültige Strasse.'));
-            $err = $err || (!validateString($vars['errors']['hausnummer'], $_POST['hausnummer'], '/^[A-Za-z]{3,20}$/', 'Ungültige Hausnummer.'));
+            $err = $err || (!validateString($vars['errors']['hausnummer'], $_POST['hausnummer'], '/^[A-Za-z0-9 ]{3,20}$/', 'Ungültige Hausnummer.'));
             $err = $err || (!validateString($vars['errors']['plz'], $_POST['plz'], '/^[0-9]{3,5}$/', 'Ungültige PLZ.'));
             $err = $err || (!validateString($vars['errors']['ort'], $_POST['ort'], '/^[A-Za-z0-9-]{3,20}$/', 'Ungültiger Ort.'));
             $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[0-9\/+]{0,20}$/', 'Ungültige Telefonnummer.'));
