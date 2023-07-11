@@ -88,7 +88,7 @@ if(isset($_POST['validate'])){
     validatePassword($_POST['field']);
 }
  ?>
-<input method="POST">
+<form method="POST">
 <input type="text" name="field">
 <input type="submit" name="validate" value="check">
-</input>
+</form>
