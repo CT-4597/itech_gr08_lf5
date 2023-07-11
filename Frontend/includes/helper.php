@@ -106,8 +106,8 @@ $errors = [];
 if(isset($_POST['validate'])){
     $err = False;
     $err = $err xor validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
-    $err = $err xor validateDate($errors['date'], $_POST['date']);
-    $err = $err xor validateEmail($errors['email'], $_POST['email']);
+    # $err = $err xor validateDate($errors['date'], $_POST['date']);
+    # $err = $err xor validateEmail($errors['email'], $_POST['email']);
     # $err = $err xor validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.');
 
     if(!$err) {
