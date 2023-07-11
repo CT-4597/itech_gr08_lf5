@@ -90,10 +90,10 @@ function validateDate(&$err, $date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
 
-    validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
-    validateDate($errors['date'], $_POST['date']);
+    $validating_error = validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
+    $validating_error = $validating_error || validateDate($errors['date'], $_POST['date']);
 
-    if(empty($errors)) {
+    if($validating_error) {
         echo "looks good";
     } else {
         echo implode(' - ', array_keys($errors));
