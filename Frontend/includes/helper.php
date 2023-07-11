@@ -16,6 +16,9 @@ function get_image($type, $id){
 }
 # pattern
 
+# A-Z a-z     3 bis 20 zeichen
+# $pattern = '/^[A-Za-z]{3,20}$/';
+
 # A-Z a-z 0-9 _     3 bis 20 zeichen
 # $pattern = '/^[A-Za-z0-9_]{3,20}$/';
 
@@ -35,6 +38,15 @@ if (filter_var($username, FILTER_VALIDATE_REGEXP, array("options" => array("rege
     // Der Benutzername ist ungültig
 }
 */
+
+function validateString(&$err, $str, $pattern, $errmsg) {
+    if (filter_var($str, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => $pattern)))) {
+        $err = $errmsg;
+        return True;
+    }
+    return False;
+}
+
 function validateEmail(&$err, $str) {
     if(filter_var($str, FILTER_VALIDATE_EMAIL))
         return True;
@@ -95,7 +107,8 @@ if(isset($_POST['validate'])){
 
     if(validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']) &&
         validateDate($errors['date'], $_POST['date']) &&
-        validateEmail($errors['email'], $_POST['email'])) {
+        validateEmail($errors['email'], $_POST['email']) &&
+        validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.')) {
         echo "looks good";
     } else {
         echo implode(' - ', array_keys($errors));
@@ -103,12 +116,16 @@ if(isset($_POST['validate'])){
 
 }
  ?>
-<form method="POST">
+<form method="POST">nachname
+Vorname: <input type="text" name="firstname" value="<?php if(isset($_POST['firstname'])) echo $_POST['firstname']; ?>"><br>
+<?php if(isset($errors['firstname'])) echo $errors['firstname'] . "<br>"; ?>
 E-Mail: <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"><br>
 <?php if(isset($errors['email'])) echo $errors['email'] . "<br>"; ?>
+<hr>>
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
 <?php if(isset($errors['pw'])) echo implode('<br>', $errors['pw']) . "<br>"; ?>
 Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>"><br>
+<hr>
 Date: <input type="date" name="date" value="<?php if(isset($_POST['date'])) echo $_POST['date']; ?>"><br>
 <?php if(isset($errors['date'])) echo $errors['date'] . "<br>"; ?>
 
