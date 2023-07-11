@@ -61,7 +61,7 @@ function validatePassword($password, &$err) {
         $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.<br>";
     }
 
-    if(empty($err['pw'])
+    if(empty($err['pw']))
         return True;
     else
         return False;
@@ -89,7 +89,7 @@ function validateDate($date, $min = 1900) {
 if(isset($_POST['validate'])){
     $errors = [];
     validatePassword($_POST['field'], $errors);
-    
+
     if(empty($errors)) {
         echo "looks good";
     } else {
