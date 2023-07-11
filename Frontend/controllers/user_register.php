@@ -21,6 +21,12 @@ class ControllerUserRegister extends BaseController {
             $err = $err || (!validateString($errors['plz'], $_POST['plz'], '/^[0-9]{3,5}$/', 'Ungültige PLZ.'));
             $err = $err || (!validateString($errors['ort'], $_POST['ort'], '/^[A-Za-z0-9-]{3,20}$/', 'Ungültiger Ort.'));
             $err = $err || (!validateString($errors['telefon'], $_POST['telefon'], '/^[0-9\/+]{0,20}$/', 'Ungültige Telefonnummer.'));
+
+            if($err) {
+                Logger::log("Some Error: " . implode(' - ', array_keys($errors)));
+            } else {
+                Logger::log("Form looks good.");
+            }
         }
 
         if(False) {

@@ -110,11 +110,5 @@ if(isset($_POST['validate'])){
     $err = $err || (!validateEmail($errors['email'], $_POST['email']));
     $err = $err || (!validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.'));
 
-    if($err) {
-        echo "Some Error: " . implode(' - ', array_keys($errors));
-    } else {
-        echo "looks good";
-    }
-
 }
  ?>
