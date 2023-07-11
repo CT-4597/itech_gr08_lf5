@@ -19,8 +19,8 @@ function get_image($type, $id){
 # A-Z a-z     3 bis 20 zeichen
 # $pattern = '/^[A-Za-z]{3,20}$/';
 
-# A-Z a-z 0-9 _     3 bis 20 zeichen
-# $pattern = '/^[A-Za-z0-9_]{3,20}$/';
+# A-Z a-z 0-9 -     3 bis 20 zeichen
+# $pattern = '/^[A-Za-z0-9-]{3,20}$/';
 
 # A-Z a-z 0-9     3 bis 20 zeichen
 # $pattern = '/^[A-Za-z0-9_]{3,20}$/';

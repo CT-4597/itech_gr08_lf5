@@ -11,7 +11,7 @@ class ControllerUserRegister extends BaseController {
         # TODO Check if EMAILS already exists
         $err = False;
         $err = $err || (!validateEmail($errors['email'], $_POST['email']));
-        $err = $err || (!validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']));
+        $err = $err || (!validatePassword($errors['passwd'], $_POST['passwd2'], $_POST['pw2']));
         $err = $err || (!validateString($errors['vorname'], $_POST['vorname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Vorname.'));
         $err = $err || (!validateString($errors['nachname'], $_POST['nachname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Nachname.'));
         $err = $err || (!validateDate($errors['geburtsdatum'], $_POST['geburtsdatum']));
