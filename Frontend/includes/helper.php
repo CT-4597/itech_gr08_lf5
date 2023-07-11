@@ -105,7 +105,7 @@ function validateDate(&$err, $date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
     $err = False;
-    (validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']) ? echo 'pw looks good' : echo 'pw error' );
+    echo (validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']) ? 'pw looks good' : 'pw error' );
     # $err = $err or !validateDate($errors['date'], $_POST['date']);
     # $err = $err or !validateEmail($errors['email'], $_POST['email']);
     # $err = $err or !validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.');
