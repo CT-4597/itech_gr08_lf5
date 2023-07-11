@@ -102,12 +102,13 @@ if(isset($_POST['validate'])){
 }
  ?>
 <form method="POST">
-Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>">
-Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>">
+Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
 <?php
     if(isset($errors['pw']))
         echo "<br>" . implode('<br>', $errors['pw']);
 ?>
+Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>">
+
 
 <br>
 <input type="submit" name="validate" value="check">
