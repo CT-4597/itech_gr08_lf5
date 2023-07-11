@@ -41,9 +41,9 @@ if (filter_var($username, FILTER_VALIDATE_REGEXP, array("options" => array("rege
 
 function validateString(&$err, $str, $pattern, $errmsg) {
     if (filter_var($str, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => $pattern)))) {
-        $err = $errmsg;
         return True;
     }
+    $err = $errmsg;
     return False;
 }
 
