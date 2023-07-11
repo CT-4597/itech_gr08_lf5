@@ -44,22 +44,22 @@ function validatePassword($password) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
-        echo "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
+        echo "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.<br>";
     }
 
     // Groß- und Kleinbuchstaben überprüfen
     if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-        echo "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
+        echo "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.<br>";
     }
 
     // Zahlen überprüfen
     if (!preg_match('/[0-9]/', $password)) {
-        echo "Das Passwort muss mindestens eine Zahl enthalten.";
+        echo "Das Passwort muss mindestens eine Zahl enthalten.<br>";
     }
 
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
-        echo "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
+        echo "Das Passwort muss mindestens ein Sonderzeichen enthalten.<br>";
     }
 
     return $errors;
