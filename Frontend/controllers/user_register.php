@@ -6,24 +6,24 @@ class ControllerUserRegister extends BaseController {
     public function RunDefault() {
         global $vars;
 
-        $errors = [];
+        $vars['errors'] = [];
         # TODO Add Checks for fields
         # TODO Check if EMAILS already exists
         if(isset($_POST['RegisterUser'])) {
             $err = False;
-            $err = $err || (!validateEmail($errors['email'], $_POST['email']));
-            $err = $err || (!validatePassword($errors['passwd'], $_POST['passwd'], $_POST['passwd2']));
-            $err = $err || (!validateString($errors['vorname'], $_POST['vorname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Vorname.'));
-            $err = $err || (!validateString($errors['nachname'], $_POST['nachname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Nachname.'));
-            $err = $err || (!validateDate($errors['geburtsdatum'], $_POST['geburtsdatum']));
-            $err = $err || (!validateString($errors['strasse'], $_POST['strasse'], '/^[A-Za-z]{3,20}$/', 'Ungültige Strasse.'));
-            $err = $err || (!validateString($errors['hausnummer'], $_POST['hausnummer'], '/^[A-Za-z]{3,20}$/', 'Ungültige Hausnummer.'));
-            $err = $err || (!validateString($errors['plz'], $_POST['plz'], '/^[0-9]{3,5}$/', 'Ungültige PLZ.'));
-            $err = $err || (!validateString($errors['ort'], $_POST['ort'], '/^[A-Za-z0-9-]{3,20}$/', 'Ungültiger Ort.'));
-            $err = $err || (!validateString($errors['telefon'], $_POST['telefon'], '/^[0-9\/+]{0,20}$/', 'Ungültige Telefonnummer.'));
+            $err = $err || (!validateEmail($vars['errors']['email'], $_POST['email']));
+            $err = $err || (!validatePassword($vars['errors']['passwd'], $_POST['passwd'], $_POST['passwd2']));
+            $err = $err || (!validateString($vars['errors']['vorname'], $_POST['vorname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Vorname.'));
+            $err = $err || (!validateString($vars['errors']['nachname'], $_POST['nachname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Nachname.'));
+            $err = $err || (!validateDate($vars['errors']['geburtsdatum'], $_POST['geburtsdatum']));
+            $err = $err || (!validateString($vars['errors']['strasse'], $_POST['strasse'], '/^[A-Za-z]{3,20}$/', 'Ungültige Strasse.'));
+            $err = $err || (!validateString($vars['errors']['hausnummer'], $_POST['hausnummer'], '/^[A-Za-z]{3,20}$/', 'Ungültige Hausnummer.'));
+            $err = $err || (!validateString($vars['errors']['plz'], $_POST['plz'], '/^[0-9]{3,5}$/', 'Ungültige PLZ.'));
+            $err = $err || (!validateString($vars['errors']['ort'], $_POST['ort'], '/^[A-Za-z0-9-]{3,20}$/', 'Ungültiger Ort.'));
+            $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[0-9\/+]{0,20}$/', 'Ungültige Telefonnummer.'));
 
             if($err) {
-                Logger::log("Some Error: " . implode(' - ', array_keys($errors)));
+                Logger::log("Some Error: " . implode(' - ', array_keys($vars['errors'])));
             } else {
                 Logger::log("Form looks good.");
             }
