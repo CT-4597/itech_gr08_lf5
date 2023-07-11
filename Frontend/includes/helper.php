@@ -23,7 +23,7 @@ function get_image($type, $id){
 # $pattern = '/^[A-Za-z0-9-]{3,20}$/';
 
 # A-Z a-z 0-9     3 bis 20 zeichen
-# $pattern = '/^[A-Za-z0-9_]{3,20}$/';
+# $pattern = '/^[A-Za-z0-9 ]{3,20}$/';
 
 # Telefon
 # 0-9 - + /     0 bis 20 Zeichen. Da optional

@@ -3,6 +3,7 @@
   <label for="email">E-Mail:</label><br>
   <input type="email" id="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" maxlength="50" required><br>
   <?php if(isset($vars['errors']['email'])) echo $vars['errors']['email'] . "<br>"; ?>
+  <?php if(isset($vars['errors']['emailexist'])) echo $vars['errors']['emailexist'] . "<br>"; ?>
   <label for="passwd">Passwort:</label><br>
   <input type="password" id="passwd" name="passwd" value="<?php if(isset($_POST['passwd'])) echo $_POST['passwd']; ?>" maxlength="50" required onkeyup="checkPasswordMatch()"><br>
   <?php if(isset($vars['errors']['passwd'])) echo implode('<br>', $vars['errors']['passwd']) . "<br>"; ?>
