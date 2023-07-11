@@ -105,10 +105,10 @@ function validateDate(&$err, $date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
     $err = False;
-    $err = $err || !validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
-    $err = $err || !validateDate($errors['date'], $_POST['date']);
-    $err = $err || !validateEmail($errors['email'], $_POST['email']);
-    $err = $err || !validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.');
+    $err = $err || (!validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']));
+    $err = $err || (!validateDate($errors['date'], $_POST['date']));
+    $err = $err || (!validateEmail($errors['email'], $_POST['email']));
+    $err = $err || (!validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.'));
 
     if($err) {
         echo "Some Error: " . implode(' - ', array_keys($errors));
