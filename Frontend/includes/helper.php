@@ -39,30 +39,32 @@ function validateEmail($str) {
     return filter_var($str, FILTER_VALIDATE_EMAIL);
 }
 
-function validatePassword($password) {
-    $err = array();
+function validatePassword($password, &$err) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
-        $err[] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.<br>";
+        $err['pw'][] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.<br>";
     }
 
     // Groß- und Kleinbuchstaben überprüfen
     if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-        $err[] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.<br>";
     }
 
     // Zahlen überprüfen
     if (!preg_match('/[0-9]/', $password)) {
-        $err[] = "Das Passwort muss mindestens eine Zahl enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss mindestens eine Zahl enthalten.<br>";
     }
 
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
-        $err[] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.<br>";
     }
 
-    return $err;
+    if(empty($err['pw'])
+        return True;
+    else
+        return False;
 }
 
 function validateDate($date, $min = 1900) {
@@ -85,7 +87,9 @@ function validateDate($date, $min = 1900) {
 
 <?php
 if(isset($_POST['validate'])){
-    $errors['pw'] = validatePassword($_POST['field']);
+    $errors = [];
+    validatePassword($_POST['field'], $errors);
+    
     if(empty($errors)) {
         echo "looks good";
     } else {
