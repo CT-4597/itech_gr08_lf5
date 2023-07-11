@@ -98,7 +98,7 @@ if(isset($_POST['validate'])){
 }
  ?>
 <form method="POST">
-Password: <input type="text" name="pw1" value="<?php $_POST['pw1']?>">
+Password: <input type="text" name="pw1" value="<?php echo $_POST['pw1']; ?>">
 <br>
 <?php if(!empty($errors)) foreach($errors['pw'] as $err) echo $err . '<br>'; ?>
 <br>
