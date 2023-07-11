@@ -92,14 +92,13 @@ if(isset($_POST['validate'])){
 
     if(empty($errors)) {
         echo "looks good";
-    } else {
-        foreach($errors['pw'] as $err)
-            echo $err;
     }
 
 }
  ?>
 <form method="POST">
-<input type="text" name="field">
+Password: <input type="text" name="field">
+<?php foreach($errors['pw'] as $err) echo $err; ?>
+<br>
 <input type="submit" name="validate" value="check">
 </form>
