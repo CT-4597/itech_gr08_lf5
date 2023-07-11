@@ -44,35 +44,35 @@ function validatePassword($password) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
-        $errors[] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
+        echo "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
     }
 
     // Groß- und Kleinbuchstaben überprüfen
     if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-        $errors[] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
+        echo "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
     }
 
     // Zahlen überprüfen
     if (!preg_match('/[0-9]/', $password)) {
-        $errors[] = "Das Passwort muss mindestens eine Zahl enthalten.";
+        echo "Das Passwort muss mindestens eine Zahl enthalten.";
     }
 
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
-        $errors[] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
+        echo "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
     }
 
     return $errors;
 }
 
-function validateDate($date) {
+function validateDate($date, $min = 1900) {
     // Überprüfen des Datumsformats
     if (strtotime($date) !== false) {
         // Das Datum ist im gültigen Format (z.B. '2000-01-01')
 
         // Überprüfen des Jahres
         $year = date('Y', strtotime($date));
-        if ($year >= 1900) {
+        if ($year >= $min) {
             // Das Datum ist gültig und liegt nicht vor 1900
         } else {
             // Das Datum liegt vor 1900
@@ -81,6 +81,14 @@ function validateDate($date) {
         // Das Datum ist nicht im gültigen Format
     }
 }
-
-
 ?>
+
+<?php
+if(isset($_POST[validate])){
+    validatePassword($_POST['field']);
+}
+ ?>
+<input method="POST">
+<input type="text" name="field">
+<input type="submit" name="validate" value="check">
+</input>
