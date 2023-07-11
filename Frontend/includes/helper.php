@@ -113,7 +113,7 @@ if(isset($_POST['validate'])){
     if($err) {
         echo "looks good";
     } else {
-        echo implode(' - ', array_keys($errors));
+        echo "Some Error: " . implode(' - ', array_keys($errors));
     }
 
 }
