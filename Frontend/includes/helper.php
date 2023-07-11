@@ -111,9 +111,9 @@ if(isset($_POST['validate'])){
     # $err = $err or !validateString($errors['firstname'], $_POST['firstname'], '/^[A-Za-z]{3,20}$/', 'Ungültiger Name.');
 
     if($err) {
-        # echo "Some Error: " . implode(' - ', array_keys($errors));
+        echo "Some Error: " . implode(' - ', array_keys($errors));
     } else {
-        # echo "looks good";
+        echo "looks good";
     }
 
 }
