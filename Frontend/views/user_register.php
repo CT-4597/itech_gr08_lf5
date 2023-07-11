@@ -35,7 +35,7 @@
   <input type="tel" id="telefon" name="telefon" value="<?php if(isset($_POST['telefon'])) echo $_POST['telefon']; ?>"><br>
   <?php if(isset($errors['telefon'])) echo $errors['telefon'] . "<br>"; ?>
 
-  <input type="submit" id="btnRegister" name="RegisterUser" value="Registrieren" disabled>
+  <input type="submit" id="btnRegister" name="RegisterUser" value="Registrieren">
 </form>
 
 <script>
