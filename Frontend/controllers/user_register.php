@@ -24,11 +24,13 @@ class ControllerUserRegister extends BaseController {
                 $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[-\/+0-9]{0,30}$/', 'Ungültige Telefonnummer.'));
 
             # Check if EMAILS already exists
-            $query = "SELECT * FROM KUNDE WHERE EMAIL=:email";
-            $params = [":email" => $_POST['email']];
-            if($db->executeExists($query, $params)) {
-                $err = True;
-                $vars['errors']['emailexist'] = "Diese E-Mail Adresse ist bereits registriert.";
+            if(!$err) {
+                $query = "SELECT * FROM KUNDE WHERE EMAIL=:email";
+                $params = [":email" => $_POST['email']];
+                if($this->db->executeExists($query, $params)) {
+                    $err = True;
+                    $vars['errors']['emailexist'] = "Diese E-Mail Adresse ist bereits registriert.";
+                }
             }
 
             # insert
