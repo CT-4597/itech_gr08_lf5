@@ -43,22 +43,22 @@ function validatePassword($password, &$err) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
-        $err['pw'][] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.<br>";
+        $err['pw'][] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
     }
 
     // Groß- und Kleinbuchstaben überprüfen
     if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-        $err['pw'][] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
     }
 
     // Zahlen überprüfen
     if (!preg_match('/[0-9]/', $password)) {
-        $err['pw'][] = "Das Passwort muss mindestens eine Zahl enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss mindestens eine Zahl enthalten.";
     }
 
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
-        $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.<br>";
+        $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
     }
 
     if(empty($err['pw']))
@@ -99,7 +99,7 @@ if(isset($_POST['validate'])){
  ?>
 <form method="POST">
 Password: <input type="text" name="field">
-<?php foreach($errors['pw'] as $err) echo $err; ?>
+<?php if(!empty($errors)) foreach($errors['pw'] as $err) echo $err; ?>
 <br>
 <input type="submit" name="validate" value="check">
 </form>
