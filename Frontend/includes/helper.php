@@ -91,7 +91,7 @@ $errors = [];
 if(isset($_POST['validate'])){
 
     validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
-    validateDate($errors['date']);
+    validateDate($errors['date'], $_POST['date']);
 
     if(empty($errors)) {
         echo "looks good";
