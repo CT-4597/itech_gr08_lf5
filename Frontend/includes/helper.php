@@ -35,8 +35,11 @@ if (filter_var($username, FILTER_VALIDATE_REGEXP, array("options" => array("rege
     // Der Benutzername ist ungültig
 }
 */
-function validateEmail($str) {
-    return filter_var($str, FILTER_VALIDATE_EMAIL);
+function validateEmail(&$err, $str) {
+    if(filter_var($str, FILTER_VALIDATE_EMAIL))
+        return True;
+    $err = "Keine gültige E-Mail Adresse.";
+    return False;
 }
 
 function validatePassword(&$err, $password, $password2 = Null) {
@@ -91,7 +94,8 @@ $errors = [];
 if(isset($_POST['validate'])){
 
     if(validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']) &&
-        validateDate($errors['date'], $_POST['date'])) {
+        validateDate($errors['date'], $_POST['date']) &&
+        validateEmail($errors['email'], $_POST['email'])) {
         echo "looks good";
     } else {
         echo implode(' - ', array_keys($errors));
@@ -100,6 +104,8 @@ if(isset($_POST['validate'])){
 }
  ?>
 <form method="POST">
+E-Mail: <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"><br>
+<?php if(isset($errors['email'])) echo $errors['email'] . "<br>"; ?>
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
 <?php if(isset($errors['pw'])) echo implode('<br>', $errors['pw']) . "<br>"; ?>
 Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>"><br>
