@@ -7,9 +7,9 @@ class ControllerUserRegister extends BaseController {
         global $vars;
 
         $vars['errors'] = [];
-        # TODO Add Checks for fields
-        # TODO Check if EMAILS already exists
+
         if(isset($_POST['RegisterUser'])) {
+            # validate user input
             $err = False;
             $err = $err || (!validateEmail($vars['errors']['email'], $_POST['email']));
             $err = $err || (!validatePassword($vars['errors']['passwd'], $_POST['passwd'], $_POST['passwd2']));
@@ -23,6 +23,15 @@ class ControllerUserRegister extends BaseController {
             if(strlen($_POST['telefon']) > 0)
                 $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[-\/+0-9]{0,30}$/', 'Ungültige Telefonnummer.'));
 
+            # Check if EMAILS already exists
+            $query = "SELECT * FROM KUNDE WHERE EMAIL=:email";
+            $params = [":email" => $_POST['email']];
+            if($db->executeExists($query, $params)) {
+                $err = True;
+                $vars['errors']['emailexist'] = "Diese E-Mail Adresse ist bereits registriert.";
+            }
+
+            # insert
             if(!$err) {
                 $query = "INSERT INTO KUNDE
                             (EMAIL, PASSWORT, VORNAME, NACHNAME, GEBURTSDATUM, STRASSE, HAUSNR, PLZ, ORT, TELEFON)
