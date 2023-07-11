@@ -6,7 +6,7 @@ class ControllerUserOrders extends BaseController {
     public function RunDefault() {
         global $vars;
         global $auth;
-        $query = "SELECT BESTELLNR, BESTELLDATUM, RECHNUNGSBETRAG FROM BESTELLUNG WHERE KUNDENNR=:userid AND STATUS=:orderstate";
+        $query = "SELECT BESTELLNR, BESTELLDATUM, RECHNUNGSBETRAG, STATUS FROM BESTELLUNG WHERE KUNDENNR=:userid AND STATUS=:orderstate";
         $params = [":userid" => $auth->UserID(),
                     ":orderstate" => "Bestellt"];
         $vars['orders'] = $this->db->executeQuery($query, $params);

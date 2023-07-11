@@ -4,11 +4,13 @@
         <th>Bestellnummer</th>
         <th>Bestelldatum</th>
         <th>Betrag</th>
+        <th>Status</th>
       </tr>
       <tr>
         <td><?php echo $vars['orderdetails']['BESTELLNR']; ?></td>
         <td><?php echo $vars['orderdetails']['BESTELLDATUM']; ?></td>
         <td><?php echo $vars['orderdetails']['RECHNUNGSBETRAG']; ?></td>
+        <td><?php echo $vars['orderdetails']['STATUS']; ?></td>
       </tr>
     </table>
     <table>

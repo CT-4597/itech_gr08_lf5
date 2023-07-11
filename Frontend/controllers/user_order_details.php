@@ -8,7 +8,7 @@ class ControllerUserOrderDetails extends BaseController {
         global $auth;
 
         # Order Details
-        $query = "SELECT BESTELLNR, BESTELLDATUM, RECHNUNGSBETRAG FROM BESTELLUNG WHERE BESTELLNR=:orderid";
+        $query = "SELECT BESTELLNR, BESTELLDATUM, RECHNUNGSBETRAG, STATUS FROM BESTELLUNG WHERE BESTELLNR=:orderid";
         $params = [":orderid" => $_GET['id']];
         $vars['orderdetails'] = $this->db->executeSingleRowQuery($query, $params);
 
