@@ -116,7 +116,7 @@ if(isset($_POST['validate'])){
 
 }
  ?>
-<form method="POST">nachname
+<form method="POST">
 Vorname: <input type="text" name="firstname" value="<?php if(isset($_POST['firstname'])) echo $_POST['firstname']; ?>"><br>
 <?php if(isset($errors['firstname'])) echo $errors['firstname'] . "<br>"; ?>
 E-Mail: <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"><br>
