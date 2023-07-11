@@ -90,8 +90,8 @@ function validateDate(&$err, $date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
 
-    if(validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2'] &&)
-        validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2'])) {
+    if(validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']) &&
+        validateDate($errors['date'], $_POST['date'])) {
         echo "looks good";
     } else {
         echo implode(' - ', array_keys($errors));
