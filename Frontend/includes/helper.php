@@ -84,7 +84,7 @@ function validateDate($date, $min = 1900) {
 ?>
 
 <?php
-if(isset($_POST[validate])){
+if(isset($_POST['validate'])){
     validatePassword($_POST['field']);
 }
  ?>
