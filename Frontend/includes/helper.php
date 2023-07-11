@@ -118,19 +118,3 @@ if(isset($_POST['validate'])){
 
 }
  ?>
-<form method="POST">
-Vorname: <input type="text" name="firstname" value="<?php if(isset($_POST['firstname'])) echo $_POST['firstname']; ?>"><br>
-<?php if(isset($errors['firstname'])) echo $errors['firstname'] . "<br>"; ?>
-E-Mail: <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"><br>
-<?php if(isset($errors['email'])) echo $errors['email'] . "<br>"; ?>
-<hr>>
-Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
-<?php if(isset($errors['pw'])) echo implode('<br>', $errors['pw']) . "<br>"; ?>
-Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>"><br>
-<hr>
-Date: <input type="date" name="date" value="<?php if(isset($_POST['date'])) echo $_POST['date']; ?>"><br>
-<?php if(isset($errors['date'])) echo $errors['date'] . "<br>"; ?>
-
-<br>
-<input type="submit" name="validate" value="check">
-</form>
