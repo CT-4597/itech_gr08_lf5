@@ -1,18 +1,14 @@
 <?php
     // Database parameter
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "krautundrueben";
+    $CONFIG = array();
+    $CONFIG['dbhost'] = "localhost";
+    $CONFIG['dbuser'] = "root";
+    $CONFIG['dbpassword'] = "";
+    $CONFIG['dbname'] = "sandbox";
 
-    $debugging = True;
+    $CONFIG['logger'] = True;
+    $CONFIG['debugging'] = True;
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $default_page = 'main'
+    $CONFIG['default_page'] = 'main';
+    
 ?>
