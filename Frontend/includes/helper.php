@@ -39,40 +39,39 @@ function validateEmail($str) {
     return filter_var($str, FILTER_VALIDATE_EMAIL);
 }
 
-function validatePassword($password, &$err, $password2 = Null) {
+function validatePassword(&$err, $key, $password, $password2 = Null) {
 
     // Mindestlänge überprüfen
     if (strlen($password) < 8 || strlen($password) > 20) {
-        $err['pw'][] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
+        $err[$key][] = "Das Passwort muss zwischen 8 und 20 Zeichen lang sein.";
     }
 
     // Groß- und Kleinbuchstaben überprüfen
     if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-        $err['pw'][] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
+        $err[$key][] = "Das Passwort muss sowohl Groß- als auch Kleinbuchstaben enthalten.";
     }
 
     // Zahlen überprüfen
     if (!preg_match('/[0-9]/', $password)) {
-        $err['pw'][] = "Das Passwort muss mindestens eine Zahl enthalten.";
+        $err[$key][] = "Das Passwort muss mindestens eine Zahl enthalten.";
     }
 
     // Sonderzeichen überprüfen
     if (!preg_match('/[!@#$%^&*()_+-]/', $password)) {
-        $err['pw'][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
+        $err[$key][] = "Das Passwort muss mindestens ein Sonderzeichen enthalten.";
     }
     // Test if repeat matches
     if(!is_null($password2) && $password != $password2){
-        $err['pw'][] = "Die Passwörter stimmen nicht überein.";
+        $err[$key][] = "Die Passwörter stimmen nicht überein.";
     }
 
-    if(empty($err['pw']))
+    if(empty($err[$key]))
         return True;
     else
         return False;
 }
 
-function validateDate($date, $min = 1900) {
-    // Überprüfen des Datumsformats
+function validateDate(&$err, $date, $min = 1900) {
     if (strtotime($date) !== false) {
         // Das Datum ist im gültigen Format (z.B. '2000-01-01')
 
@@ -93,7 +92,7 @@ function validateDate($date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
 
-    validatePassword($_POST['pw1'], $errors, $_POST['pw2']);
+    validatePassword($errors, 'pw', $_POST['pw1'], $_POST['pw2']);
 
     if(empty($errors)) {
         echo "looks good";
@@ -105,7 +104,7 @@ if(isset($_POST['validate'])){
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
 <?php if(isset($errors['pw'])) echo implode('<br>', $errors['pw']) . "<br>"; ?>
 Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>">
-
+Date: <input type="date" name="date" value="<?php if(isset($_POST['date'])) echo $_POST['date']; ?>"><br>
 
 <br>
 <input type="submit" name="validate" value="check">
