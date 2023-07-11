@@ -73,18 +73,16 @@ function validatePassword(&$err, $password, $password2 = Null) {
 
 function validateDate(&$err, $date, $min = 1900) {
     if (strtotime($date) !== false) {
-        // Das Datum ist im gültigen Format (z.B. '2000-01-01')
-
-        // Überprüfen des Jahres
         $year = date('Y', strtotime($date));
         if ($year >= $min) {
-            // Das Datum ist gültig und liegt nicht vor 1900
+            return true;
         } else {
-            // Das Datum liegt vor 1900
+            $err[] = "Das Datum darf nicht vor $min liegen.";
         }
     } else {
-        // Das Datum ist nicht im gültigen Format
+        $err[] = "Da ist etwas schief gelaufen...";
     }
+    return False;
 }
 ?>
 
@@ -93,6 +91,7 @@ $errors = [];
 if(isset($_POST['validate'])){
 
     validatePassword($errors['pw'], $_POST['pw1'], $_POST['pw2']);
+    validateDate($errors['date']);
 
     if(empty($errors)) {
         echo "looks good";
@@ -103,8 +102,9 @@ if(isset($_POST['validate'])){
 <form method="POST">
 Password: <input type="text" name="pw1" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw1']; ?>"><br>
 <?php if(isset($errors['pw'])) echo implode('<br>', $errors['pw']) . "<br>"; ?>
-Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>">
+Repeat: <input type="text" name="pw2" value="<?php if(isset($_POST['pw1'])) echo $_POST['pw2']; ?>"><br>
 Date: <input type="date" name="date" value="<?php if(isset($_POST['date'])) echo $_POST['date']; ?>"><br>
+<?php if(isset($errors['date'])) echo $errors['date'] . "<br>"; ?>
 
 <br>
 <input type="submit" name="validate" value="check">
