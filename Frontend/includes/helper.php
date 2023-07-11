@@ -89,7 +89,7 @@ function validateDate($date, $min = 1900) {
 $errors = [];
 if(isset($_POST['validate'])){
 
-    validatePassword($_POST['field'], $errors);
+    validatePassword($_POST['pw1'], $errors);
 
     if(empty($errors)) {
         echo "looks good";
