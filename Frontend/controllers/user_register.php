@@ -20,7 +20,8 @@ class ControllerUserRegister extends BaseController {
             $err = $err || (!validateString($vars['errors']['hausnummer'], $_POST['hausnummer'], '/^[A-Za-z0-9 ]{1,20}$/', 'Ungültige Hausnummer.'));
             $err = $err || (!validateString($vars['errors']['plz'], $_POST['plz'], '/^[0-9]{3,5}$/', 'Ungültige PLZ.'));
             $err = $err || (!validateString($vars['errors']['ort'], $_POST['ort'], '/^[A-Za-z0-9-]{3,20}$/', 'Ungültiger Ort.'));
-            $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[-\/+0-9]{0,30}$/', 'Ungültige Telefonnummer.'));
+            if(count($_POST['telefon']) > 0)
+                $err = $err || (!validateString($vars['errors']['telefon'], $_POST['telefon'], '/^[-\/+0-9]{0,30}$/', 'Ungültige Telefonnummer.'));
 
             if($err) {
                 Logger::log("Some Error: " . implode(' - ', array_keys($vars['errors'])));
