@@ -74,6 +74,10 @@ input[type=submit], input[type=button] {
     transition-duration: 0.4s;
 }
 
+input[type=submit], input[type=button]:disabled {
+    background-color: #dbd2db;
+}
+
 input[type=submit]:hover, input[type=button]:hover {
     background-color: #aa76aa;
 }
