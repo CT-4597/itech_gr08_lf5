@@ -6,7 +6,7 @@
     <tr>
         <td><?php echo $ingredient['ZUTATENNR']; ?></td>
         <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>
-        <td><input type="number" data-id="<?php echo $ingredient['ZUTATENNR']; ?>" data-amount="<?php echo $ingredient['MENGE']; ?>" value="<?php echo $ingredient['MENGE']; ?>" onblur="cartEdit(event, ingredient)" onchange="cartEdit(event, ingredient)" onkeydown="cartEditKeyDown(event, ingredient)"></td>
+        <td><input type="number" data-id="<?php echo $ingredient['ZUTATENNR']; ?>" data-amount="<?php echo $ingredient['MENGE']; ?>" value="<?php echo $ingredient['MENGE']; ?>" onblur="cartEdit(event, 'ingredient')" onchange="cartEdit(event, 'ingredient')" onkeydown="cartEditKeyDown(event, 'ingredient')"></td>
         <td><?php echo $ingredient['EINHEIT']; ?></td>
         <td><?php echo $ingredient['NETTOPREIS']; ?></td>
         <td><?php echo $ingredient['GESAMTPREIS']; ?></td>
@@ -20,7 +20,7 @@
     <tr>
         <td><?php echo $box['SAMMLUNGSNR']; ?></td>
         <td><?php echo $box['SAMMLUNGSBEZEICHNUNG']; ?></td>
-        <td><input type="number" data-id="<?php echo $box['SAMMLUNGSNR']; ?>" data-amount="<?php echo $box['MENGE']; ?>" value="<?php echo $box['MENGE']; ?>" onblur="cartEdit(event, ingredient)" onchange="cartEdit(event, ingredient)" onkeydown="cartEditKeyDown(event, ingredient)"></td>
+        <td><input type="number" data-id="<?php echo $box['SAMMLUNGSNR']; ?>" data-amount="<?php echo $box['MENGE']; ?>" value="<?php echo $box['MENGE']; ?>" onblur="cartEdit(event, 'box')" onchange="cartEdit(event, 'box')" onkeydown="cartEditKeyDown(event, 'box')"></td>
         <td><?php echo $box['EINZELPREIS']; ?></td>
         <td><?php echo $box['GESAMTPREIS']; ?></td>
     </tr>
