@@ -15,9 +15,17 @@ class ControllerCart extends BaseController {
             $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
             Logger::log("Cart ID: " . $cartid);
             if(isset($_GET['ingredientid'])){
-                $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
-                $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
-                $this->db->execute($query, $params);
+                # if 0 or less. delete row
+                if($_GET['amount'] <= 0){
+                    $query = "DELETE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid"
+                    $params = [':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
+                    $this->db->execute($query, $params);
+
+                } else {
+                    $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
+                    $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
+                    $this->db->execute($query, $params);
+                }
             }
             if(isset($_GET['boxid'])){
                 $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
