@@ -38,7 +38,7 @@ class ControllerCart extends BaseController {
                 }
             }
             # Redirecting
-            header("Location: /cart");
+            header("Location: /warenkorb");
             exit();
         }
     }
