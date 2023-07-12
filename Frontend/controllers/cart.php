@@ -3,6 +3,46 @@
 new ControllerCart($controllers, $db, ["Content" => "cart"]);
 # Be sure to give it a unique name.
 class ControllerCart extends BaseController {
+
+    public function RunEarly() {
+        global $vars;
+        global $auth;
+
+        if(isset($_GET['amount'])){
+            # get cart id
+            $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid";
+            $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+            $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+            Logger::log("Cart ID: " . $cartid);
+            if(isset($_GET['ingredientid'])){
+                # if 0 or less. delete row
+                if($_GET['amount'] <= 0){
+                    $query = "DELETE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
+                    $params = [':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
+                    $this->db->execute($query, $params);
+                } else {
+                    $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
+                    $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
+                    $this->db->execute($query, $params);
+                }
+            }
+            if(isset($_GET['boxid'])){
+                if($_GET['amount'] <= 0){
+                    $query = "DELETE FROM BESTELLUNGSAMMLUNG WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                    $params = [':orderid' => $cartid, ':boxid' => $_GET['boxid']];
+                    $this->db->execute($query, $params);
+                } else {
+                    $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                    $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':boxid' => $_GET['boxid']];
+                    $this->db->execute($query, $params);
+                }
+            }
+            # Redirecting
+            header("Location: /warenkorb");
+            exit();
+        }
+    }
+
     public function RunDefault() {
         global $vars;
         global $auth;
@@ -18,6 +58,9 @@ class ControllerCart extends BaseController {
 
         $vars['cart_ingeredients'] = $this->db->executeQuery($query_cart_ingredients, $params);
 
+        # Left Join changed to Join
+        # Using Left join results in a empty Row even if there is no box in the cart.
+        # Inner Join prevents this. We only get a result if there is a box in the cart
         $query_cart_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, BESTELLUNGSAMMLUNG.MENGE,
                                 FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)), 2) AS EINZELPREIS,
                                 FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)) * BESTELLUNGSAMMLUNG.MENGE, 2) AS GESAMTPREIS
@@ -28,9 +71,21 @@ class ControllerCart extends BaseController {
                                 LEFT JOIN SAMMLUNGZUTAT ON SAMMLUNG.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR
                                 LEFT JOIN ZUTAT ON SAMMLUNGZUTAT.ZUTATENNR = ZUTAT.ZUTATENNR
                                 WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid GROUP BY SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG";
+        $query_cart_boxes = "SELECT SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG, BESTELLUNGSAMMLUNG.MENGE,
+                                FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)), 2) AS EINZELPREIS,
+                                FORMAT((SUM(ZUTAT.NETTOPREIS * SAMMLUNGZUTAT.ZUTATENMENGE) / 100 * (100 - SAMMLUNG.RABATT)) * BESTELLUNGSAMMLUNG.MENGE, 2) AS GESAMTPREIS
+                                FROM BESTELLUNG
+                                JOIN KUNDE ON BESTELLUNG.KUNDENNR = KUNDE.KUNDENNR
+                                JOIN BESTELLUNGSAMMLUNG ON BESTELLUNG.BESTELLNR = BESTELLUNGSAMMLUNG.BESTELLNR
+                                JOIN SAMMLUNG ON BESTELLUNGSAMMLUNG.SAMMLUNGSNR = SAMMLUNG.SAMMLUNGSNR
+                                JOIN SAMMLUNGZUTAT ON SAMMLUNG.SAMMLUNGSNR = SAMMLUNGZUTAT.SAMMLUNGSNR
+                                JOIN ZUTAT ON SAMMLUNGZUTAT.ZUTATENNR = ZUTAT.ZUTATENNR
+                                WHERE BESTELLUNG.STATUS = :orderstate AND KUNDE.KUNDENNR = :userid
+                                GROUP BY SAMMLUNG.SAMMLUNGSNR, SAMMLUNG.SAMMLUNGSBEZEICHNUNG";
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
 
         $vars['cart_boxes'] = $this->db->executeQuery($query_cart_boxes, $params);
+        Logger::log("Boxes in cart: " . (string)count($vars['cart_boxes']));
 
         # Get Order Total Price
         $vars['order_price_total'] = 0;
