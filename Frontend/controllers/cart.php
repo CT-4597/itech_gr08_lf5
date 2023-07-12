@@ -20,7 +20,9 @@ class ControllerCart extends BaseController {
                 $this->db->execute($query, $params);
             }
             if(isset($_GET['boxid'])){
-
+                $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':boxid' => $_GET['boxid']];
+                $this->db->execute($query, $params);
             }
         }
     }
