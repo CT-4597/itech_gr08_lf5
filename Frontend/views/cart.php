@@ -6,7 +6,7 @@
     <tr>
         <td><?php echo $ingredient['ZUTATENNR']; ?></td>
         <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>
-        <td><input type="number" value="<?php echo $ingredient['MENGE']; ?>"></td>
+        <td><input type="number" data-amount="<?php echo $ingredient['MENGE']; ?>" value="<?php echo $ingredient['MENGE']; ?>" onblur="cartEdit(event)" onkeydown="if (event.key === 'Enter') cartEdit(event)"></td>
         <td><?php echo $ingredient['EINHEIT']; ?></td>
         <td><?php echo $ingredient['NETTOPREIS']; ?></td>
         <td><?php echo $ingredient['GESAMTPREIS']; ?></td>
@@ -32,3 +32,13 @@
 <input type="submit" name="Order" value="Bestellen">
 
 </form>
+
+<script>
+cartEdit(event, 'myInput', this.value, this.getAttribute('data-old-anzahl'))
+function cartEdit(event) {
+    var sender = event.target;
+    console.log('Sender:', sender);
+    console.log('Old Amount:', sender.getAttribute('data-amount'));
+    console.log('New Amount:', sender.getAttribute('value'));
+}
+</script>
