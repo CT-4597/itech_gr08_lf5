@@ -8,11 +8,21 @@ class ControllerCart extends BaseController {
         global $vars;
         global $auth;
 
-        # get cart id
-        $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid";
-        $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
-        $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
-        Logger::log("Cart ID: " . $cartid);
+        if(isset($_GET['amount'])){
+            # get cart id
+            $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid";
+            $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+            $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+            Logger::log("Cart ID: " . $cartid);
+            if(isset($_GET['ingredientid'])){
+                $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
+                $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
+                $this->db->execute($query, $params);
+            }
+            if(isset($_GET['boxid'])){
+
+            }
+        }
     }
 
     public function RunDefault() {
