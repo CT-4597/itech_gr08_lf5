@@ -45,7 +45,9 @@ function cartEditKeyDown(event) {
 function cartEdit(event) {
     var sender = event.target;
     console.log('Sender:', sender);
-    console.log('Old Amount:', sender.getAttribute('data-amount'));
-    console.log('New Amount:', sender.value);
+    if(sender.getAttribute('data-amount') !== sender.value){
+        console.log('Old Amount:', sender.getAttribute('data-amount'));
+        console.log('New Amount:', sender.value);
+    }
 }
 </script>
