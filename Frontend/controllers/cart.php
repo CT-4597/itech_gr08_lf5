@@ -3,6 +3,18 @@
 new ControllerCart($controllers, $db, ["Content" => "cart"]);
 # Be sure to give it a unique name.
 class ControllerCart extends BaseController {
+
+    public function RunEarly() {
+        global $vars;
+        global $auth;
+
+        # get cart id
+        $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid"
+        $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
+        $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
+        Logger::log("Cart ID: " . $cartid);
+    }
+
     public function RunDefault() {
         global $vars;
         global $auth;
