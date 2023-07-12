@@ -9,7 +9,7 @@ class ControllerCart extends BaseController {
         global $auth;
 
         # get cart id
-        $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid"
+        $query = "SELECT BESTELLNR FROM BESTELLUNG WHERE STATUS=:orderstate AND KUNDENNR=:userid";
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
         $cartid = $this->db->executeSingleRowQuery($query, $params)['BESTELLNR'];
         Logger::log("Cart ID: " . $cartid);
