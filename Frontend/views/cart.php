@@ -45,11 +45,13 @@ function cartEditKeyDown(event, type) {
 function cartEdit(event, type) {
     var sender = event.target;
     if(sender.getAttribute('data-amount') !== sender.value){
-        console.log('boxid:', sender.getAttribute('data-boxid'));
+        console.log('id:', sender.getAttribute('data-id'));
         console.log('New Amount:', sender.value);
         if(type == 'box') {
+            window.location.href = '/cart/box/' + sender.getAttribute('data-id') + '/' + sender.value;
             console.log('box')
         } else {
+            window.location.href = '/cart/ingredient/' + sender.getAttribute('data-id') + '/' + sender.value;
             console.log('ingredient')
         }
     }
