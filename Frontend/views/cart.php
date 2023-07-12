@@ -34,7 +34,6 @@
 </form>
 
 <script>
-cartEdit(event, 'myInput', this.value, this.getAttribute('data-old-anzahl'))
 function cartEdit(event) {
     var sender = event.target;
     console.log('Sender:', sender);
