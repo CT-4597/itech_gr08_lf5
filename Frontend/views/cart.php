@@ -46,6 +46,6 @@ function cartEdit(event) {
     var sender = event.target;
     console.log('Sender:', sender);
     console.log('Old Amount:', sender.getAttribute('data-amount'));
-    console.log('New Amount:', sender.getAttribute('value'));
+    console.log('New Amount:', sender.value);
 }
 </script>
