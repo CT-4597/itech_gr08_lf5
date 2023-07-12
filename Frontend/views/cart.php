@@ -20,7 +20,7 @@
     <tr>
         <td><?php echo $box['SAMMLUNGSNR']; ?></td>
         <td><?php echo $box['SAMMLUNGSBEZEICHNUNG']; ?></td>
-        <td><?php echo $box['MENGE']; ?></td>
+        <td><input type="number" value="<?php echo $box['MENGE']; ?>"></td>
         <td><?php echo $box['EINZELPREIS']; ?></td>
         <td><?php echo $box['GESAMTPREIS']; ?></td>
     </tr>
