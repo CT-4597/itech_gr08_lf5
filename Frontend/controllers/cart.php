@@ -37,6 +37,9 @@ class ControllerCart extends BaseController {
                     $this->db->execute($query, $params);
                 }
             }
+            # Redirecting
+            header("Location: /cart");
+            exit();
         }
     }
 
