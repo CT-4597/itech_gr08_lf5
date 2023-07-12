@@ -20,7 +20,6 @@ class ControllerCart extends BaseController {
                     $query = "DELETE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                     $params = [':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
                     $this->db->execute($query, $params);
-
                 } else {
                     $query = "UPDATE BESTELLUNGZUTAT SET MENGE=:amount WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                     $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
@@ -28,9 +27,15 @@ class ControllerCart extends BaseController {
                 }
             }
             if(isset($_GET['boxid'])){
-                $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
-                $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':boxid' => $_GET['boxid']];
-                $this->db->execute($query, $params);
+                if($_GET['amount'] <= 0){
+                    $query = "DELETE FROM BESTELLUNGSAMMLUNG WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                    $params = [':orderid' => $cartid, ':boxid' => $_GET['boxid']];
+                    $this->db->execute($query, $params);
+                } else {
+                    $query = "UPDATE BESTELLUNGSAMMLUNG SET MENGE=:amount WHERE BESTELLNR=:orderid AND SAMMLUNGSNR=:boxid";
+                    $params = [':amount' => $_GET['amount'], ':orderid' => $cartid, ':boxid' => $_GET['boxid']];
+                    $this->db->execute($query, $params);
+                }
             }
         }
     }
