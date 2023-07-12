@@ -31,6 +31,7 @@ class ControllerCart extends BaseController {
         $params = [':orderstate' => 'Warenkorb', ':userid' => $auth->UserID()];
 
         $vars['cart_boxes'] = $this->db->executeQuery($query_cart_boxes, $params);
+        Logger::log("Boxes in cart: " . (string)count($vars['cart_boxes']));
 
         # Get Order Total Price
         $vars['order_price_total'] = 0;
