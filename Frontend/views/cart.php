@@ -6,7 +6,7 @@
     <tr>
         <td><?php echo $ingredient['ZUTATENNR']; ?></td>
         <td><?php echo $ingredient['BEZEICHNUNG']; ?></td>
-        <td><input type="number" data-amount="<?php echo $ingredient['MENGE']; ?>" value="<?php echo $ingredient['MENGE']; ?>" onblur="cartEdit(event)" onkeydown="if (event.key === 'Enter') cartEdit(event)"></td>
+        <td><input type="number" data-amount="<?php echo $ingredient['MENGE']; ?>" value="<?php echo $ingredient['MENGE']; ?>" onblur="cartEdit(event)" onchange="cartEdit(event)" onkeydown="cartEditKeyDown(event)"></td>
         <td><?php echo $ingredient['EINHEIT']; ?></td>
         <td><?php echo $ingredient['NETTOPREIS']; ?></td>
         <td><?php echo $ingredient['GESAMTPREIS']; ?></td>
@@ -34,6 +34,14 @@
 </form>
 
 <script>
+
+function cartEditKeyDown(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Verhindere das Absenden des Formulars
+        cartEdit(event); // Rufe die Funktion auf, um den Wert zu verarbeiten
+    }
+}
+
 function cartEdit(event) {
     var sender = event.target;
     console.log('Sender:', sender);
