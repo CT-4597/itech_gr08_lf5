@@ -17,7 +17,7 @@ class ControllerCart extends BaseController {
             if(isset($_GET['ingredientid'])){
                 # if 0 or less. delete row
                 if($_GET['amount'] <= 0){
-                    $query = "DELETE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid"
+                    $query = "DELETE FROM BESTELLUNGZUTAT WHERE BESTELLNR=:orderid AND ZUTATENNR=:ingredientid";
                     $params = [':orderid' => $cartid, ':ingredientid' => $_GET['ingredientid']];
                     $this->db->execute($query, $params);
 
