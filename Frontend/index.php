@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('includes/logger.php');
     include('includes/helper.php');
     include('includes/config.php');
@@ -9,7 +10,6 @@
     $db = new DatabaseConnection($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpassword'], $CONFIG['dbname']);
 
     # Authentification
-    session_start();
     include('includes/auth.php');
     $auth = new authentification($db);
 

@@ -99,9 +99,7 @@ function validateDate(&$err, $date, $min = 1900) {
     }
     return False;
 }
-?>
 
-<?php
 $errors = [];
 if(isset($_POST['validate'])){
     $err = False;
